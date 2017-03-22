@@ -58,10 +58,71 @@ class Celular (models.Model):
 	('BENI', 'Beni'),
 	('PANDO', 'Pando')
 	)
-	departamento_origenZZZZZ = models.CharField(max_length=20,blank=True, choices= DEPARTAMENTOS)
+	departamento_origen = models.CharField(max_length=20,blank=True, choices= DEPARTAMENTOS)
 	caracteristica = models.CharField(max_length=50, blank=True)
 	observacion =  models.TextField(blank=True)
 	foto = models.ImageField (upload_to='foto_celular',blank=True)
 	fecha_creacion = models.DateTimeField(default = timezone.now)
 	def __str__(self):
 		return self.imei
+
+class Telefono_IP (models.Model):
+	#Numero de Serie
+	serie = models.CharField(max_length=20,primary_key=True)
+	MARCAS = (
+	('ATCOM',''),
+	('GRANDSTREAM','Samsung'),
+	('CISCO', 'Nokia'),
+	('AVAYA', 'Alcatel'),
+	('POLYCOM','Polycom'),
+	('YEALINK','Yealink'),
+	('FANVIL','Fanvil')
+	)
+	marca = models.CharField(max_length=20,blank=False, choices= MARCAS)
+	modelo = models.CharField(max_length=30, blank=False)
+	mac = models.CharField(max_length=30,blank=True)
+	DEPARTAMENTOS = (
+	('LAPAZ','La Paz'),
+	('SANTACRUZ','Santa Cruz'),
+	('COCHABAMBA', 'Cochabamba'),
+	('ORURO', 'Oruro'),
+	('POTOSI', 'Potosi'),
+	('TARIJA', 'Tarija'),
+	('SUCRE', 'Sucre'),
+	('BENI', 'Beni'),
+	('PANDO', 'Pando')
+	)
+	departamento_adquisicion = models.CharField(max_length=20,blank=True, choices= DEPARTAMENTOS)
+	caracteristica = models.CharField(max_length=50, blank=True)
+	observacion =  models.TextField(blank=True)
+	fecha_creacion = models.DateTimeField(default = timezone.now)
+	def __str__(self):
+		return self.serie
+
+class Linea_IP (models.Model):
+	#Numero de Serie
+	interno = models.CharField(max_length=20,primary_key=True)
+	ip = models.CharField(max_length=30, blank=False)
+	ip_central = models.CharField(max_length=30, blank=False)
+	PERMISOS = (
+	('CELULAR','Celular'),
+	('LOCAL','Local'),
+	('ESPECIAL', 'Especial'),
+	)
+	permisos = models.CharField(max_length=20,blank=True, choices= PERMISOS)
+	observacion =  models.TextField(blank=True)
+	DEPARTAMENTOS = (
+	('LAPAZ','La Paz'),
+	('SANTACRUZ','Santa Cruz'),
+	('COCHABAMBA', 'Cochabamba'),
+	('ORURO', 'Oruro'),
+	('POTOSI', 'Potosi'),
+	('TARIJA', 'Tarija'),
+	('SUCRE', 'Sucre'),
+	('BENI', 'Beni'),
+	('PANDO', 'Pando')
+	)
+	departamento_creacion = models.CharField(max_length=20,blank=True, choices= DEPARTAMENTOS)
+	fecha_creacion = models.DateTimeField(default = timezone.now)
+	def __str__(self):
+		return self.interno
