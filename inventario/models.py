@@ -166,7 +166,7 @@ class Laptop (models.Model):
 	('32', '32 Gb')
 	)
 	ram = models.CharField(max_length=20,blank=True, choices= RAM)
-	RAM = (
+	RAM_pc = (
 	('250','250 Gb'),
 	('500', '500 Gb'),
 	('750', '750 Gb'),
