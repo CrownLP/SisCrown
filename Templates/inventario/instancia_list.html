@@ -1,0 +1,17 @@
+<!--VISTA DE LISTADO DE INSTANCIAS-->
+<h1>Listado de Instancia</h1>
+<p>
+
+</p>
+
+<ul>
+    {% for instancia in object_list %}
+        <li>
+            <p>{{ instancia.numero }}</p>
+            <p>{{ instancia.sim }}</p>
+            <p>
+                <a href="{% url "inventario:detail" instancia.numero %}">Ver</a> | 
+            </p>
+        </li>
+    {% endfor %}
+</ul>
