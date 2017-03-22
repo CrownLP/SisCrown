@@ -58,7 +58,7 @@ class Celular (models.Model):
 	('BENI', 'Beni'),
 	('PANDO', 'Pando')
 	)
-	departamento_origen = models.CharField(max_length=20,blank=True, choices= DEPARTAMENTOS)
+	departamento_origenSSSS = models.CharField(max_length=20,blank=True, choices= DEPARTAMENTOS)
 	caracteristica = models.CharField(max_length=50, blank=True)
 	observacion =  models.TextField(blank=True)
 	foto = models.ImageField (upload_to='foto_celular',blank=True)
