@@ -126,3 +126,68 @@ class Linea_IP (models.Model):
 	fecha_creacion = models.DateTimeField(default = timezone.now)
 	def __str__(self):
 		return self.interno
+
+class Laptop (models.Model):
+	#Numero de Serie
+	serie = models.CharField(max_length=40,primary_key=True)
+	MARCAS = (
+	('HP','Hp'),
+	('DELL','Dell'),
+	('ASUS', 'Asus'),
+	('ACER', 'Acer'),
+	('SAMSUNG','Samsung'),
+	('TOSHIBA','Toshiba'),
+	('COMPAQ','Compaq'),
+	('LENOVO','Lenovo'),
+	('MAC','Mac'),
+	)
+	marca = models.CharField(max_length=20,blank=False, choices= MARCAS)
+	modelo = models.CharField(max_length=30, blank=False)
+	SO = (
+	('WIN10','Windows 10'),
+	('WIN8','Windows 8'),
+	('WIN7', 'Windows 7'),
+	('WINXP', 'Windows XP'),
+	('MACOS', 'macOS'),
+	('UBUNTU', 'Ubuntu'),
+	('DEBIAN', 'Debian'),
+	('REDHAT', 'Red Hat'),
+	('MINT', 'Mint'),
+	)
+	procesador = models.CharField(max_length=20,blank=True, choices= SO)
+	#cambiar a radio buton
+	arquitectura = models.CharField(max_length=40)
+ 	RAM = (
+	('2','2 Gb'),
+	('4', '4 Gb'),
+	('8', '8 Gb'),
+	('12', '12 Gb'),
+	('16', '16 Gb'),
+	('32', '32 Gb')
+	)
+	ram = models.CharField(max_length=20,blank=True, choices= RAM)
+	RAM = (
+	('250','250 Gb'),
+	('500', '500 Gb'),
+	('750', '750 Gb'),
+	('1024', '1 Tb')
+	)
+	ram = models.CharField(max_length=20,blank=True, choices= RAM)
+
+
+	observacion =  models.TextField(blank=True)
+	DEPARTAMENTOS = (
+	('LAPAZ','La Paz'),
+	('SANTACRUZ','Santa Cruz'),
+	('COCHABAMBA', 'Cochabamba'),
+	('ORURO', 'Oruro'),
+	('POTOSI', 'Potosi'),
+	('TARIJA', 'Tarija'),
+	('SUCRE', 'Sucre'),
+	('BENI', 'Beni'),
+	('PANDO', 'Pando')
+	)
+	departamento_creacion = models.CharField(max_length=20,blank=True, choices= DEPARTAMENTOS)
+	fecha_creacion = models.DateTimeField(default = timezone.now)
+	def __str__(self):
+		return self.interno
