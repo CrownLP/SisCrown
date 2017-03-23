@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Celular, Instancia, Telefono_IP, Linea_IP
+from .models import Celular, Instancia, Telefono_IP, Linea_IP, Laptop
 from django.contrib.admin import AdminSite
 from django.utils.translation import ugettext_lazy
 
@@ -23,3 +23,8 @@ class AdminProduct (admin.ModelAdmin):
 class AdminProduct (admin.ModelAdmin):
     list_display = ('interno','ip')
     list_filter = ('departamento_creacion','ip')
+
+@admin.register(Laptop)
+class AdminProduct (admin.ModelAdmin):
+    list_display = ('serie','marca','modelo','sistema_operativo')
+    list_filter = ('marca','modelo','sistema_operativo')

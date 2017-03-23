@@ -70,10 +70,10 @@ class Telefono_IP (models.Model):
 	#Numero de Serie
 	serie = models.CharField(max_length=20,primary_key=True)
 	MARCAS = (
-	('ATCOM',''),
-	('GRANDSTREAM','Samsung'),
-	('CISCO', 'Nokia'),
-	('AVAYA', 'Alcatel'),
+	('ATCOM','Atcom'),
+	('GRANDSTREAM','GrandStream'),
+	('CISCO', 'Cisco'),
+	('AVAYA', 'Avaya'),
 	('POLYCOM','Polycom'),
 	('YEALINK','Yealink'),
 	('FANVIL','Fanvil')
@@ -154,10 +154,11 @@ class Laptop (models.Model):
 	('REDHAT', 'Red Hat'),
 	('MINT', 'Mint'),
 	)
-	procesador = models.CharField(max_length=20,blank=True, choices= SO)
+	sistema_operativo = models.CharField(max_length=20,blank=True, choices= SO)
+	procesador = models.CharField(max_length=20,blank=False)
 	#cambiar a radio buton
 	arquitectura = models.CharField(max_length=40)
- 	RAM = (
+	RAM = (
 	('2','2 Gb'),
 	('4', '4 Gb'),
 	('8', '8 Gb'),
@@ -166,16 +167,21 @@ class Laptop (models.Model):
 	('32', '32 Gb')
 	)
 	ram = models.CharField(max_length=20,blank=True, choices= RAM)
-	RAM_pc = (
+	HDD = (
 	('250','250 Gb'),
 	('500', '500 Gb'),
 	('750', '750 Gb'),
 	('1024', '1 Tb')
 	)
-	ram = models.CharField(max_length=20,blank=True, choices= RAM)
-
-
-	observacion =  models.TextField(blank=True)
+	hdd = models.CharField(max_length=20,blank=True, choices= HDD)
+	DISPLAY = (
+	('14','14 Pulgadas'),
+	('15', '15 Pulgadas'),
+	('17', '14 Pulgadas'),
+	('19', '14 Pulgadas')
+	)
+	display = models.CharField(max_length=20,blank=True, choices= DISPLAY)
+	cargador = models.CharField(max_length=40)
 	DEPARTAMENTOS = (
 	('LAPAZ','La Paz'),
 	('SANTACRUZ','Santa Cruz'),
@@ -187,7 +193,9 @@ class Laptop (models.Model):
 	('BENI', 'Beni'),
 	('PANDO', 'Pando')
 	)
-	departamento_creacion = models.CharField(max_length=20,blank=True, choices= DEPARTAMENTOS)
+	departamento_adquisicion = models.CharField(max_length=20,blank=True, choices= DEPARTAMENTOS)
 	fecha_creacion = models.DateTimeField(default = timezone.now)
+	caracteristica = models.CharField(max_length=50, blank=True)
+	observacion =  models.TextField(blank=True)
 	def __str__(self):
-		return self.interno
+		return self.serie
