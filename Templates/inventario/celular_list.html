@@ -1,0 +1,17 @@
+<!--VISTA DE LISTADO DE INSTANCIAS-->
+<h1>Listado de Celulares</h1>
+<p>
+
+</p>
+
+<ul>
+    {% for celular in object_list %}
+        <li>
+            <p>{{ celular.imei }}</p>
+            <p>{{ celular.instancia }}</p>
+            <p>
+                <a href="{% url "inventario:detail" celular.imei %}">Ver</a> |
+            </p>
+        </li>
+    {% endfor %}
+</ul>
