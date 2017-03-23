@@ -10,7 +10,7 @@
             <p>{{ celular.imei }}</p>
             <p>{{ celular.instancia }}</p>
             <p>
-                <a href="{% url "inventario:detail" celular.imei %}">Ver</a> |
+                <a href="{% url "inventario:celulardetail" celular.imei %}">Ver</a> |
             </p>
         </li>
     {% endfor %}
