@@ -308,3 +308,34 @@ class CPU (models.Model):
 	fecha_creacion = models.DateTimeField(default = timezone.now)
 	def __str__(self):
 		return self.serie
+
+class Accesorio (models.Model):
+	#Numero de Serie
+	serie = models.CharField(max_length=40,primary_key=True)
+	DESCRIPCION = (
+	('RATON','Raton'),
+	('TECLADO','Teclado'),
+	('HDDEXT', 'Disco Duro Externo'),
+	('IMPRESORA', 'Pen'),
+	('MUSB', 'Memoria USB'),
+	)
+	descripcion = models.CharField(max_length=20,blank=False, choices= DESCRIPCION)
+	marca = models.CharField(max_length=30, blank=True)
+	modelo = models.CharField(max_length=30, blank=True)
+	caracteristica = models.CharField(max_length=50, blank=True)
+	observacion =  models.TextField(blank=True)
+	DEPARTAMENTOS = (
+	('LAPAZ','La Paz'),
+	('SANTACRUZ','Santa Cruz'),
+	('COCHABAMBA', 'Cochabamba'),
+	('ORURO', 'Oruro'),
+	('POTOSI', 'Potosi'),
+	('TARIJA', 'Tarija'),
+	('SUCRE', 'Sucre'),
+	('BENI', 'Beni'),
+	('PANDO', 'Pando')
+	)
+	departamento_adquisicion = models.CharField(max_length=20,blank=True, choices= DEPARTAMENTOS)
+	fecha_creacion = models.DateTimeField(default = timezone.now)
+	def __str__(self):
+		return self.serie
