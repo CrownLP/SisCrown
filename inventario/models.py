@@ -177,8 +177,8 @@ class Laptop (models.Model):
 	DISPLAY = (
 	('14','14 Pulgadas'),
 	('15', '15 Pulgadas'),
-	('17', '14 Pulgadas'),
-	('19', '14 Pulgadas')
+	('17', '17 Pulgadas'),
+	('19', '19 Pulgadas')
 	)
 	display = models.CharField(max_length=20,blank=True, choices= DISPLAY)
 	cargador = models.CharField(max_length=40)
@@ -194,8 +194,52 @@ class Laptop (models.Model):
 	('PANDO', 'Pando')
 	)
 	departamento_adquisicion = models.CharField(max_length=20,blank=True, choices= DEPARTAMENTOS)
-	fecha_creacion = models.DateTimeField(default = timezone.now)
 	caracteristica = models.CharField(max_length=50, blank=True)
 	observacion =  models.TextField(blank=True)
+	fecha_creacion = models.DateTimeField(default = timezone.now)
+	def __str__(self):
+		return self.serie
+
+class Monitor (models.Model):
+	#Numero de Serie
+	serie = models.CharField(max_length=40,primary_key=True)
+	MARCAS = (
+	('SAMSUNG','Samsung'),
+	('HP','Hp'),
+	('DELL','Dell'),
+	('ASUS', 'Asus'),
+	('ACER', 'Acer'),
+	('SONY','Sony'),
+	('COMPAQ','Compaq'),
+	('LENOVO','Lenovo'),
+	('AOC','AOC'),
+	('LG','Lg')
+	)
+	marca = models.CharField(max_length=20,blank=False, choices= MARCAS)
+	modelo = models.CharField(max_length=30, blank=False)
+	DISPLAY = (
+	('14','14 Pulgadas'),
+	('15', '15 Pulgadas'),
+	('17', '17 Pulgadas'),
+	('19', '19 Pulgadas'),
+	('22', '22 Pulgadas'),
+	('24', '24 Pulgadas')
+	)
+	display = models.CharField(max_length=20,blank=True, choices= DISPLAY)
+	DEPARTAMENTOS = (
+	('LAPAZ','La Paz'),
+	('SANTACRUZ','Santa Cruz'),
+	('COCHABAMBA', 'Cochabamba'),
+	('ORURO', 'Oruro'),
+	('POTOSI', 'Potosi'),
+	('TARIJA', 'Tarija'),
+	('SUCRE', 'Sucre'),
+	('BENI', 'Beni'),
+	('PANDO', 'Pando')
+	)
+	departamento_adquisicion = models.CharField(max_length=20,blank=True, choices= DEPARTAMENTOS)
+	caracteristica = models.CharField(max_length=50, blank=True)
+	observacion =  models.TextField(blank=True)
+	fecha_creacion = models.DateTimeField(default = timezone.now)
 	def __str__(self):
 		return self.serie
