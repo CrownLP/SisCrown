@@ -1,4 +1,86 @@
+<!--CARGA DE ARCHIVOS STATICOS-->
+{% load static %}
+
+
 <!--VISTA DE LISTADO DE INSTANCIAS-->
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario de Registro</title>
+    <!-- PACE-->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/PACE/themes/blue/pace-theme-flash.css'%}">
+    <script type="text/javascript" src="{% static 'plugins/PACE/pace.min.js'%}"></script>
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" href= "{% static 'plugins/bootstrap/dist/css/bootstrap.min.css'%}">
+    <!-- Ionicons-->
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/Ionicons/css/ionicons.min.css'%}">
+    <!-- Malihu Scrollbar-->
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css'%}">
+    <!-- Animo.js-->
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/animo.js/animate-animo.min.css'%}">
+    <!-- Bootstrap Progressbar-->
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css'%}">
+    <!-- Core CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'build/css/first-layout.css'%}">
+  </head>
+  <body>
+    <!-- Header start-->
+    <header>
+      <div class="search-bar closed">
+        <form>
+          <div class="input-group input-group-lg">
+            <input type="text" placeholder="Search for..." class="form-control"><span class="input-group-btn">
+              <button type="button" class="btn btn-default search-bar-toggle"><i class="ion-close-round"></i></button></span>
+          </div>
+        </form>
+      </div><a href="javascript:;" role="button" class="hamburger-menu pull-left"><span></span></a>
+      <form class="search-form m-10 pull-left hidden-xs">
+        <div class="form-group has-feedback mb-0">
+          <input type="text" aria-describedby="inputSearchFor" placeholder="Buscar en Portal Crown" style="width: 200px" class="form-control rounded"><span aria-hidden="true" class="ion-search form-control-feedback"></span><span id="inputSearchFor" class="sr-only">(default)</span>
+        </div>
+      </form><a href="index.html" class="brand"><img src="{% static 'build/images/logo/crown.png'%}" alt="" width="120"></a>
+      <ul class="notification-bar list-inline pull-right">
+        <li class="visible-xs"><a href="javascript:;" role="button" class="header-icon search-bar-toggle"><i class="ion-search"></i></a></li>
+        <li class="visible-lg"><a href="javascript:;" role="button" class="header-icon sidebar-control"><i class="ion-pin"></i></a></li>
+        <li class="dropdown"><a id="dropdownMenu0" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle bubble header-icon"><i class="ion-code-working"></i><span class="badge bg-danger">4</span></a>
+          <div aria-labelledby="dropdownMenu0" class="dropdown-menu dropdown-menu-right dm-small animated fadeInUp">
+            <ul data-mcs-theme="minimal-dark" class="media-list mCustomScrollbar">
+              <li class="media"><a href="javascript:;">
+                  <div class="block clearfix mb-10"><span class="pull-left">La Paz</span><span class="pull-right label label-outline label-primary">65% Completado</span></div>
+                  <div class="progress progress-xs mb-0">
+                    <div role="progressbar" data-transitiongoal="65" class="progress-bar"></div>
+                  </div></a></li>
+              <li class="media"><a href="javascript:;">
+                  <div class="block clearfix mb-10"><span class="pull-left">Santa Cruz</span><span class="pull-right label label-outline label-success">80% Completado</span></div>
+                  <div class="progress progress-xs mb-0">
+                    <div role="progressbar" data-transitiongoal="80" class="progress-bar progress-bar-success"></div>
+                  </div></a></li>
+              <li class="media"><a href="javascript:;">
+                  <div class="block clearfix mb-10"><span class="pull-left">Cochabamba</span><span class="pull-right label label-outline label-danger">20% Completado</span></div>
+                  <div class="progress progress-xs mb-0">
+                    <div role="progressbar" data-transitiongoal="20" class="progress-bar progress-bar-danger"></div>
+                  </div></a></li>
+              <li class="media"><a href="javascript:;">
+                  <div class="block clearfix mb-10"><span class="pull-left">Tarija</span><span class="pull-right label label-outline label-purple">100% Completado</span></div>
+                  <div class="progress progress-xs mb-0">
+                    <div role="progressbar" data-transitiongoal="100" class="progress-bar progress-bar-purple"></div>
+                  </div></a></li>
+            </ul>
+          </div>
+        </li>
+
+  </header>
+
+
+
+
+
+
 <h1>Listado de Instancia</h1>
 <p>
 

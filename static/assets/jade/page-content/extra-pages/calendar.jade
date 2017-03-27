@@ -1,0 +1,40 @@
+.page-content.container-fluid
+  .row.mb-20
+    .col-md-3
+      .p-20.pt-0.bg-default
+        h6.text-uppercase.m-0.events-header
+          i.ion-arrow-move.mr-5
+          |  Draggable Events
+        ul.list-unstyled.draggable
+          li Start with design project
+          li Lunch with family
+          li Birthday party
+          li Read a book
+          li Drink with Jessica
+          li Pay internet bills online
+          li Search for a job
+          li Meeting with dropbox
+        .checkbox-custom
+          input#drop-remove(type='checkbox', value='remove', checked='')
+          label(for='drop-remove') Remove after drop
+    .col-md-9
+      #fullcalendar
+  #addNewEvent.modal.fade(tabindex='-1', role='dialog', aria-labelledby='ModalEventLabel')
+    .modal-dialog
+      .modal-content
+        .modal-header.bg-black.no-border
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+          h4#ModalEventLabel.modal-title Add New Event
+        .modal-body
+          form
+            .form-group
+              input#inputTitleEvent.form-control(type='text', placeholder='Event Name')
+            .form-group
+              input#inputBackgroundEvent.form-control(type='text', value='#34495e')
+            input#start(type='hidden')
+            input#end(type='hidden')
+            input#allDay(type='hidden')
+        .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+          button#btnAddNewEvent.btn.btn-black(type='submit') Save

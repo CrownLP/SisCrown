@@ -1,0 +1,219 @@
+.page-content.container-fluid.p-0
+  .sidebar-container.sidebar-lg
+    .sidebar-toggle.bg-default
+      i.ion-grid
+    .sidebar.sidebar-lg.pl-0.pr-0.bg-default.mCustomScrollbar(data-mcs-theme='minimal-dark')
+      form.pl-20.pr-20
+        .form-group.has-feedback
+          input.form-control.rounded(type='text', aria-describedby='inputChatSearch', placeholder='Chat with...')
+          span.ion-search.form-control-feedback(aria-hidden='true')
+          span#inputChatSearch.sr-only (default)
+      .text-center
+        .btn-group
+          button.btn.btn-lg.btn-link(type='button')
+            i.ion-refresh
+          button.btn.btn-lg.btn-link(type='button')
+            i.ion-person-add
+          button.btn.btn-lg.btn-link(type='button')
+            i.ion-person-stalker
+          button.btn.btn-lg.btn-link(type='button')
+            i.ion-trash-b
+      h6.text-uppercase.pl-20.pr-20 Online
+      ul.chat-list.m-0.media-list
+        li.media
+          a(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/20.jpg', alt='')
+              span.status.bg-success
+            .media-body
+              h5.media-heading Crystal Wheeler
+              p.text-muted.mb-0 United States
+            .media-right
+              span.badge.bg-danger 1
+        li.media
+          a(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/01.jpg', alt='')
+              span.status.bg-success
+            .media-body
+              h5.media-heading Brian Austin
+              p.text-muted.mb-0 brianaustin@example.com
+        li.media
+          a(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/02.jpg', alt='')
+              span.status.bg-success
+            .media-body
+              h5.media-heading David Clark
+              p.text-muted.mb-0 david.clark@example.com
+        li.media
+          a(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/12.jpg', alt='')
+              span.status.bg-success
+            .media-body
+              h5.media-heading Emma Lawrence
+              p.text-muted.mb-0 (707) 680 1328
+            .media-right
+              span.badge.bg-danger 3
+        li.media
+          a(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/06.jpg', alt='')
+              span.status.bg-success
+            .media-body
+              h5.media-heading Brian Hudson
+              p.text-muted.mb-0 06/03/1989
+      h6.text-uppercase.pl-20.pr-20 Away
+      ul.chat-list.m-0.media-list
+        li.media
+          a(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/16.jpg', alt='')
+              span.status.bg-warning
+            .media-body
+              h5.media-heading Evelyn Martinez
+              p.text-muted.mb-0 evelyn_84@example.com
+            .media-right
+              span.badge.bg-danger 1
+        li.media
+          a(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/09.jpg', alt='')
+              span.status.bg-warning
+            .media-body
+              h5.media-heading Nicholas Mitchell
+              p.text-muted.mb-0 (752) 282 4218
+        li.media
+          a(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/03.jpg', alt='')
+              span.status.bg-warning
+            .media-body
+              h5.media-heading Tyler Gordon
+              p.text-muted.mb-0 tylergordon@example.com
+      h6.text-uppercase.pl-20.pr-20 Busy
+      ul.chat-list.m-0.media-list
+        li.media
+          a(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/15.jpg', alt='')
+              span.status.bg-danger
+            .media-body
+              h5.media-heading Stephanie Ford
+              p.text-muted.mb-0 29/06/1992
+        li.media
+          a(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/07.jpg', alt='')
+              span.status.bg-danger
+            .media-body
+              h5.media-heading Adam Sandoval
+              p.text-muted.mb-0 adam-86@example.com
+  .main-content.content-lg
+    .page-actions
+      .row
+        .col-sm-6
+          p.fw-300.fs-24.mt-5.mb-5.lh-1 Emma Lawrence
+        .col-sm-6
+          .btn-toolbar.inline-block
+            .btn-group
+              button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                | Settings 
+                span.caret
+              ul.dropdown-menu.animated.fadeInUp(role='menu')
+                li
+                  a(href='#') Mark unread
+                li
+                  a(href='#') Add to favorites
+                li
+                  a(href='#') View profile
+                
+                li.divider(role='separator')
+                li
+                  a(href='#') Edit contact
+                li
+                  a(href='#') Block contact
+                li
+                  a(href='#') Remove contact
+            .btn-group
+              button.btn.btn-default(type='button')
+                i.ion-refresh
+              button.btn.btn-default(type='button')
+                i.ion-folder
+              button.btn.btn-default(type='button')
+                i.ion-trash-b
+            .btn-group
+              button.btn.btn-default(type='button')
+                i.ion-mic-a
+              button.btn.btn-default(type='button')
+                i.ion-videocamera
+    ul.chat-content.list-unstyled
+      li.chat-item.self
+        img.img-circle.chat-avatar(src=build+'images/users/04.jpg', alt='')
+        .chat-bubble
+          .chat-text Cras cras congue, dis venenatis vitae metus magnis blandit mauris.
+        .chat-bubble
+          .chat-text Sed aliquam adipiscing vestibulum.
+        time.block.fs-12.text-muted(datetime='2016-12-10T20:50:48+07:00')
+          i.ion-clock
+          |  12 minutes ago
+      li.chat-item.other
+        img.img-circle.chat-avatar(src=build+'images/users/12.jpg', alt='')
+        .chat-bubble
+          .chat-text Hendrerit netus eleifend suspendisse blandit condimentum lacus luctus lectus suscipit!
+        time.block.fs-12.text-muted(datetime='2016-12-10T20:50:48+07:00')
+          i.ion-clock
+          |  11 minutes ago
+      li.chat-item.self
+        img.img-circle.chat-avatar(src=build+'images/users/04.jpg', alt='')
+        .chat-bubble
+          .chat-text
+            ul.list-inline
+              li.popup-gallery
+                a(href=build+'images/backgrounds/01.jpg', title='Wallpaper 01')
+                  img.img-responsive(src=build+'images/backgrounds/01.jpg', alt='', width='100')
+              li.popup-gallery
+                a(href=build+'images/backgrounds/02.jpg', title='Wallpaper 02')
+                  img.img-responsive(src=build+'images/backgrounds/02.jpg', alt='', width='100')
+              li.popup-gallery
+                a(href=build+'images/backgrounds/03.jpg', title='Wallpaper 03')
+                  img.img-responsive(src=build+'images/backgrounds/03.jpg', alt='', width='100')
+        time.block.fs-12.text-muted(datetime='2016-12-10T20:50:48+07:00')
+          i.ion-clock
+          |  11 minutes ago
+      li.chat-item.other
+        img.img-circle.chat-avatar(src=build+'images/users/12.jpg', alt='')
+        .chat-bubble
+          .chat-text Penatibus eros curae; vulputate nibh diam mollis sodales congue amet!
+        time.block.fs-12.text-muted(datetime='2016-12-10T20:50:48+07:00')
+          i.ion-clock
+          |  10 minutes ago
+      li.chat-item.self
+        img.img-circle.chat-avatar(src=build+'images/users/04.jpg', alt='')
+        .chat-bubble
+          .chat-text Cum mollis massa in fermentum hac cum magnis vitae dapibus.
+        time.block.fs-12.text-muted(datetime='2016-12-10T20:50:48+07:00')
+          i.ion-clock
+          |  9 minutes ago
+      li.chat-item.other
+        img.img-circle.chat-avatar(src=build+'images/users/12.jpg', alt='')
+        .chat-bubble
+          .chat-text Id integer natoque dui primis euismod etiam gravida rutrum nunc.
+        .chat-bubble
+          .chat-text Aliquam ligula netus auctor nibh vehicula nisi duis sagittis eget. Laoreet venenatis litora senectus massa ante aliquet mollis luctus eleifend.
+        time.block.fs-12.text-muted(datetime='2016-12-10T20:50:48+07:00')
+          i.ion-clock
+          |  8 minutes ago
+      li.chat-item.self
+        img.img-circle.chat-avatar(src=build+'images/users/04.jpg', alt='')
+        .chat-bubble
+          .chat-text Typing...
+        time.block.fs-12.text-muted(datetime='2016-12-10T20:50:48+07:00')
+          i.ion-clock
+          |  Just now
+    form
+      .form-group.has-feedback.mb-0
+        input.form-control(type='text', aria-describedby='inputSendMessage', placeholder='Sent a message')
+        span.ion-edit.form-control-feedback(aria-hidden='true')
+        span#inputSendMessage.sr-only (default)
