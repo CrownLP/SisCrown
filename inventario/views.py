@@ -4,7 +4,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.core.urlresolvers import reverse_lazy
 from .models import Instancia, Celular, Accesorio, CPU, Laptop, Linea_IP, Telefono_IP, Monitor
-
+from .forms import InstanciaForm
 # Las Vistas de Lsiatdo
 
 class AccesorioList(ListView):
@@ -43,3 +43,11 @@ class MonitorDetail(DetailView):
     model = Monitor
 class Telefono_IPDetail(DetailView):
     model = Telefono_IP
+
+#VISTAS PARA CREAR UNIDADES
+
+class InstanciaCreation(CreateView):
+    model = Instancia
+    success_url = reverse_lazy('inventario:instancialist')
+    form_class = InstanciaForm
+    #fields = ['numero', 'sim', 'operador', 'plan', 'departamento_origen']

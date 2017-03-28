@@ -18,8 +18,9 @@ from .views import (
     LaptopDetail,
     Linea_IPDetail,
     MonitorDetail,
-    Telefono_IPDetail
-
+    Telefono_IPDetail,
+    #Vistas para Creacion
+    InstanciaCreation
 )
 
 urlpatterns = [
@@ -32,6 +33,8 @@ urlpatterns = [
     url(r'^lineaip/', Linea_IPList.as_view(), name='lineaiplist'),
     url(r'^monitor/', MonitorList.as_view(), name='monitorlist'),
     url(r'^telefonoip/', Telefono_IPList.as_view(), name='telefonoiplist'),
+
+    url(r'^nuevaInstancia$', InstanciaCreation.as_view(), name='new'),
 
     url(r'^item(?P<pk>\d+)$', AccesorioDetail.as_view(), name='accesoriodetail'),
     url(r'^item(?P<pk>\d+)$', CelularDetail.as_view(), name='celulardetail'),

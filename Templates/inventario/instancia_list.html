@@ -10,6 +10,35 @@
                 <div class="widget-heading">
                   <h3 class="widget-title">Basic Form</h3>
                 </div>
+
+                <!--
+
+
+
+
+                -->
+                <h1>Listado de Instancia</h1>
+<p>
+
+</p>
+
+<ul>
+    {% for instancia in object_list %}
+        <li>
+            <p>{{ instancia.numero }}</p>
+            <p>{{ instancia.sim }}</p>
+            <p>
+                <a href="{% url "inventario:instanciadetail" instancia.numero %}">Ver</a> |
+            </p>
+        </li>
+    {% endfor %}
+</ul>
+
+
+
+
+
+
                 <div class="widget-body">
                   <form>
                     <div class="form-group">

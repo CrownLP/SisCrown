@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="page-container">
+  <div class="page-content container-fluid">
+    <h3 class="mt-0">Recursos Humanos / Inventario</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="widget">
+          <div class="widget-heading">
+            <h3 class="widget-title">Registro de Nueva Linea Movil</h3>
+          </div>
+          <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+          <input type="submit" value="Registrar" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
