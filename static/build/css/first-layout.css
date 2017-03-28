@@ -1977,9 +1977,9 @@ header {
   left: 0;
   height: 54px;
   width: 100%;
-  box-shadow: 0 0 54px rgba(31, 54, 79, 0.2);
+  box-shadow: 0 0 80px rgba(31, 54, 79, 0.2);
   z-index: 1040;
-  background-color: #FFF;
+  background-color: #f50302;
   -webkit-backface-visibility: hidden !important;
   -moz-backface-visibility: hidden !important;
   -ms-backface-visibility: hidden !important;
