@@ -5,7 +5,9 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.core.urlresolvers import reverse_lazy
 from .models import Instancia, Celular, Accesorio, CPU, Laptop, Linea_IP, Telefono_IP, Monitor
 from .forms import InstanciaForm
+
 # Las Vistas de Lsiatdo
+
 
 class AccesorioList(ListView):
     model = Accesorio
