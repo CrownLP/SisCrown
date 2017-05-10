@@ -3,19 +3,11 @@ from django.utils import timezone
 # Create your models here.
 
 class Visita (models.Model):
-    
-	numero = models.CharField(max_length=20,primary_key=True)
-	sim = models.CharField(max_length=20)
-	OPERADORES= (
-	('TIGO','Tigo'),
-	('ENTEL', 'Entel'),
-	('VIVA', 'Viva')
-	)
-	operador = models.CharField(max_length=20,blank=True, choices= OPERADORES)
-	plan = models.CharField(max_length=50, blank=True)
-	DEPARTAMENTOS = (
-	('LAPAZ','La Paz'),
-	('SANTACRUZ','Santa Cruz'),
+    ficha2 = models.CharField(max_length=20)
+    id = models.AutoField(primary_key=True)
+    DEPARTAMENTOS = (
+    ('LAPAZ','La Paz'),
+    ('SANTACRUZ','Santa Cruz'),
 	('COCHABAMBA', 'Cochabamba'),
 	('ORURO', 'Oruro'),
 	('POTOSI', 'Potosi'),
@@ -24,8 +16,13 @@ class Visita (models.Model):
 	('BENI', 'Beni'),
 	('PANDO', 'Pando')
 	)
-	departamento_origen = models.CharField(max_length=20,blank=True, choices= DEPARTAMENTOS)
-	observacion =  models.TextField(blank=True)
-	fecha_creacion = models.DateTimeField(default = timezone.now)
-	def __str__(self):
-		return self.numero
+    departamento_origen = models.CharField(max_length=20,blank=True, choices= DEPARTAMENTOS)
+    sucursal =  models.TextField(blank=True)
+    fecha_creacion = models.DateTimeField(default = timezone.now)
+    def __str__(self):
+	       return self.ficha2
+    #modulo de registro de visita de cliente a show room
+    #el numero de ficha estara compuesto por:
+    #departamento
+    #fecha
+    #autoincremental

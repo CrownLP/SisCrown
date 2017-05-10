@@ -10,16 +10,40 @@ class Perfil(models.Model):
     fecha_nacimiento = models.DateField(null=True, blank=True)
 
 class Agencia (models.Model):
-	numero = models.CharField(max_length=20,primary_key=True)
-	sim = models.CharField(max_length=20)
-	OPERADORES= (
-	('TIGO','Tigo'),
-	('ENTEL', 'Entel'),
-	('VIVA', 'Viva')
-	)
-	operador = models.CharField(max_length=20,blank=True, choices= OPERADORES)
-	plan = models.CharField(max_length=50, blank=True)
-	DEPARTAMENTOS = (
+    #los campos de una agencia:
+    #codigo
+    #NOMBRE
+    #foto
+    #descripcion
+    #empresa
+    #pais
+    #ciudad
+    #direccion
+    #ubicacion googlemaps
+    #telefono
+    ##responsable##
+    #observacion
+    #fecha_creacion
+
+
+	codigo = models.CharField(max_length=20,primary_key=True,blank = False,help_text="Codigo de la Agencia",unique = True)
+    nombre = models.CharField(max_length=50,blank=False,help_text="Nombre de la Agencia",unique = True)
+    foto = models.ImageField (upload_to='foto_agencia',blank=True, help_text="Suba la foto de la Sucursal")
+    descripcion = models.CharField (max_length= 100, blank = True)
+    EMPRESAS= (
+    ('CROWN','Crown'),
+    ('TOYOSA', 'Toyosa'),
+    ('TOYOTA', 'Toyota')
+    )
+    empresa = models.CharField(max_length=30,blank=False, choices= EMPRESAS)
+    PAISES= (
+    ('BOLIVIA','Bolivia'),
+    ('CHILE', 'Chile'),
+    ('CUBA', 'Cuba'),
+    ('EEUU', 'Estados Unidos'),
+    )
+    pais = models.CharField(max_length=30,blank=False, choices= PAISES)
+	CIUDADES = (
 	('LAPAZ','La Paz'),
 	('SANTACRUZ','Santa Cruz'),
 	('COCHABAMBA', 'Cochabamba'),
@@ -30,7 +54,10 @@ class Agencia (models.Model):
 	('BENI', 'Beni'),
 	('PANDO', 'Pando')
 	)
-	departamento = models.CharField(max_length=20,blank=True, choices= DEPARTAMENTOS)
+	ciudad = models.CharField(max_length=20,blank=False, choices= CIUDADES)
+    direccion = models.CharField (max_length= 150, blank = True)
+
+
 	observacion =  models.TextField(blank=True)
 	fecha_creacion = models.DateTimeField(default = timezone.now)
 	def __str__(self):
