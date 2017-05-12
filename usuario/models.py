@@ -24,9 +24,7 @@ class Agencia (models.Model):
     ##responsable##
     #observacion
     #fecha_creacion
-
-
-	codigo = models.CharField(max_length=20,primary_key=True,blank = False,help_text="Codigo de la Agencia",unique = True)
+    codigo = models.CharField(max_length=20,primary_key=True,blank = False,help_text="Codigo de la Agencia",unique = True)
     nombre = models.CharField(max_length=50,blank=False,help_text="Nombre de la Agencia",unique = True)
     foto = models.ImageField (upload_to='foto_agencia',blank=True, help_text="Suba la foto de la Sucursal")
     descripcion = models.CharField (max_length= 100, blank = True)
@@ -40,25 +38,26 @@ class Agencia (models.Model):
     ('BOLIVIA','Bolivia'),
     ('CHILE', 'Chile'),
     ('CUBA', 'Cuba'),
-    ('EEUU', 'Estados Unidos'),
+    ('EEUU', 'Estados Unidos')
     )
     pais = models.CharField(max_length=30,blank=False, choices= PAISES)
-	CIUDADES = (
-	('LAPAZ','La Paz'),
-	('SANTACRUZ','Santa Cruz'),
-	('COCHABAMBA', 'Cochabamba'),
-	('ORURO', 'Oruro'),
-	('POTOSI', 'Potosi'),
-	('TARIJA', 'Tarija'),
-	('SUCRE', 'Sucre'),
-	('BENI', 'Beni'),
-	('PANDO', 'Pando')
-	)
-	ciudad = models.CharField(max_length=20,blank=False, choices= CIUDADES)
+    CIUDADES= (
+    ('LAPAZ','La Paz'),
+    ('SANTACRUZ','Santa Cruz'),
+    ('COCHABAMBA', 'Cochabamba'),
+    ('ORURO', 'Oruro'),
+    ('POTOSI', 'Potosi'),
+    ('TARIJA', 'Tarija'),
+    ('SUCRE', 'Sucre'),
+    ('BENI', 'Beni'),
+    ('PANDO', 'Pando')
+    )
+    ciudad = models.CharField(max_length=20,blank=False, choices= CIUDADES)
     direccion = models.CharField (max_length= 150, blank = True)
-
-
-	observacion =  models.TextField(blank=True)
-	fecha_creacion = models.DateTimeField(default = timezone.now)
-	def __str__(self):
-		return self.numero
+    lat = models.CharField(max_length = 50)
+    lng = models.CharField(max_length = 50)
+    user = models.ForeignKey(User)
+    observacion = models.TextField(blank=True)
+    fecha_creacion = models.DateTimeField(default = timezone.now)
+    def __str__(self):
+        return self.nombre

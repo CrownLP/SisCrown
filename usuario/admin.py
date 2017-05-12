@@ -10,5 +10,5 @@ class AdminProduct (admin.ModelAdmin):
     list_filter = ('ubicacion','fecha_nacimiento')
 @admin.register (Agencia)
 class AdminProduct (admin.ModelAdmin):
-    list_display = ('numero','sim')
-    list_filter = ('numero','sim')
+    list_display = ('codigo','nombre')
+    list_filter = ('codigo','nombre')

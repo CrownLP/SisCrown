@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>Registro de Agencia</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -16.540687, lng: -68.089812};
+
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY1Dj7hqA-mBEyua8XEYCxjShjuJYuq-8&callback=initMap">
+    </script>
+  </body>
+</html>
