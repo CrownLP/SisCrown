@@ -3,7 +3,7 @@
   <head>
     <style>
        #map {
-        height: 400px;
+        height: 500px;
         width: 100%;
        }
     </style>
@@ -11,20 +11,44 @@
   <body>
     <h3>Registro de Agencia</h3>
     <div id="map"></div>
+
+    <div>
+      <form action="/coords/save" method="post" id="form_coords">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p>
+          <input type="submit" name="" value="Guardar Datos">
+        </p>
+      </form>
+    </div>
+
+
+
     <script>
       function initMap() {
         var uluru = {lat: -16.540687, lng: -68.089812};
-
-
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
+          zoom: 17,
+          center: uluru,
+          draggable: true,
+          maxZoom: 20,
+          minZoom: 11
+
         });
         var marker = new google.maps.Marker({
           position: uluru,
+          draggable: true,
           map: map
         });
+
+        google.maps.event.addListener(marker,'position_changed', function(){
+          var markerCoords = marker.getPosition();
+          console.log(markerCoords.lat()+' '+markerCoords.lng());
+          //document.getElementById({{form.codigo}}).setAttribute(markerCoords.lat());
+        });
+
       }
+
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY1Dj7hqA-mBEyua8XEYCxjShjuJYuq-8&callback=initMap">

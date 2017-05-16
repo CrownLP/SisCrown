@@ -53,7 +53,7 @@ class Agencia (models.Model):
     ('PANDO', 'Pando')
     )
     ciudad = models.CharField(max_length=20,blank=False, choices= CIUDADES)
-    direccion = models.CharField (max_length= 150, blank = True)
+    referencia = models.CharField (max_length= 150, blank = True)
     lat = models.CharField(max_length = 50)
     lng = models.CharField(max_length = 50)
     user = models.ForeignKey(User)

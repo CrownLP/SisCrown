@@ -18,4 +18,4 @@ class PerfilDetail(DetailView):
 
 class AgenciaCreation (CreateView):
     model = Agencia
-    fields = ('codigo',)
+    fields = ('codigo','lat','lng','user')
