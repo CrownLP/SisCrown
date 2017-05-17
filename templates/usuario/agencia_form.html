@@ -26,6 +26,7 @@
 
     <script>
       function initMap() {
+        //alert ('ok');
         var uluru = {lat: -16.540687, lng: -68.089812};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 17,
@@ -44,8 +45,24 @@
         google.maps.event.addListener(marker,'position_changed', function(){
           var markerCoords = marker.getPosition();
           console.log(markerCoords.lat()+' '+markerCoords.lng());
+          $('#id_lat').val(markerCoords.lat());
+          $('#id_lng').val(markerCoords.lng());
           //document.getElementById({{form.codigo}}).setAttribute(markerCoords.lat());
         });
+
+        $('#form_coords').submit(function(e)){
+          e.preventDefault();
+          $.post('/coords/save', $(this).serialize(),function(data){
+            if (data.ok)
+            {
+
+            }
+            else
+            {
+              alert(data.msg)
+            }
+          }.'json');
+        }
 
       }
 
@@ -53,5 +70,6 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY1Dj7hqA-mBEyua8XEYCxjShjuJYuq-8&callback=initMap">
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </body>
 </html>
