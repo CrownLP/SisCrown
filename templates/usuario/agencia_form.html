@@ -50,21 +50,47 @@
           //document.getElementById({{form.codigo}}).setAttribute(markerCoords.lat());
         });
 
-        $('#form_coords').submit(function(e)){
-          e.preventDefault();
-          $.post('/coords/save', $(this).serialize(),function(data){
-            if (data.ok)
-            {
 
-            }
-            else
-            {
-              alert(data.msg)
-            }
-          }.'json');
-        }
+        $(document).on('submit','#new_user_form',function(e){
+           e.preventDefault();
+           $.ajax({
+             type:'POST',
+             url:'/user/create',
+             data:{
+               lat:$('#lat_id').val(),
+             },
+             sucess:function(){
+             }
+           })
+})
 
-      }
+}
+
+        //     sucess:function(){
+        //     }
+        //   });
+
+      //   }
+      //
+      // )
+
+
+
+
+        // $('#form_coords').submit(function(e)){
+        //   e.preventDefault();
+        //   $.post('/coords/save', $(this).serialize(),function(data){
+        //     if (data.ok)
+        //     {
+        //
+        //     }
+        //     else
+        //     {
+        //       alert(data.msg)
+        //     }
+        //   }.'json');
+
+
 
     </script>
     <script async defer

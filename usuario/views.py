@@ -7,7 +7,6 @@ import json as simplejson
 from django.core.urlresolvers import reverse_lazy
 from django.template import RequestContext
 from usuario.models import Agencia
-
 from .models import Perfil, Agencia
 #from .forms import AgenciaForm
 
@@ -22,10 +21,23 @@ class AgenciaCreation (CreateView):
     model = Agencia
     fields = ('codigo','lat','lng','user')
 
-def coords_save(request):
-    if request.is_ajax():
-        form = UbicacionForm(request.POST)
-        if form.is_valid():
-            pass
-        else:
-            return HttpResponse(simplejson.dumps({'ok': False, 'msg':'Debes llenar todos los campos'}), mimetype='application/json')
+def coords_save (request):
+    if request.method == 'POST':
+        lat = request.POST['lat']
+        lng = request.POST['lng']
+
+        Agencia.objects.create(
+            lat =lat,
+            lng = lng
+        )
+
+        return HttpResponse('')
+
+
+# def coords_save(request):
+#     if request.is_ajax():
+#         form = UbicacionForm(request.POST)
+#         if form.is_valid():
+#             pass
+#         else:
+#             return HttpResponse(simplejson.dumps({'ok': False, 'msg':'Debes llenar todos los campos'}), mimetype='application/json')
