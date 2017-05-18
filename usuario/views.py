@@ -8,6 +8,9 @@ from django.core.urlresolvers import reverse_lazy
 from django.template import RequestContext
 from usuario.models import Agencia
 from .models import Perfil, Agencia
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
+
+
 #from .forms import AgenciaForm
 
 # Las Vistas de la Aplicacion
