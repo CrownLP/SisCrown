@@ -6,5 +6,5 @@ from django.utils.translation import ugettext_lazy
 # Register your models here.
 @admin.register (Visita)
 class AdminProduct (admin.ModelAdmin):
-    list_display = ('ficha2','sucursal')
-    list_filter = ('ficha2','sucursal')
+    list_display = ('id','agencia')
+    list_filter = ('agencia','referencia')

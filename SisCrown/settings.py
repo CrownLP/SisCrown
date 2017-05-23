@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     #'material.frontend',
     'material.admin',
     'inventario.apps.InventarioConfig',
+    'cliente.apps.ClienteConfig',
     'gestioncliente.apps.GestionclienteConfig',
     'usuario.apps.UsuarioConfig',
     'django.contrib.admin',
