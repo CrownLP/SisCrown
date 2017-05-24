@@ -17,8 +17,17 @@ from django.views.decorators.csrf import csrf_protect, csrf_exempt
 class PerfilList(ListView):
     model = Perfil
 
+class AgenciaList(ListView):
+    model = Agencia
+
 class PerfilDetail(DetailView):
     model = Perfil
+
+class AgenciaDetail(DetailView):
+    model = Agencia
+
+
+
 
 class AgenciaCreation (CreateView):
     model = Agencia
