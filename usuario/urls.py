@@ -2,6 +2,8 @@ from usuario import views as usuario_views
 
 from django.conf.urls import url, include
 
+
+
 from .views import (
     PerfilList,
     PerfilDetail,
@@ -18,7 +20,7 @@ urlpatterns = [
     url(r'^(?P<pk>\d+)$', PerfilDetail.as_view(), name='detail'),
     url(r'^listaAgencia$', AgenciaList.as_view(), name='AgenciaList'),
 
-    url(r'^agencia/(?P<pk>[A-Z]{7})/$', AgenciaDetail.as_view(), name='agenciadetail'),
+    url(r'^agencia/(?P<pk>[A-Z,0-9]{6})/$', AgenciaDetail.as_view(), name='agenciadetail'),
 
     url(r'^nuevaAgencia$', AgenciaCreation.as_view(), name='new'),
     url(r'^coords/save$', usuario_views.coords_save),
