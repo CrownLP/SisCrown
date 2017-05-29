@@ -25,10 +25,10 @@ class Cliente (models.Model):
 
     dni = models.CharField(max_length=20,primary_key=True,blank = False, help_text="Documento Nacinal de Identidad",unique = True)
     NACIONALIDADES = (
-    ('NACIONAL', 'Nacional',),
+    ('BOLIVIANA', 'Boliviana',),
     ('EXTRANJERO', 'Extranjero',)
     )
-    nacionalidad = models.CharField(max_length=30, choices= NACIONALIDADES)
+    nacionalidad = models.CharField(max_length=30,blank = False,choices= NACIONALIDADES)
     nit = models.CharField(max_length=20,blank = True, help_text="NIT",unique = False)
     nombre = models.CharField(max_length=60, blank=False,help_text="Nombres",unique = False)
     appaterno = models.CharField(max_length=50,blank=True,help_text="Apellido Parterno",unique = False)

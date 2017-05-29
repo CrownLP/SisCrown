@@ -20,7 +20,7 @@ class Agencia (models.Model):
     ##responsable##
     #observacion
     #fecha_creacion
-    codigo = models.CharField(max_length=20,primary_key=True,blank = False,help_text="Codigo de la Agencia",unique = True)
+    codigo = models.CharField(max_length=6,primary_key=True,blank = False,help_text="Codigo de la Agencia",unique = True)
     nombre = models.CharField(max_length=50,blank=False,help_text="Nombre de la Agencia",unique = True)
     foto = models.ImageField (blank=False, help_text="Suba la foto de la Sucursal")
     descripcion = models.CharField (max_length= 100, blank = True)
