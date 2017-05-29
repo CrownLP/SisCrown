@@ -8,36 +8,39 @@
       <div class="col-lg-12">
         <div class="widget">
           <div class="widget-heading">
-            <h3 class="widget-title">LISTADO DE AGENCIAS</h3>
+            <h3 class="widget-title">LISTADO DE CLIENTES</h3>
           </div>
           <div class="widget-body">
             <div class="table-responsive">
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>COD</th>
+                    <th>DNI</th>
                     <th>NOMBRE</th>
-                    <th>CIUDAD</th>
-                    <th>DIRECCIÓN</th>
+                    <th>PATERNO</th>
+                    <th>MATERNO</th>
                     <th>TELEFONO</th>
                     <th>DETALLES</th>
                     <th>ACTUALIZAR</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {% for agencia in object_list %}
+                  {% for cliente in object_list %}
                   <tr>
-                    <th scope="row">{{ agencia.codigo }}</th>
-                    <td>{{ agencia.nombre }}</td>
-                    <td>{{ agencia.ciudad }}</td>
-                    <td>{{ agencia.referencia }}</td>
-                    <td>2228262</td>
+                    <th scope="row">{{ cliente.dni }}</th>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.appaterno }}</td>
+                    <td>{{ cliente.apmaterno }}</td>
+                    <td>{{ cliente.celular }}</td>
                     <td>
-<a href="{% url "usuario:agenciadetail" agencia.codigo %}">
+
+          <a href="{% url "cliente:clientedetail" cliente.dni %}">
                       <button type="button" class="btn btn-default btn-sm">
     <span class="glyphicon glyphicon-eye-open"></span>
     Ver
-  </button></a></td>
+  </button>
+</a>
+</td>
 
 
                     <td><button type="button" class="btn btn-default btn-sm">

@@ -39,8 +39,8 @@ class Cliente (models.Model):
     )
     genero = models.CharField(max_length=30, choices= GENEROS)
     correo = models.CharField(max_length=50,blank=True,help_text="Correo Electronico",unique = False)
-    celular = models.CharField(max_length=20,blank=True,help_text="Telefono Fijo",unique = False)
-    fijo = models.CharField(max_length=20,blank=True,help_text="Telefono Celular",unique = False)
+    celular = models.IntegerField(null=True, blank=True,help_text="Telefono Fijo",unique = False)
+    fijo = models.IntegerField(null=True,blank=True,help_text="Telefono Celular",unique = False)
     nacimiento = models.DateTimeField(default = timezone.now)
 
     user = models.ForeignKey(User)

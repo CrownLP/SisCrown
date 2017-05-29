@@ -6,8 +6,8 @@ from django.utils.translation import ugettext_lazy
 # Register your models here.
 @admin.register (Perfil)
 class AdminProduct (admin.ModelAdmin):
-    list_display = ('usuario','biografia','ubicacion','fecha_nacimiento')
-    list_filter = ('ubicacion','fecha_nacimiento')
+    list_display = ('usuario','referencia','nacimiento')
+    list_filter = ('referencia','nacimiento')
 @admin.register (Agencia)
 class AdminProduct (admin.ModelAdmin):
     list_display = ('codigo','nombre')

@@ -2,32 +2,39 @@
 {% load static %}
 
 
-<!--VISTA DE LISTADO DE INSTANCIAS-->
-
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Formulario de Registro</title>
-    <!-- PACE-->
-
-    <link rel="stylesheet" type="text/css" href="{% static 'plugins/PACE/themes/blue/pace-theme-flash.css'%}">
-    <script type="text/javascript" src="{% static 'plugins/PACE/pace.min.js'%}"></script>
-    <!-- Bootstrap CSS-->
-    <link rel="stylesheet" type="text/css" href= "{% static 'plugins/bootstrap/dist/css/bootstrap.min.css'%}">
-    <!-- Ionicons-->
-    <link rel="stylesheet" type="text/css" href="{% static 'plugins/Ionicons/css/ionicons.min.css'%}">
-    <!-- Malihu Scrollbar-->
-    <link rel="stylesheet" type="text/css" href="{% static 'plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css'%}">
-    <!-- Animo.js-->
-    <link rel="stylesheet" type="text/css" href="{% static 'plugins/animo.js/animate-animo.min.css'%}">
-    <!-- Bootstrap Progressbar-->
-    <link rel="stylesheet" type="text/css" href="{% static 'plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css'%}">
-    <!-- Core CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static 'build/css/first-layout.css'%}">
-  </head>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="{%static 'build/images/logo/flavicon.ico'%}" type="image/ico" />
+  <title>CROWN - Gestión de Clientes</title>
+  <!-- PACE-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/PACE/themes/blue/pace-theme-flash.css'%}">
+  <script type="text/javascript" src="{%static 'plugins/PACE/pace.min.js"></script>
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/bootstrap/dist/css/bootstrap.min.css'%}">
+  <!-- Ionicons-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/Ionicons/css/ionicons.min.css'%}">
+  <!-- Malihu Scrollbar-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css'%}">
+  <!-- Animo.js-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/animo.js/animate-animo.min.css'%}">
+  <!-- Bootstrap Progressbar-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css'%}">
+  <!-- Toastr-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/toastr/toastr.min.css'%}">
+  <!-- SpinKit-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/SpinKit/css/spinners/2-double-bounce.css'%}">
+  <!-- Weather Icons-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/weather-icons/css/weather-icons-wind.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/weather-icons/css/weather-icons.min.css'%}">
+  <!-- Bootstrap Date Range Picker-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/bootstrap-daterangepicker/daterangepicker.css'%}">
+  <!-- Core CSS-->
+  <link rel="stylesheet" type="text/css" href="{%static 'build/css/first-layout.css'%}">
+</head>
   <body>
     <!-- Header start-->
     <header>
@@ -41,187 +48,184 @@
       </div><a href="javascript:;" role="button" class="hamburger-menu pull-left"><span></span></a>
       <form class="search-form m-10 pull-left hidden-xs">
         <div class="form-group has-feedback mb-0">
-          <input type="text" aria-describedby="inputSearchFor" placeholder="Buscar en Portal Crown" style="width: 200px" class="form-control rounded"><span aria-hidden="true" class="ion-search form-control-feedback"></span><span id="inputSearchFor" class="sr-only">(default)</span>
+          <input type="text" aria-describedby="inputSearchFor" placeholder="Buscar..." style="width: 180px" class="form-control rounded"><span aria-hidden="true" class="ion-search form-control-feedback"></span><span id="inputSearchFor" class="sr-only">(default)</span>
         </div>
-      </form><a href="index.html" class="brand"><img src="{% static 'build/images/logo/crown.png'%}" alt="" width="120"></a>
+      </form><a href="index.html" class="brand"><img src="{% static 'build/images/logo/logo_crown.png'%}" width="248" height="55" alt=""/><img src="{% static 'build/images/logo/logo Gestion de Clientes.png'%}" width="400" height="22" alt=""/></a>
       <ul class="notification-bar list-inline pull-right">
         <li class="visible-xs"><a href="javascript:;" role="button" class="header-icon search-bar-toggle"><i class="ion-search"></i></a></li>
-        <li class="visible-lg"><a href="javascript:;" role="button" class="header-icon sidebar-control"><i class="ion-pin"></i></a></li>
-        <li class="dropdown"><a id="dropdownMenu0" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle bubble header-icon"><i class="ion-code-working"></i><span class="badge bg-danger">4</span></a>
-          <div aria-labelledby="dropdownMenu0" class="dropdown-menu dropdown-menu-right dm-small animated fadeInUp">
-            <ul data-mcs-theme="minimal-dark" class="media-list mCustomScrollbar">
-              <li class="media"><a href="javascript:;">
-                  <div class="block clearfix mb-10"><span class="pull-left">La Paz</span><span class="pull-right label label-outline label-primary">65% Completado</span></div>
-                  <div class="progress progress-xs mb-0">
-                    <div role="progressbar" data-transitiongoal="65" class="progress-bar"></div>
-                  </div></a></li>
-              <li class="media"><a href="javascript:;">
-                  <div class="block clearfix mb-10"><span class="pull-left">Santa Cruz</span><span class="pull-right label label-outline label-success">80% Completado</span></div>
-                  <div class="progress progress-xs mb-0">
-                    <div role="progressbar" data-transitiongoal="80" class="progress-bar progress-bar-success"></div>
-                  </div></a></li>
-              <li class="media"><a href="javascript:;">
-                  <div class="block clearfix mb-10"><span class="pull-left">Cochabamba</span><span class="pull-right label label-outline label-danger">20% Completado</span></div>
-                  <div class="progress progress-xs mb-0">
-                    <div role="progressbar" data-transitiongoal="20" class="progress-bar progress-bar-danger"></div>
-                  </div></a></li>
-              <li class="media"><a href="javascript:;">
-                  <div class="block clearfix mb-10"><span class="pull-left">Tarija</span><span class="pull-right label label-outline label-purple">100% Completado</span></div>
-                  <div class="progress progress-xs mb-0">
-                    <div role="progressbar" data-transitiongoal="100" class="progress-bar progress-bar-purple"></div>
-                  </div></a></li>
-            </ul>
-          </div>
-        </li>
-
-  </header>
-
-      <!-- Header end-->
-      <div class="main-container">
-        <!-- Main Sidebar start-->
-        <aside data-mcs-theme="minimal-dark" class="main-sidebar mCustomScrollbar">
-          <div class="media user">
-            <div class="media-left">
-              <div id="esp-user-profile" data-percent="66" style="height: 56px; width: 56px; line-height: 40px; padding: 8px;" class="easy-pie-chart"><img src="../build/images/users/XX.jpg" alt="" class="avatar img-circle"></div>
-            </div>
-            <div style="overflow: visible" class="media-body media-middle">
-              <h4 class="media-heading fs-16">Samuel Canaviri</h4>
-              <div class="dropdown"><a id="dropdown-status" href="javascript:;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle"><span class="status bg-success"></span> En Linea <span class="caret"></span></a>
-                <ul aria-labelledby="dropdown-status" class="dropdown-menu animated fadeInUp">
-                  <li><a href="#">Desconectado</a></li>
-                  <li><a href="#">Ocupado</a></li>
-                  <li><a href="#">Ausente</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="login.html">Cerrar Secion</a></li>
-                </ul>
+        <li class="dropdown hidden-sm hidden-xs"><a id="dropdownMenu2" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle header-icon lh-1 pt-10 pb-10">
+            <div class="media mt-0">
+              <div class="media-right media-middle pl-0">
+                <p class="fs-12 mb-0"></br>Bienvenido</p>
               </div>
+            </div></a>
+          <ul aria-labelledby="dropdownMenu2" class="dropdown-menu dropdown-menu-right animated fadeInUp icon">
+            <li><a href="profile.html"><i class="ion-person mr-5"></i> My Profile</a></li>
+            <li><a href="email-inbox.html"><i class="ion-filing mr-5"></i> Inbox</a></li>
+            <li><a href="profile.html"><i class="ion-gear-b mr-5"></i> Account Settings</a></li>
+            <li><a href="login.html"><i class="ion-unlocked mr-5"></i> Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <!-- Header end-->
+    <div class="main-container">
+      <!-- Main Sidebar start-->
+      <aside data-mcs-theme="minimal-dark" class="main-sidebar mCustomScrollbar">
+        <div class="media user">
+          <div class="media-left">
+            <div id="esp-user-profile" data-percent="66" style="height: 56px; width: 56px; line-height: 40px; padding: 8px;" class="easy-pie-chart"><img src="../build/images/users/21.png" alt="" class="avatar img-circle"></div>
+          </div>
+          <div style="overflow: visible" class="media-body media-middle">
+            <h4 class="media-heading fs-16">Usuario Crown</h4>
+            <div class="dropdown"><a id="dropdown-status" href="javascript:;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle"><span class="status bg-success"></span> Conectado <span class="caret"></span></a>
+              <ul aria-labelledby="dropdown-status" class="dropdown-menu animated fadeInUp">
+                <li><a href="#">Desconectado</a></li>
+                <li><a href="#">Ocupado</a></li>
+                <li><a href="#">Ausente</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="login.html">Cerrar Sesión</a></li>
+              </ul>
             </div>
           </div>
-
-
-
-      <!-- EMPIEZA EL MENU LATERAL-->
-
-          <ul class="list-unstyled navigation mb-0">
-    <!--
-            <li class="sidebar-category">Inventario</li>
-            <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse1" aria-expanded="false" aria-controls="collapse1" class="bubble collapsed"><i class="ion-ios-home-outline bg-purple"></i><span class="sidebar-title">Dashboard</span><span class="badge bg-danger">2</span></a>
-              <ul id="collapse1" class="list-unstyled collapse">
-                <li><a href="index.html">Dashboard v1</a></li>
-                <li><a href="index-v2.html">Dashboard v2</a></li>
-                <li><a href="index-v2.html">Dashboard v3</a></li>
-              </ul>
-            </li>
-            <li class="panel"><a href="profile.html"><i class="ion-ios-person-outline bg-success"></i><span class="sidebar-title">Profile</span></a></li>
-            <li class="panel"><a href="chat-dashboard.html"><i class="ion-ios-chatbubble-outline bg-primary"></i><span class="sidebar-title">Chat dashboard</span></a></li>
-            <li class="panel"><a href="calendar.html"><i class="ion-ios-calendar-outline bg-info"></i><span class="sidebar-title">Calendar</span></a></li>
-            <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse2" aria-expanded="false" aria-controls="collapse2" class="collapsed"><i class="ion-ios-printer-outline bg-danger"></i><span class="sidebar-title">Email</span></a>
-              <ul id="collapse2" class="list-unstyled collapse">
-                <li><a href="email-inbox.html">Inbox</a></li>
-                <li><a href="email-read.html">Read email</a></li>
-                <li><a href="email-compose.html">Compose email</a></li>
-              </ul>
-
-
-
-            </li>
-            <li class="panel"><a href="widgets.html"><i class="ion-ios-albums-outline bg-warning"></i><span class="sidebar-title">Widgets</span></a></li>
-
-          -->
-            <li class="sidebar-category">Recursos Humanos</li>
-            <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse20" aria-expanded="false" aria-controls="collapse20" class="collapsed"><i class="ion-ios-folder-outline bg-black"></i><span class="sidebar-title">Inventario</span></a>
-              <ul id="collapse20" class="list-unstyled collapse">
-
-                <li><a role="button" data-toggle="collapse" data-parent="#collapse20" href="#celular" aria-expanded="false" aria-controls="collapse201" class="collapsed">Equipo Celular</a>
-                  <ul id="celular" class="list-unstyled collapse">
-                    <li><a href="#">Listado</a></li>
-                    <li><a href="#">Nuevo Registro</a></li>
-                    <li><a href="#">Generar Reporte</a></li>
-                  </ul>
-                </li>
-
-
-                <li><a role="button" data-toggle="collapse" data-parent="#collapse20" href="#instancia" aria-expanded="false" aria-controls="collapse201" class="collapsed">Numero Celular</a>
-                  <ul id="instancia" class="list-unstyled collapse">
-                    <li><a href="#">Listado</a></li>
-                    <li><a href="#">Nuevo Registro</a></li>
-                    <li><a href="#">Generar Reporte</a></li>
-                  </ul>
-                </li>
-
-                <li><a role="button" data-toggle="collapse" data-parent="#collapse20" href="#telefonoip" aria-expanded="false" aria-controls="collapse201" class="collapsed">Telefono IP</a>
-                  <ul id="telefonoip" class="list-unstyled collapse">
-                    <li><a href="#">Listado</a></li>
-                    <li><a href="#">Nuevo Registro</a></li>
-                    <li><a href="#">Generar Reporte</a></li>
-                  </ul>
-                </li>
-
-                <li><a role="button" data-toggle="collapse" data-parent="#collapse20" href="#lineaip" aria-expanded="false" aria-controls="collapse201" class="collapsed">Linea IP</a>
-                  <ul id="lineaip" class="list-unstyled collapse">
-                    <li><a href="#">Listado</a></li>
-                    <li><a href="#">Nuevo Registro</a></li>
-                    <li><a href="#">Generar Reporte</a></li>
-                  </ul>
-                </li>
-
-                <li><a role="button" data-toggle="collapse" data-parent="#collapse20" href="#laptop" aria-expanded="false" aria-controls="collapse201" class="collapsed">Laptop</a>
-                  <ul id="laptop" class="list-unstyled collapse">
-                    <li><a href="#">Listado</a></li>
-                    <li><a href="#">Nuevo Registro</a></li>
-                    <li><a href="#">Generar Reporte</a></li>
-                  </ul>
-                </li>
-
-                <li><a role="button" data-toggle="collapse" data-parent="#collapse20" href="#monitor" aria-expanded="false" aria-controls="collapse201" class="collapsed">Monitor</a>
-                  <ul id="monitor" class="list-unstyled collapse">
-                    <li><a href="#">Listado</a></li>
-                    <li><a href="#">Nuevo Registro</a></li>
-                    <li><a href="#">Generar Reporte</a></li>
-                  </ul>
-                </li>
-
-                <li><a role="button" data-toggle="collapse" data-parent="#collapse20" href="#cpu" aria-expanded="false" aria-controls="collapse201" class="collapsed">CPU</a>
-                  <ul id="cpu" class="list-unstyled collapse">
-                    <li><a href="#">Listado</a></li>
-                    <li><a href="#">Nuevo Registro</a></li>
-                    <li><a href="#">Generar Reporte</a></li>
-                  </ul>
-                </li>
-
-                <li><a role="button" data-toggle="collapse" data-parent="#collapse20" href="#accesorio" aria-expanded="false" aria-controls="collapse201" class="collapsed">Accesorio</a>
-                  <ul id="accesorio" class="list-unstyled collapse">
-                    <li><a href="#">Listado</a></li>
-                    <li><a href="#">Nuevo Registro</a></li>
-                    <li><a href="#">Generar Reporte</a></li>
-                  </ul>
-                </li>
-
-
-              </li>
+        </div>
+        <ul class="list-unstyled navigation mb-0">
+          <li class="sidebar-category">GESTIÓN DE CLIENTES</li>
+          <li class="panel"><a  data-toggle="collapse" data-parent=".navigation" href="#collapse1" aria-expanded="false" aria-controls="collapse1" class="active collapsed"><i class="ion-ios-home-outline bg-purple"></i><span class="sidebar-title">VISITAS</span></a>
+            <ul id="collapse1" class="list-unstyled collapse">
+              <li><a href="#" class="active">Registro de visita</a></li>
+              <li><a href="#">Histórico de todas las visitas</a></li>
+              <li><a href="#">Reportes</a></li>
             </ul>
-          </div>
-        </aside>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse2" aria-expanded="false" aria-controls="collapse2" class="active collapsed"><i class="ion-ios-person-outline bg-success"></i><span class="sidebar-title">OPORTUNIDAD</span></a>
+            <ul id="collapse2" class="list-unstyled collapse">
+              <li><a href="#" class="active">Registro adicional</a></li>
+              <li><a href="#">Seguimiento por vendedor</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse3" aria-expanded="false" aria-controls="collapse3" class="active collapsed"><i class="ion-ios-chatbubble-outline bg-primary"></i><span class="sidebar-title">COTIZACIÓN</span></a>
+            <ul id="collapse3" class="list-unstyled collapse">
+              <li class="panel"><a role="button" data-toggle="collapse" data-parent="#collapse3" href="#collapse31" aria-expanded="false" aria-controls="collapse31" class="active collapsed"><span class="sidebar-title">Consultas de stock</span></a>
+				<ul id="collapse31" class="list-unstyled collapse">
+				  <li><a href="#" class="active">Registro de cotizaciones</a></li>
+				</ul>
+			  </li>
+			  <li class="panel"><a role="button" data-toggle="collapse" data-parent="#collapse3" href="#collapse32" aria-expanded="false" aria-controls="collapse32" class="active collapsed"><span class="sidebar-title">Solicitud de descuento</span></a>
+				<ul id="collapse32" class="list-unstyled collapse">
+				  <li><a href="#" class="active">Con Descuento</a></li>
+				  <li><a href="#">Sin Descuento</a></li>
+				</ul>
+			  </li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse4" aria-expanded="false" aria-controls="collapse4" class="active collapsed"><i class="ion-ios-calendar-outline bg-info"></i><span class="sidebar-title">AGENDA</span></a>
+            <ul id="collapse4" class="list-unstyled collapse">
+              <li><a href="#" class="active">Contacto</a></li>
+              <li><a href="#">Seguimiento</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse5" aria-expanded="false" aria-controls="collapse5" class="active collapsed"><i class="ion-ios-folder-outline bg-warning"></i><span class="sidebar-title">INF. CORPORATIVA</span></a>
+                     <ul id="collapse5" class="list-unstyled collapse">
+                       <li><a href="{% url "usuario:AgenciaList" %}">Sucursales</a></li>
 
+                       <li><a href="{% url "cliente:clientelist" %}">Clientes</a></li>
+                       <li><a href="{% url "usuario:AgenciaList" %}">Ejecutivos de venta</a></li>
+                     </ul>
+                   </li>
+        </ul>
+        <div class="sidebar-category">ESTADISTICAS</div>
+        <div class="sidebar-widget">
+          <ul class="list-unstyled pl-15 pr-15">
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">La Paz</span><span class="pull-right label label-outline label-success"> 20 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="45" class="progress-bar progress-bar-ye"></div>
+              </div>
+            </li>
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">Santa Cruz</span><span class="pull-right label label-outline label-purple"> 30 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="58" class="progress-bar progress-bar-purple"></div>
+              </div>
+            </li>
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">Tarija</span><span class="pull-right label label-outline label-success"> 10 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="45" class="progress-bar progress-bar-success"></div>
+              </div>
+            </li>
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">Cochabamba</span><span class="pull-right label label-outline label-purple"> 10 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="58" class="progress-bar progress-bar-purple"></div>
+              </div>
+            </li>
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">Sucre</span><span class="pull-right label label-outline label-success"> 10 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="45" class="progress-bar progress-bar-success"></div>
+              </div>
+            </li>
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">Trinidad</span><span class="pull-right label label-outline label-purple"> 10 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="58" class="progress-bar progress-bar-purple"></div>
+              </div>
+            </li>
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">Cobija</span><span class="pull-right label label-outline label-success"> 10 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="45" class="progress-bar progress-bar-success"></div>
+              </div>
+            </li>
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">Yacuiba</span><span class="pull-right label label-outline label-purple"> 10 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="58" class="progress-bar progress-bar-purple"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <!-- Main Sidebar end-->
+      <!-- Container -->
+      <div class="page-container">
         {% block content %}
         {% endblock %}
+     </div>
+      <!-- End Container -->
 
-<!-- jQuery-->
-<script type="text/javascript" src="{% static 'plugins/jquery/dist/jquery.min.js'%}"></script>
-<!-- Bootstrap JavaScript-->
-<script type="text/javascript" src="{% static 'plugins/bootstrap/dist/js/bootstrap.min.js'%}"></script>
-<!-- Malihu Scrollbar-->
-<script type="text/javascript" src="{% static 'plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js'%}"></script>
-<!-- Animo.js-->
-<script type="text/javascript" src="{% static 'plugins/animo.js/animo.min.js'%}"></script>
-<!-- Bootstrap Progressbar-->
-<script type="text/javascript" src="{% static 'plugins/bootstrap-progressbar/bootstrap-progressbar.min.js'%}"></script>
-<!-- jQuery Easy Pie Chart-->
-<script type="text/javascript" src="{% static 'plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js'%}"></script>
-<!-- Bootstrap FileStyle-->
-<script type="text/javascript" src="{% static 'plugins/bootstrap-filestyle/src/bootstrap-filestyle.js'%}"></script>
-<!-- Core JS-->
-<script type="text/javascript" src="{% static 'build/js/first-layout/app.js'%}"></script>
-<script type="text/javascript" src="{% static 'build/js/first-layout/demo.js'%}"></script>
-</body>
+    </div>
+    <!-- jQuery-->
+    <script type="text/javascript" src="{% static 'plugins/jquery/dist/jquery.min.js'%}"></script>
+    <!-- Bootstrap JavaScript-->
+    <script type="text/javascript" src="{% static 'plugins/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+    <!-- Malihu Scrollbar-->
+    <script type="text/javascript" src="{% static 'plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js'%}"></script>
+    <!-- Animo.js-->
+    <script type="text/javascript" src="{% static 'plugins/animo.js/animo.min.js'%}"></script>
+    <!-- Bootstrap Progressbar-->
+    <script type="text/javascript" src="{% static 'plugins/bootstrap-progressbar/bootstrap-progressbar.min.js'%}"></script>
+    <!-- jQuery Easy Pie Chart-->
+    <script type="text/javascript" src="{% static 'plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js'%}"></script>
+    <!-- MomentJS-->
+    <script type="text/javascript" src="{% static 'plugins/moment/min/moment.min.js'%}"></script>
+    <!-- jQuery BlockUI-->
+    <script type="text/javascript" src="{% static 'plugins/blockUI/jquery.blockUI.js'%}"></script>
+    <!-- jQuery Counter Up-->
+    <script type="text/javascript" src="{% static 'plugins/jquery-waypoints/waypoints.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'plugins/Counter-Up/jquery.counterup.min.js'%}"></script>
+    <!-- Flot Charts-->
+    <script type="text/javascript" src="{% static 'plugins/flot/jquery.flot.js'%}"></script>
+    <script type="text/javascript" src="{% static 'plugins/flot/jquery.flot.resize.js'%}"></script>
+    <script type="text/javascript" src="{% static 'plugins/flot.curvedlines/curvedLines.js'%}"></script>
+    <script type="text/javascript" src="{% static 'plugins/flot.tooltip/js/jquery.flot.tooltip.min.js'%}"></script>
+    <!-- Bootstrap Date Range Picker-->
+    <script type="text/javascript" src="{% static 'plugins/bootstrap-daterangepicker/daterangepicker.js'%}"></script>
+    <!-- Core JS-->
+    <script type="text/javascript" src="{% static 'build/js/first-layout/app.js'%}"></script>
+    <script type="text/javascript" src="{% static 'build/js/first-layout/demo.js'%}"></script>
+    <script type="text/javascript" src="{% static 'build/js/page-content/dashboard/index.js'%}"></script>
+  </body>
 </html>
