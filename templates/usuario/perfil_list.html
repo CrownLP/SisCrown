@@ -1,2 +1,64 @@
+{% extends 'base.html' %}
 
-<h1>Lista de Perfiles</h1>
+{%load staticfiles%}
+
+{% block content %}
+  <div class="page-content container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="widget">
+          <div class="widget-heading">
+            <h3 class="widget-title">LISTADO DE EJECUTIVOS DE VENTA</h3>
+          </div>
+          <div class="widget-body">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>CI</th>
+                    <th>NOMBRE</th>
+                    <th>APELLIDOS</th>
+                    <th>CELULAR</th>
+                    <th>INTERNO</th>
+                    <th>DETALLES</th>
+                    <th>ACTUALIZAR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for perfil in object_list %}
+                  <tr>
+                    <th scope="row">{{ perfil.ci }}</th>
+                    <td>{{ perfil.nombre }}</td>
+                    <td>{{ perfil.genero }}</td>
+                    <td>{{ agencia.celular }}</td>
+                    <td>2228262</td>
+                    <td>
+                      <a href="{% url "usuario:perfildetail" perfil.ci %}">
+
+                      <button type="button" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-eye-open"></span>
+    Ver
+  </button>
+
+</a>
+
+
+</td>
+
+
+                    <td><button type="button" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-pencil"></span> Editar
+  </button></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock content %}

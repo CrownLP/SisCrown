@@ -1,0 +1,276 @@
+{% extends 'base.html'%}
+
+{%load staticfiles%}
+
+{% block content %}
+
+
+        <div class="page-content container-fluid">
+          <div class="row">
+            <div class="widget-heading">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+				 <tbody>
+					<tr>
+					  <td ><h3 class="widget-title">PERFIL DE USUARIO</h3></td>
+					  <td align="right"><button type="button" class="btn btn-primary active">REGRESAR</button></td>
+					</tr>
+				 </tbody>
+			  </table>
+            </div>
+            <div class="col-md-3">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Foto Perfil</h3>
+                </div>
+                <div class="panel-body" align="center">
+
+<img src="{{ perfil.foto.url }}" alt="..." onmouseover="this.width=220;this.height=220;" onmouseout="this.width=80;this.height=80;" width="80" height="80" class="img-thumbnail"/>
+
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Informacón Importante</h3>
+                </div>
+                <div class="panel-body">
+                 <table width="100%" border="0" cellpadding="3" cellspacing="3">
+				  <tbody>
+					<tr>
+					  <td width="30%" align="right">Nombres:</td>
+					  <td width="70%">&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.usuario }}</td>
+					</tr>
+					<tr>
+					  <td align="right">Apellidos:</td>
+					  <td>&nbsp;
+              {% for user in perfil.user_set.all %}
+                 <li>{{ user.name }}
+                 </li>
+              {% endfor %}
+
+
+            </td>
+					</tr>
+					<tr>
+					  <td align="right">Genero:</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.get_genero_display }}</td>
+					</tr>
+					<tr>
+					  <td align="right">Fecha de Nacimiento:</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.nacimiento.date }}</td>
+					</tr>
+					<tr>
+					  <td align="right">CI:</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.ci }}</td>
+					</tr>
+				  </tbody>
+				</table>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Ubicación</h3>
+                </div>
+                <div class="panel-body">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="3">
+				  <tbody>
+					<tr>
+					  <td width="30%" align="right">País:</td>
+					  <td width="70%">&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Ciudad:</td>
+					  <td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Zona:</td>
+					  <td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Dirección:</td>
+					  <td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Latitud lat:</td>
+					  <td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Longitud lng:</td>
+					  <td>&nbsp;</td>
+					</tr>
+				  </tbody>
+				</table>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Contacto</h3>
+                </div>
+                <div class="panel-body">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="3">
+				  <tbody>
+					<tr>
+					  <td width="30%" align="right">E-mail:</td>
+					  <td width="70%">&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Telefono:</td>
+					  <td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Cel. Corporativo:</td>
+					  <td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Interno:</td>
+					  <td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Cel. Personal:</td>
+					  <td>&nbsp;</td>
+					</tr>
+				  </tbody>
+				</table>
+                </div>
+              </div>
+          </div>
+          <div class="col-md-7">
+             <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Geolocalización</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="widget-body">
+                     <div id="weatherMap" style="height:300px;">Colocar Google Maps</div>
+                  </div>
+              	</div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Datos Corporativos</h3>
+                </div>
+                <div class="panel-body">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="3">
+				  <tbody>
+					<tr>
+					  <td width="30%" align="right">Área:</td>
+					  <td width="70%">&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.area }}</td>
+					</tr>
+					<tr>
+					  <td align="right">Cargo:</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.cargo }}</td>
+					</tr>
+					<tr>
+					  <td align="right">Agencia:</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Dirección Agencia:</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{car}}
+
+</td>
+
+					</tr>
+					<tr>
+					  <td align="right">AFP:</td>
+					  <td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">NUA:</td>
+					  <td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Número de afiliación:</td>
+					  <td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Estado:</td>
+					  <td>&nbsp;</td>
+					</tr>
+				  </tbody>
+				</table>
+                </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Persona de Referencia 1</h3>
+                </div>
+                <div class="panel-body">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="3">
+				  <tbody>
+					<tr>
+					  <td width="30%" align="right">Nombres:</td>
+					  <td width="70%">&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Apellidos:</td>
+					  <td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Teléfono de referencia:</td>
+					  <td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Celular de referencia:</td>
+					  <td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Direcciòn:</td>
+					  <td>&nbsp;</td>
+					</tr>
+				  </tbody>
+				</table>
+                </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Persona de Referencia 2</h3>
+                </div>
+                <div class="panel-body">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="3">
+				  <tbody>
+					<tr>
+					  <td width="30%" align="right">Nombres:</td>
+					  <td width="70%">&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Apellidos:</td>
+					  <td>&nbsp;</td>
+
+
+
+
+
+					</tr>
+					<tr>
+					  <td align="right">Teléfono de referencia:</td>
+					  <td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Celular de referencia:</td>
+					  <td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td align="right">Direcciòn:</td>
+					  <td>&nbsp;</td>
+					</tr>
+				  </tbody>
+				</table>
+                </div>
+              </div>
+          </div>
+          </div>
+        </div>
+
+
+{% endblock content %}

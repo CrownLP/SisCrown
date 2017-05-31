@@ -136,4 +136,4 @@ class Perfil(models.Model):
     persona_ref2 = models.CharField(max_length=50,blank=True,unique = False)
     telefono_ref2 = models.CharField(max_length=50,blank=True,unique = False)
     def __str__(self):
-        return self.usuario
+        return self.nua

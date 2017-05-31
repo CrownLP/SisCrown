@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 import json as simplejson
 from django.core.urlresolvers import reverse_lazy
 from django.template import RequestContext
-from usuario.models import Agencia
+from usuario.models import Agencia, Perfil
 from .models import Perfil, Agencia
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 
@@ -21,7 +21,18 @@ class AgenciaList(ListView):
     model = Agencia
 
 class PerfilDetail(DetailView):
+
     model = Perfil
+
+    def get_context_data(self, **kwargs):
+        pro = self.kwargs['pk']
+        context = super(PerfilDetail, self).get_context_data(**kwargs)
+        context["car"] = pro
+        return context
+
+# Agencia.objects.filter(codigo="LPZ001")
+ # pk = self.kwargs['pk']
+ #        context['orderrecords'] = OrderRecords.objects.filter(account_id=pk)
 
 class AgenciaDetail(DetailView):
     model = Agencia
