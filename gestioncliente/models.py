@@ -23,7 +23,7 @@ class Visita (models.Model):
     ('MOTO', 'Moto'),
     ('VEHICULOLIVIANO', 'Vehiculo Liviano')
     )
-    tipo_vehiculos = models.CharField(max_length=30, choices= TIPOVEHICULOS)
+    tipo_vehiculos = models.CharField(max_length=30, choices= TIPOVEHICULOS, default='VEHICULOLIVIANO')
     REFERENCIAS= (
     ('PERSONAL','Personal'),
     ('REDES', 'Redes'),
@@ -37,5 +37,5 @@ class Visita (models.Model):
     #campos que deben ser generados automaticamente
     agencia = models.ForeignKey(Agencia, blank=False)
     fecha_creacion = models.DateTimeField(default = timezone.now)
-    def __str__(self):
-        return self.id
+    # def __str__(self):
+    #     return self.id

@@ -1,0 +1,115 @@
+{% extends 'base.html'%}
+
+{%load staticfiles%}
+
+{% block content %}
+
+<div class="page-content container-fluid">
+          <div class="row">
+            <div class="widget-heading">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+				 <tbody>
+					<tr>
+					  <td><h3 class="widget-title">DETALLE DE VISITA</h3></td>
+					  <td align="right">
+              <a href="{% url "gestion:visitalist" %}">
+              </p>
+              <button type="button" class="btn btn-primary active">REGRESAR</button>
+            </a>
+            </td>
+					</tr>
+				 </tbody>
+			  </table>
+            </div>
+            <div class="col-md-5">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Información Básica</h3>
+                </div>
+                <div class="panel-body">
+                 <table width="100%" border="0" cellspacing="3" cellpadding="3">
+				  <tbody>
+					<tr>
+					  <td width="30%" align="right">Nombre:</td>
+					  <td width="70%">&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.nombre }}</td>
+					</tr>
+					<tr>
+					  <td align="right">Descripción:</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.descripcion }}</td>
+					</tr>
+				  </tbody>
+				</table>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Foto Agencia</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="item active" align="center">
+                    <img src="{{ agencia.foto.url }}" alt="..." width="200" height="250" class="img-thumbnail"></div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Información Adicional</h3>
+                </div>
+                <div class="panel-body">
+                 <table width="100%" border="0" cellpadding="3" cellspacing="3">
+				  <tbody>
+					<tr>
+					  <td width="30%" align="right">Observación:</td>
+					  <td width="70%">&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.observacion }}</td>
+					</tr>
+					<tr>
+					  <td align="right">Fecha Creación:</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.fecha_creacion }}</td>
+					</tr>
+				  </tbody>
+				</table>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Ubicación</h3>
+                </div>
+                <div class="panel-body">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="3">
+				  <tbody>
+					<tr>
+					  <td width="30%" align="right">Empresa:</td>
+					  <td width="70%">&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.empresa }}</td>
+					</tr>
+					<tr>
+					  <td align="right">País:</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.pais }}</td>
+					</tr>
+					<tr>
+					  <td align="right">Ciudad:</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.ciudad }}</td>
+					</tr>
+					<tr>
+					  <td align="right">Latitud:</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.lat }}</td>
+					</tr>
+					<tr>
+					  <td align="right">Longitud:</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.lng }}</td>
+					</tr>
+				  </tbody>
+				</table>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Geolocalización</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="widget-body">
+              </div>
+            </div>
+          </div>
+        </div>
+{% endblock content %}
