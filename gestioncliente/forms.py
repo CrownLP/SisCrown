@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Visita
+from .models import Visita, Oportunidad
 from django.contrib.admin.widgets import AdminDateWidget
 
 class VisitaForm (forms.ModelForm):
@@ -27,6 +27,42 @@ class VisitaForm (forms.ModelForm):
             'tipo_vehiculos': forms.RadioSelect (attrs={'class':'radio-custom radio-inline'}),
             'referencia': forms.Select (attrs={'class':'form-control'}),
             'descripcion': forms.Select (attrs={'class':'form-control'}),
+            'vendedor': forms.Select (attrs={'class':'form-control'}),
+            'agencia': forms.Select (attrs={'class':'form-control'}),
+        }
+
+class OportunidadForm (forms.ModelForm):
+    class Meta:
+        model = Oportunidad
+
+        fields = [
+            'negociacion',
+            'dni',
+            'modelo_actual',
+            'modelo_interes',
+            'tipo_venta',
+            'estado',
+            'vendedor',
+            'agencia',
+        ]
+        labels = {
+            'negociacion': 'Resumen Negociacion con el Cliente',
+            'dni': 'Cliente',
+            'modelo_actual': 'Modelo actual del vehiculo del cliente',
+            'modelo_interes': 'Modelo en el que esta interesado el cliente',
+            'tipo_venta': 'Tipo de Venta',
+            'estado': 'Estado',
+            'vendedor': 'Ejecutivo de Ventas',
+            'agencia': 'Agencia',
+        }
+
+        widgets = {
+            'negociacion': forms.TextInput (attrs={'class':'form-control'}),
+            'dni': forms.RadioSelect (attrs={'class':'radio-custom radio-inline'}),
+            'modelo_actual': forms.Select (attrs={'class':'form-control'}),
+            'modelo_interes': forms.Select (attrs={'class':'form-control'}),
+            'tipo_venta': forms.Select (attrs={'class':'form-control'}),
+            'estado': forms.Select (attrs={'class':'form-control'}),
             'vendedor': forms.Select (attrs={'class':'form-control'}),
             'agencia': forms.Select (attrs={'class':'form-control'}),
         }

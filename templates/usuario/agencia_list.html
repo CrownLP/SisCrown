@@ -12,7 +12,7 @@
           </div>
           <div class="widget-body">
             <div class="table-responsive">
-              <table class="table table-bordered">
+              <table id="example-2" cellspacing="0" width="100%" class="table table-striped table-bordered">
                 <thead>
                   <tr>
                     <th>COD</th>
@@ -24,6 +24,17 @@
                     <th>ACTUALIZAR</th>
                   </tr>
                 </thead>
+                <tfoot>
+                  <tr>
+                    <th>COD</th>
+                    <th>NOMBRE</th>
+                    <th>CIUDAD</th>
+                    <th>DIRECCIÓN</th>
+                    <th>TELEFONO</th>
+                    <th>DETALLES</th>
+                    <th>ACTUALIZAR</th>
+                </tr>
+              </tfoot>
                 <tbody>
                   {% for agencia in object_list %}
                   <tr>

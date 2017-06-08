@@ -1,0 +1,69 @@
+{% extends 'base.html'%}
+
+{%load staticfiles%}
+
+{% block content %}
+<div class="page-content container-fluid">
+          <div class="row">
+            <div class="widget-heading">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+				 <tbody>
+					<tr>
+					  <td><h3 class="widget-title">DETALLE DE OPORTUNIDAD</h3></td>
+					  <td align="right">
+              <a href="{% url "gestion:oportunidadlist" %}">
+              </p>
+              <button type="button" class="btn btn-primary active">REGRESAR</button>
+            </a>
+            </td>
+					</tr>
+				 </tbody>
+			  </table>
+            </div>
+            <div class="col-md-5">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Información Básica</h3>
+                </div>
+                <div class="panel-body">
+                 <table width="100%" border="0" cellspacing="3" cellpadding="3">
+				  <tbody>
+					<tr>
+					  <td width="30%" align="right">ID:</td>
+					  <td width="70%">&nbsp;&nbsp;&nbsp;&nbsp;{{ oportunidad.id }}</td>
+					</tr>
+					<tr>
+					  <td align="right">Negociacion:</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ oportunidad.negociacion }}</td>
+					</tr>
+          <tr>
+            <td align="right">Cliente ID:</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ oportunidad.dni }}</td>
+          </tr>
+          <tr>
+            <td align="right">Modelo Actual:</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ oportunidad.modelo_actual }}</td>
+          </tr>
+          <tr>
+            <td align="right">Modelo de Interes:</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ oportunidad.modelo_interes }}</td>
+          </tr>
+          <tr>
+            <td align="right">Tipo de Venta:</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ oportunidad.tipo_venta }}</td>
+          </tr>
+          <tr>
+            <td align="right">Estado:</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ oportunidad.estado }}</td>
+          </tr>
+          <tr>
+            <td align="right">Vendedor:</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ oportunidad.vendedor }}</td>
+          </tr>
+				  </tbody>
+				</table>
+                </div>
+              </div>
+
+        </div>
+{% endblock content %}

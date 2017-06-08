@@ -6,9 +6,9 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 import json as simplejson
 from django.core.urlresolvers import reverse_lazy
 from django.template import RequestContext
-from gestioncliente.models import Visita
+from gestioncliente.models import Visita, Oportunidad
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
-from .forms import VisitaForm
+from .forms import VisitaForm, OportunidadForm
 
 # Las Vistas de la Aplicacion
 class VisitaList(ListView):
@@ -21,3 +21,14 @@ class VisitaCreation(CreateView):
     model = Visita
     success_url = reverse_lazy('gestion:visitalist')
     form_class = VisitaForm
+
+class OportunidadList(ListView):
+    model = Oportunidad
+
+class OportunidadDetail(DetailView):
+    model = Oportunidad
+
+class OportunidadCreation(CreateView):
+    model = Oportunidad
+    success_url = reverse_lazy('gestion:oportunidadlist')
+    form_class = OportunidadForm
