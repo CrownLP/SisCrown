@@ -10,9 +10,27 @@ from usuario.models import Agencia, Perfil
 from .models import Perfil, Agencia
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from .forms import AgenciaForm
+#modulos para poder generar el loguin
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+
 #from .forms import AgenciaForm
 
 # Las Vistas de la Aplicacion
+
+def authentication (request):
+    if request.method == 'POST':
+        action = request.POST.get('action', None)
+        username = request.POST.get ('form-username', None)
+        password = request.POST.get ('form-password', None)
+        user = authenticate(username=username, password=password)
+        loguin (request,user)
+    return render(request, 'login.html',{})
+
+
+
+
+
 class PerfilList(ListView):
     model = Perfil
 
