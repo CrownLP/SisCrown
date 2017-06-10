@@ -18,10 +18,12 @@ from django.contrib import admin
 
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import login
 
 urlpatterns = [
     #la URL del sitio de administracion
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/login/', login,{'template_name':'login.html'}, name='login'),
     url(r'^inventario/', include('inventario.urls', namespace='inventario')),
     url(r'^usuario/', include('usuario.urls', namespace='usuario')),
     url(r'^cliente/', include('cliente.urls', namespace='cliente')),

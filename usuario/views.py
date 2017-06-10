@@ -14,6 +14,7 @@ from .forms import AgenciaForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 
+
 #from .forms import AgenciaForm
 
 # Las Vistas de la Aplicacion
@@ -26,9 +27,6 @@ def authentication (request):
         user = authenticate(username=username, password=password)
         loguin (request,user)
     return render(request, 'login.html',{})
-
-
-
 
 
 class PerfilList(ListView):
@@ -67,6 +65,7 @@ class AgenciaCreation(CreateView):
 class AgenciaCreationCordenadas (CreateView):
     model = Agencia
     fields = ('codigo','lat','lng','user')
+
 
 def coords_save (request):
     if request.method == 'POST':

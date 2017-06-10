@@ -9,13 +9,15 @@ from django.template import RequestContext
 from gestioncliente.models import Visita, Oportunidad
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from .forms import VisitaForm, OportunidadForm
-
+from django.contrib.auth.decorators import login_required
 # Las Vistas de la Aplicacion
 class VisitaList(ListView):
     model = Visita
 
 class VisitaDetail(DetailView):
     model = Visita
+
+
 
 class VisitaCreation(CreateView):
     model = Visita
