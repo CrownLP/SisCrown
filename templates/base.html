@@ -40,6 +40,10 @@
   <link rel="stylesheet" type="text/css" href="{%static 'plugins/datatables.net-responsive-bs/css/responsive.bootstrap.min.css'%}">
   <link rel="stylesheet" type="text/css" href="{%static 'plugins/datatables.net-fixedcolumns-bs/css/fixedColumns.bootstrap.min.css'%}">
   <link rel="stylesheet" type="text/css" href="{%static 'plugins/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css'%}">
+  <!-- Owl Carousel-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/owl.carousel/dist/assets/owl.carousel.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/owl.carousel/dist/assets/owl.theme.default.min.css'%}">
+
 <!-- Core CSS-->
   <link rel="stylesheet" type="text/css" href="{%static 'build/css/first-layout.css'%}">
 </head>
@@ -198,6 +202,9 @@
       <!-- Main Sidebar end-->
       <!-- Container -->
       <div class="page-container">
+
+
+
         {% block content %}
         {% endblock %}
      </div>
@@ -234,9 +241,14 @@
     <script type="text/javascript" src="{%static 'plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js'%}"></script>
     <script type="text/javascript" src="{%static 'plugins/datatables.net-fixedcolumns/js/dataTables.fixedColumns.min.js'%}"></script>
     <script type="text/javascript" src="{%static 'plugins/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js'%}"></script>
+
+    <!-- Owl Carousel-->
+    <script type="text/javascript" src="{%static 'plugins/owl.carousel/dist/owl.carousel.min.js'%}"></script>
+
     <!-- Core JS-->
     <script type="text/javascript" src="{%static 'build/js/first-layout/app.js'%}"></script>
     <script type="text/javascript" src="{%static 'build/js/first-layout/demo.js'%}"></script>
     <script type="text/javascript" src="{%static 'build/js/page-content/tables/data-tables.js'%}"></script>
+    <script type="text/javascript" src="{%static 'build/js/page-content/ui-elements/carousels.js'%}"></script>
   </body>
 </html>

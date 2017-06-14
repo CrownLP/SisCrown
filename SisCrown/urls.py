@@ -22,6 +22,7 @@ from django.contrib.auth.views import login
 
 urlpatterns = [
     #la URL del sitio de administracion
+    url(r'^$', login,{'template_name':'index.html'}, name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/login/', login,{'template_name':'login.html'}, name='login'),
     url(r'^inventario/', include('inventario.urls', namespace='inventario')),
