@@ -143,3 +143,11 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = reverse_lazy ('usuario:AgenciaList')
 MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
+
+# Configuracion necesaria para el envio de correos.
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'mail.crown.bo'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'portal.crown@crown.bo'
+EMAIL_HOST_PASSWORD = 'Ui0h#9m8'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
