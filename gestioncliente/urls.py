@@ -10,9 +10,11 @@ from .views import (
     OportunidadList,
     OportunidadDetail,
     OportunidadCreation,
+    BuscarView,
     )
 
 urlpatterns = [
+    url(r'^buscar/$', BuscarView.as_view(), name='buscar'),
     url(r'^listaVisita$', VisitaList.as_view(), name='visitalist'),
     url(r'^listaOportunidad$', OportunidadList.as_view(), name='oportunidadlist'),
     url(r'^visita/(?P<pk>[0-9]{1,10})/$', VisitaDetail.as_view(), name='visitadetail'),

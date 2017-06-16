@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+
+{%load staticfiles%}
+
+{% block content %}
+
+<div class="page-content container-fluid">
+
+
+  <form role="form" action="" method="post" class="login-form">
+
+    {% csrf_token %}
+
+
+    <div class="form-group">
+
+      <input type="text" name = "buscalo" class = "search-query" placeholder="Buscar">
+
+        <!-- <input type="text" name="username" placeholder="Usuario..." class="form-username form-control" id="form-username"> -->
+      </div>
+
+
+      <button type="submit" class="btn" value = "Enviar">Enviar Solicitud</button>
+
+  </form>
+asdasd
+{% if clientes_dni %}
+    {% for clientes_dni in cliente %}
+      {{cliente.dni}}
+    {% endfor%}
+{%endif%}
+
+
+        </div>
+{% endblock content %}
