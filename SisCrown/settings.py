@@ -87,9 +87,9 @@ WSGI_APPLICATION = 'SisCrown.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'crown',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD':'Pikachu%12',
+        'PASSWORD':'pIKACHU%12',
         'HOST':'127.0.0.1',
         'PORT':'5432',
     }
