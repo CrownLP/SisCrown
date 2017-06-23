@@ -10,10 +10,12 @@ from .views import (
     AgenciaDetail,
     #AgenciaForm
     AgenciaCreation,
-    coords_save
+    coords_save,
+    RegistroUsuario
 )
 
 urlpatterns = [
+    url(r'^registrar', RegistroUsuario.as_view(), name='registro'),
     url(r'^login/$', login,{'template_name':'login.html'}, name='login'),
     url(r'^listaAgencia$', AgenciaList.as_view(), name='AgenciaList'),
     url(r'^listaPerfil$', PerfilList.as_view(), name='PerfilList'),

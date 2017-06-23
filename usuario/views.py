@@ -9,15 +9,23 @@ from django.template import RequestContext
 from usuario.models import Agencia, Perfil
 from .models import Perfil, Agencia
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
-from .forms import AgenciaForm
+from .forms import AgenciaForm, RegistroForm
 #modulos para poder generar el loguin
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 
-
 #from .forms import AgenciaForm
 
 # Las Vistas de la Aplicacion
+
+
+class RegistroUsuario (CreateView):
+    model = User
+    template_name = "usuario/registrar.html"
+    form_class = RegistroForm
+    success_url = reverse_lazy ('usuario:PerfilList')
+
+
 
 def authentication (request):
     if request.method == 'POST':
