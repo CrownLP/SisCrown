@@ -119,6 +119,7 @@ class Perfil(models.Model):
     ('FUTURO', 'Futuro'),
     ('PREVISION', 'Prevision')
     )
+    #datos solo para RRHH
     afp = models.CharField(max_length=15, choices= AFPS)
     nua = models.CharField(max_length = 20)
     numero_afiliacion = models.CharField(max_length = 20)

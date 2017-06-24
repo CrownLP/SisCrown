@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, render_to_response
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
@@ -9,7 +9,7 @@ from django.template import RequestContext
 from usuario.models import Agencia, Perfil
 from .models import Perfil, Agencia
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
-from .forms import AgenciaForm, RegistroForm
+from .forms import AgenciaForm, RegistroForm, PerfilForm
 #modulos para poder generar el loguin
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
@@ -17,6 +17,39 @@ from django.contrib.auth import authenticate, login
 #from .forms import AgenciaForm
 
 # Las Vistas de la Aplicacion
+
+
+#VISTA DE 2 FOMULARIOS
+
+class RegistroCompleto (CreateView):
+    model = Perfil
+    template_name = "usuario/RegistroCompleto.html"
+    form_class = PerfilForm
+    second_form_class = AgenciaForm
+    success_url = reverse_lazy ('usuario:PerfilList')
+
+    def get_context_data (self, **kwargs):
+        context = super (RegistroCompleto, self).get_context_data(**kwargs)
+        if 'form' not in context:
+            context['forms']=self.form_class(self.request.GET)
+            print ("entra al form1")
+        if 'form2' not in context:
+            context['forms2']=self.second_form_class(self.request.GET)
+            print ("entra al form2")
+        return context
+
+    def post (self, request, *args, **kwargs):
+        self.object = self.get_object
+        form = self.form_class(request.POST)
+        form2 = self.second_form_class(request.POST)
+        if form.is_valid() and form2.is_valid():
+            solicitud = form.save(commit = False)
+            solicitud.perfil = form2.save()
+            solicitud.save()
+            return HttpResponseRedirect(self.get_success_url())
+        else:
+            return self.render_to_response(self.get_context_data(form =form, form2 = form2))
+
 
 
 class RegistroUsuario (CreateView):
@@ -68,6 +101,10 @@ class AgenciaCreation(CreateView):
     form_class = AgenciaForm
 
 
+class PerfilCreation(CreateView):
+    model = Perfil
+    success_url = reverse_lazy('usuario:PerfilList')
+    form_class = PerfilForm
 
 
 class AgenciaCreationCordenadas (CreateView):
