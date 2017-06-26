@@ -1,6 +1,6 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, inlineformset_factory
 from django import forms
-from .models import Visita, Oportunidad
+from .models import Visita, Oportunidad, Seguimiento
 from django.contrib.admin.widgets import AdminDateWidget
 
 class VisitaForm (forms.ModelForm):
@@ -36,8 +36,8 @@ class OportunidadForm (forms.ModelForm):
         model = Oportunidad
 
         fields = [
-            'negociacion',
             'dni',
+            'negociacion',
             'modelo_actual',
             'modelo_interes',
             'tipo_venta',
@@ -46,8 +46,8 @@ class OportunidadForm (forms.ModelForm):
             'agencia',
         ]
         labels = {
-            'negociacion': 'Resumen Negociacion con el Cliente',
             'dni': 'Cliente',
+            'negociacion': 'Resumen Negociacion Inicial con el Cliente',
             'modelo_actual': 'Modelo actual del vehiculo del cliente',
             'modelo_interes': 'Modelo en el que esta interesado el cliente',
             'tipo_venta': 'Tipo de Venta',
@@ -57,12 +57,45 @@ class OportunidadForm (forms.ModelForm):
         }
 
         widgets = {
-            'negociacion': forms.TextInput (attrs={'class':'form-control'}),
-            'dni': forms.RadioSelect (attrs={'class':'radio-custom radio-inline'}),
-            'modelo_actual': forms.Select (attrs={'class':'form-control'}),
-            'modelo_interes': forms.Select (attrs={'class':'form-control'}),
+            'negociacion': forms.Textarea (attrs={'class':'form-control'}),
+            'dni': forms.Select (attrs={'class':'form-control'}),
+            'modelo_actual': forms.TextInput (attrs={'class':'form-control'}),
+            'modelo_interes': forms.TextInput (attrs={'class':'form-control'}),
             'tipo_venta': forms.Select (attrs={'class':'form-control'}),
             'estado': forms.Select (attrs={'class':'form-control'}),
             'vendedor': forms.Select (attrs={'class':'form-control'}),
             'agencia': forms.Select (attrs={'class':'form-control'}),
         }
+
+
+class SeguimientoForm(ModelForm):
+    class Meta:
+        model = Seguimiento
+        fields = [
+            'observacion',
+            'siguiente_interaccion',
+            'tipo_interaccion',
+            'interaccion',
+            'fecha_creacion',
+            'usuario',
+        ]
+        labels = {
+            'observacion':'Negociacion',
+            'siguiente_interaccion': 'Fecha siguiente interaccion',
+            'tipo_interaccion': '',
+            'interaccion': 'Tipo de interaccion',
+            'fecha_creacion': 'Fecha de Creacion',
+            'usuario': 'Ejecutivo de Ventas',
+        }
+        widgets = {
+            'observacion':forms.Textarea (attrs={'class':'form-control'}),
+            'siguiente_interaccion': forms.TextInput (attrs={'class':'form-control'}),
+            'tipo_interaccion':forms.RadioSelect (attrs={'class':'radio-custom radio-inline'}),
+            'interaccion':forms.Select (attrs={'class':'form-control'}),
+            'fecha_creacion': forms.TextInput (attrs={'class':'form-control'}),
+            'usuario':forms.Select (attrs={'class':'form-control'}),
+        }
+
+
+SeguimientoFormSet = inlineformset_factory(Oportunidad, Seguimiento,
+                                            form=SeguimientoForm, extra=1)

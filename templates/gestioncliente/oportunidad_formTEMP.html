@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{%load staticfiles%}
+
+{% block content %}
+  <div class="page-content container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="widget">
+          <div class="widget-heading">
+            <h3 class="widget-title">REGISTRAR NUEVA OPORTUNIDAD</h3>
+          </div>
+          <div class="widget-body">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+<button type="submit" class="btn btn-outline btn-success">Registrar Oportunidad</button>
+<button type="reset" class="btn btn-outline btn-black">Limpiar</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock content %}
