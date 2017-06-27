@@ -3,6 +3,7 @@ from django import forms
 from .models import Visita, Oportunidad, Seguimiento
 from django.contrib.admin.widgets import AdminDateWidget
 
+
 class VisitaForm (forms.ModelForm):
     class Meta:
         model = Visita
@@ -89,7 +90,7 @@ class SeguimientoForm(ModelForm):
         }
         widgets = {
             'observacion':forms.Textarea (attrs={'class':'form-control'}),
-            'siguiente_interaccion': forms.TextInput (attrs={'class':'form-control'}),
+            'siguiente_interaccion':forms.DateTimeInput(attrs={'id':'datetimepicker5','class': 'input-group date'}),
             'tipo_interaccion':forms.RadioSelect (attrs={'class':'radio-custom radio-inline'}),
             'interaccion':forms.Select (attrs={'class':'form-control'}),
             'fecha_creacion': forms.TextInput (attrs={'class':'form-control'}),

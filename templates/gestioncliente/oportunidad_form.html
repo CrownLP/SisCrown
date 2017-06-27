@@ -8,20 +8,28 @@
         <form action="" method="post">{% csrf_token %}
             {{ form.as_p }}
 
-            <table class="table">
-                {{ seguimiento.management_form }}
+            <!-- <div id="datetimepicker5" class="input-group date">
+              <input type="text" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            </div> -->
 
+
+            <table class="table">
+                <!-- {{ seguimiento.management_form }} -->
                 {% for form in seguimiento.forms %}
                     {% if forloop.first %}
                         <thead>
                         <tr>
                             {% for field in form.visible_fields %}
+                                <!-- <th>{{ field.label|capfirst }}</th> -->
                                 <th>{{ field.label|capfirst }}</th>
                             {% endfor %}
                         </tr>
                         </thead>
                     {% endif %}
+
+
                     <tr class="{% cycle row1 row2 %} formset_row">
+
                         {% for field in form.visible_fields %}
                             <td>
                                 {# Include the hidden fields in the form #}
