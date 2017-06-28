@@ -46,6 +46,9 @@ class VisitaCreation(CreateView):
     model = Visita
     success_url = reverse_lazy('gestion:visitalist')
     form_class = VisitaForm
+    def form_valid(self, form):
+        form.instance.vendedor = self.request.user
+        return super(VisitaCreation, self).form_valid(form)
 
 
 class OportunidadList(ListView):

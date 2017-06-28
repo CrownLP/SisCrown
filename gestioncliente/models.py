@@ -26,12 +26,11 @@ class Visita (models.Model):
     ('OTRO', 'Otro')
     )
     referencia = models.CharField(max_length=30, choices= REFERENCIAS)
-    vendedor = models.ForeignKey(User, blank = True, null = True)
+    vendedor = models.ForeignKey(User, on_delete=models.CASCADE)
+    #models.ForeignKey(User, blank = True, null = True)
     #campos que deben ser generados automaticamente
     agencia = models.ForeignKey(Agencia, blank=False)
     fecha_creacion = models.DateTimeField(default = timezone.now)
-    # def __str__(self):
-    #     return self.id
 
 class Oportunidad (models.Model):
 

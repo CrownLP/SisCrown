@@ -13,6 +13,7 @@ from .forms import AgenciaForm, RegistroForm, PerfilForm
 #modulos para poder generar el loguin
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserCreationForm
 
 #from .forms import AgenciaForm
 
@@ -20,6 +21,16 @@ from django.contrib.auth import authenticate, login
 
 
 #VISTA DE 2 FOMULARIOS
+
+class RegistroUsuario (CreateView):
+    model = User
+    template_name = "usuario/registrar.html"
+    form_class = RegistroForm
+    success_url = reverse_lazy ('usuario:PerfilList')
+
+
+
+
 
 class RegistroCompleto (CreateView):
     model = Perfil
@@ -52,14 +63,11 @@ class RegistroCompleto (CreateView):
 
 
 
-class RegistroUsuario (CreateView):
+class RegistroUsuarioTEMP (CreateView):
     model = User
     template_name = "usuario/registrar.html"
     form_class = RegistroForm
     success_url = reverse_lazy ('usuario:PerfilList')
-
-
-
 def authentication (request):
     if request.method == 'POST':
         action = request.POST.get('action', None)
