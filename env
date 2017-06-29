@@ -1,0 +1,5 @@
+DB_NAME=crown
+DB_USER=samuel
+DB_PASS=Pikachu%12
+DB_SERVICE=postgres
+DB_PORT=5432

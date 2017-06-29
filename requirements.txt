@@ -6,4 +6,3 @@ psycopg2==2.7.1
 pyodbc==4.0.16
 pytz==2017.2
 simplejson==3.10.0
-    <a href="{% url "usuario:agenciadetail" agencia.pais %}">Ver</a> |

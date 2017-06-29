@@ -83,6 +83,7 @@ WSGI_APPLICATION = 'SisCrown.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+#base de datos para desarrollo
 
 DATABASES = {
     'default': {
@@ -94,6 +95,22 @@ DATABASES = {
         'PORT':'5432',
     }
 }
+
+#base de datos para produccion
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'crown',
+#         'USER': 'samuel',
+#         'PASSWORD':'Pikachu%12',
+#         'HOST':'db',
+#         'PORT':'5432',
+#     }
+# }
+
+
+
 
 
 #'ENGINE': 'django.db.backends.sqlite3',
