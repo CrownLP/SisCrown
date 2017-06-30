@@ -6,13 +6,15 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./src:/src¿¿      - ./config/nginx:/etc/nginx/conf.d
+      - ./src:/src
+      - ./config/nginx:/etc/nginx/conf.d
       - /static:/static
     depends_on:
       - web
   web:
     build: .
     container_name: dz01
+    privileged: true
     command: bash -c 'gunicorn SisCrown.wsgi -b 0.0.0.0:8000'
     depends_on:
       - db
@@ -25,14 +27,9 @@ services:
       - redis
 
   db:
-    restart: always
-    image: postgres:latest
+    build: ./postgres
     container_name: pz01
-    environment:
-      - POSTGRES_DB=crown
-      - POSTGRES_USER=samuel
-      - POSTGRES_PASSWORD=Pikachu%12
-      - PGDATA=/var/lib/postgresql/data/pgdata
+    restart: always
     expose:
       - "5432"
 

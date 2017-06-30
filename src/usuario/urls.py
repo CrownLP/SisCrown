@@ -13,10 +13,12 @@ from .views import (
     coords_save,
     RegistroUsuario,
     PerfilCreation,
-    RegistroCompleto
+    RegistroCompleto,
+    change_password
 )
 
 urlpatterns = [
+    url(r'^password/$', change_password, name='change_password'),
     url(r'^registrar', RegistroUsuario.as_view(), name='registro'),
     url(r'^registroCompleto', RegistroCompleto.as_view(), name='registrocompleto'),
     url(r'^login/$', login,{'template_name':'login.html'}, name='login'),

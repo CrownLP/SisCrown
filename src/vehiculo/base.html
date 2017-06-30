@@ -1,0 +1,275 @@
+<!--CARGA DE ARCHIVOS STATICOS-->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="{%static 'build/images/logo/flavicon.ico'%}" type="image/ico" />
+  <title>CROWN - Gestión de Clientes</title>
+  <!-- PACE-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/PACE/themes/blue/pace-theme-flash.css'%}">
+  <script type="text/javascript" src="{%static 'plugins/PACE/pace.min.js"></script>
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/bootstrap/dist/css/bootstrap.min.css'%}">
+  <!-- Ionicons-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/Ionicons/css/ionicons.min.css'%}">
+  <!-- Malihu Scrollbar-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css'%}">
+  <!-- Animo.js-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/animo.js/animate-animo.min.css'%}">
+  <!-- Bootstrap Progressbar-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css'%}">
+  <!-- Toastr-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/toastr/toastr.min.css'%}">
+  <!-- SpinKit-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/SpinKit/css/spinners/2-double-bounce.css'%}">
+  <!-- Weather Icons-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/weather-icons/css/weather-icons-wind.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/weather-icons/css/weather-icons.min.css'%}">
+  <!-- Bootstrap Date Range Picker-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/bootstrap-daterangepicker/daterangepicker.css'%}">
+  <!-- Bootstrap DatePicker-->
+<link rel="stylesheet" type="text/css" href="{%static 'plugins/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css'%}">
+  <!-- DataTables-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/datatables.net-bs/css/dataTables.bootstrap.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/datatables.net-buttons-bs/css/buttons.bootstrap.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/datatables.net-colreorder-bs/css/colReorder.bootstrap.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/datatables.net-keytable-bs/css/keyTable.bootstrap.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/datatables.net-select-bs/css/select.bootstrap.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/datatables.net-responsive-bs/css/responsive.bootstrap.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/datatables.net-fixedcolumns-bs/css/fixedColumns.bootstrap.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css'%}">
+  <!-- Owl Carousel-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/owl.carousel/dist/assets/owl.carousel.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/owl.carousel/dist/assets/owl.theme.default.min.css'%}">
+  <!-- jQuery MiniColors-->
+  <link rel="stylesheet" type="text/css" href="{%static 'plugins/jquery-minicolors/jquery.minicolors.css'%}">
+  <!-- Core CSS-->
+  <link rel="stylesheet" type="text/css" href="{%static 'build/css/first-layout.css'%}">
+</head>
+  <body>
+    <!-- Header start-->
+    <header>
+      <div class="search-bar closed">
+        <form>
+          <div class="input-group input-group-lg">
+            <input type="text" placeholder="Search for..." class="form-control"><span class="input-group-btn">
+              <button type="button" class="btn btn-default search-bar-toggle"><i class="ion-close-round"></i></button></span>
+          </div>
+        </form>
+      </div><a href="javascript:;" role="button" class="hamburger-menu pull-left"><span></span></a>
+      <form class="search-form m-10 pull-left hidden-xs">
+        <div class="form-group has-feedback mb-0">
+          <input type="text" aria-describedby="inputSearchFor" placeholder="Buscar..." style="width: 180px" class="form-control rounded"><span aria-hidden="true" class="ion-search form-control-feedback"></span><span id="inputSearchFor" class="sr-only">(default)</span>
+        </div>
+      </form><a href="index.html" class="brand"><img src="{% static 'build/images/logo/logo_crown.png'%}" width="248" height="55" alt=""/><img src="{% static 'build/images/logo/logo Gestion de Clientes.png'%}" width="400" height="22" alt=""/></a>
+      <ul class="notification-bar list-inline pull-right">
+        <li class="visible-xs"><a href="javascript:;" role="button" class="header-icon search-bar-toggle"><i class="ion-search"></i></a></li>
+        <li class="dropdown hidden-sm hidden-xs"><a id="dropdownMenu2" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle header-icon lh-1 pt-10 pb-10">
+            <div class="media mt-0">
+              <div class="media-right media-middle pl-0">
+                <p class="fs-12 mb-0"></br>Bienvenido</p>
+              </div>
+            </div></a>
+          <ul aria-labelledby="dropdownMenu2" class="dropdown-menu dropdown-menu-right animated fadeInUp icon">
+            <li><a href="profile.html"><i class="ion-person mr-5"></i> My Profile</a></li>
+            <li><a href="email-inbox.html"><i class="ion-filing mr-5"></i> Inbox</a></li>
+            <li><a href="profile.html"><i class="ion-gear-b mr-5"></i> Account Settings</a></li>
+            <li><a href="login.html"><i class="ion-unlocked mr-5"></i> Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <!-- Header end-->
+    <div class="main-container">
+      <!-- Main Sidebar start-->
+      <aside data-mcs-theme="minimal-dark" class="main-sidebar mCustomScrollbar">
+        <div class="media user">
+          <div class="media-left">
+            <div id="esp-user-profile" data-percent="66" style="height: 56px; width: 56px; line-height: 40px; padding: 8px;" class="easy-pie-chart"><img src="../build/images/users/21.png" alt="" class="avatar img-circle"></div>
+          </div>
+          <div style="overflow: visible" class="media-body media-middle">
+            <h4 class="media-heading fs-16">{{ user.first_name }} {{ user.last_name }}</h4>
+            <div class="dropdown"><a id="dropdown-status" href="javascript:;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle"><span class="status bg-success"></span> Conectado <span class="caret"></span></a>
+              <ul aria-labelledby="dropdown-status" class="dropdown-menu animated fadeInUp">
+                <li><a href="#">Desconectado</a></li>
+                <li><a href="#">Ocupado</a></li>
+                <li><a href="#">Ausente</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="login.html">Cerrar Sesión</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <ul class="list-unstyled navigation mb-0">
+          <li class="sidebar-category">GESTIÓN DE CLIENTES</li>
+          <li class="panel"><a  data-toggle="collapse" data-parent=".navigation" href="#collapse1" aria-expanded="false" aria-controls="collapse1" class="active collapsed"><i class="ion-ios-home-outline bg-purple"></i><span class="sidebar-title">VISITAS</span></a>
+            <ul id="collapse1" class="list-unstyled collapse">
+              <li><a href="{% url "gestion:nuevavisita" %}">Registro de Visita</a></li>
+              <li><a href="{% url "gestion:visitalist" %}">Histórico de Visitas</a></li>
+              <li><a href="#">Reportes</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse2" aria-expanded="false" aria-controls="collapse2" class="active collapsed"><i class="ion-ios-person-outline bg-success"></i><span class="sidebar-title">OPORTUNIDAD</span></a>
+            <ul id="collapse2" class="list-unstyled collapse">
+              <li><a href="{% url "gestion:nuevaoportunidad" %}" class="active">Registro adicional</a></li>
+              <li><a href="#">Seguimiento por vendedor</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse3" aria-expanded="false" aria-controls="collapse3" class="active collapsed"><i class="ion-ios-chatbubble-outline bg-primary"></i><span class="sidebar-title">COTIZACIÓN</span></a>
+            <ul id="collapse3" class="list-unstyled collapse">
+              <li class="panel"><a role="button" data-toggle="collapse" data-parent="#collapse3" href="#collapse31" aria-expanded="false" aria-controls="collapse31" class="active collapsed"><span class="sidebar-title">Consultas de stock</span></a>
+				<ul id="collapse31" class="list-unstyled collapse">
+				  <li><a href="#" class="active">Registro de cotizaciones</a></li>
+				</ul>
+			  </li>
+			  <li class="panel"><a role="button" data-toggle="collapse" data-parent="#collapse3" href="#collapse32" aria-expanded="false" aria-controls="collapse32" class="active collapsed"><span class="sidebar-title">Solicitud de descuento</span></a>
+				<ul id="collapse32" class="list-unstyled collapse">
+				  <li><a href="#" class="active">Con Descuento</a></li>
+				  <li><a href="#">Sin Descuento</a></li>
+				</ul>
+			  </li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse4" aria-expanded="false" aria-controls="collapse4" class="active collapsed"><i class="ion-ios-calendar-outline bg-info"></i><span class="sidebar-title">AGENDA</span></a>
+            <ul id="collapse4" class="list-unstyled collapse">
+              <li><a href="#" class="active">Contacto</a></li>
+              <li><a href="#">Seguimiento</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse5" aria-expanded="false" aria-controls="collapse5" class="active collapsed"><i class="ion-ios-folder-outline bg-warning"></i><span class="sidebar-title">INF. CORPORATIVA</span></a>
+                     <ul id="collapse5" class="list-unstyled collapse">
+                       <li><a href="{% url "usuario:AgenciaList" %}">Sucursales</a></li>
+                       <li><a href="{% url "cliente:clientelist" %}">Clientes</a></li>
+                       <li><a href="{% url "usuario:PerfilList" %}">Ejecutivos de venta</a></li>
+                     </ul>
+                   </li>
+        </ul>
+        <div class="sidebar-category">ESTADISTICAS</div>
+        <div class="sidebar-widget">
+          <ul class="list-unstyled pl-15 pr-15">
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">La Paz</span><span class="pull-right label label-outline label-success"> 20 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="45" class="progress-bar progress-bar-ye"></div>
+              </div>
+            </li>
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">Santa Cruz</span><span class="pull-right label label-outline label-purple"> 30 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="58" class="progress-bar progress-bar-purple"></div>
+              </div>
+            </li>
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">Tarija</span><span class="pull-right label label-outline label-success"> 10 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="45" class="progress-bar progress-bar-success"></div>
+              </div>
+            </li>
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">Cochabamba</span><span class="pull-right label label-outline label-purple"> 10 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="58" class="progress-bar progress-bar-purple"></div>
+              </div>
+            </li>
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">Sucre</span><span class="pull-right label label-outline label-success"> 10 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="45" class="progress-bar progress-bar-success"></div>
+              </div>
+            </li>
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">Trinidad</span><span class="pull-right label label-outline label-purple"> 10 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="58" class="progress-bar progress-bar-purple"></div>
+              </div>
+            </li>
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">Cobija</span><span class="pull-right label label-outline label-success"> 10 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="45" class="progress-bar progress-bar-success"></div>
+              </div>
+            </li>
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left text-muted">Yacuiba</span><span class="pull-right label label-outline label-purple"> 10 %</span></div>
+              <div class="progress progress-xs mb-0">
+                <div role="progressbar" data-transitiongoal="58" class="progress-bar progress-bar-purple"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <!-- Main Sidebar end-->
+      <!-- Container -->
+      <div class="page-container">
+
+
+
+        {% block content %}
+        {% endblock %}
+     </div>
+      <!-- End Container -->
+
+    </div>
+    <!-- jQuery-->
+    <script type="text/javascript" src="{%static 'plugins/jquery/dist/jquery.min.js'%}"></script>
+    <!-- Bootstrap JavaScript-->
+    <script type="text/javascript" src="{%static 'plugins/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+    <!-- Malihu Scrollbar-->
+    <script type="text/javascript" src="{%static 'plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js'%}"></script>
+    <!-- Animo.js-->
+    <script type="text/javascript" src="{%static 'plugins/animo.js/animo.min.js'%}"></script>
+    <!-- Bootstrap Progressbar-->
+    <script type="text/javascript" src="{%static 'plugins/bootstrap-progressbar/bootstrap-progressbar.min.js'%}"></script>
+    <!-- jQuery Easy Pie Chart-->
+    <script type="text/javascript" src="{%static 'plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js'%}"></script>
+    <!-- DataTables-->
+    <script type="text/javascript" src="{%static 'plugins/datatables.net/js/jquery.dataTables.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/datatables.net-bs/js/dataTables.bootstrap.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/datatables.net-buttons/js/dataTables.buttons.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/datatables.net-buttons-bs/js/buttons.bootstrap.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/jszip/dist/jszip.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/pdfmake/build/pdfmake.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/pdfmake/build/vfs_fonts.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/datatables.net-buttons/js/buttons.colVis.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/datatables.net-buttons/js/buttons.print.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/datatables.net-buttons/js/buttons.html5.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/datatables.net-colreorder/js/dataTables.colReorder.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/datatables.net-keytable/js/dataTables.keyTable.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/datatables.net-select/js/dataTables.select.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/datatables.net-responsive/js/dataTables.responsive.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/datatables.net-fixedcolumns/js/dataTables.fixedColumns.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'plugins/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js'%}"></script>
+
+    <!-- Owl Carousel-->
+    <script type="text/javascript" src="{%static 'plugins/owl.carousel/dist/owl.carousel.min.js'%}"></script>
+
+    <!-- MomentJS-->
+    <script type="text/javascript" src="{%static 'plugins/moment/min/moment.min.js'%}"></script>
+    <!-- Bootstrap FileStyle-->
+    <script type="text/javascript" src="{%static 'plugins/bootstrap-filestyle/src/bootstrap-filestyle.js'%}"></script>
+    <!-- Bootstrap TouchSpin-->
+    <script type="text/javascript" src="{%static 'plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js'%}"></script>
+
+    <!-- Bootstrap MaxLength-->
+    <script type="text/javascript" src="{%static 'plugins/bootstrap-maxlength/src/bootstrap-maxlength.js'%}"></script>
+    <!-- jQuery MiniColors-->
+    <script type="text/javascript" src="{%static 'plugins/jquery-minicolors/jquery.minicolors.min.js'%}"></script>
+
+    <!-- Core JS-->
+    <script type="text/javascript" src="{%static 'build/js/first-layout/app.js'%}"></script>
+    <script type="text/javascript" src="{%static 'build/js/first-layout/demo.js'%}"></script>
+    <script type="text/javascript" src="{%static 'build/js/page-content/tables/data-tables.js'%}"></script>
+    <script type="text/javascript" src="{%static 'build/js/page-content/ui-elements/carousels.js'%}"></script>
+    <script type="text/javascript" src="{%static 'build/js/page-content/forms/advanced-elements.js'%}"></script>
+
+    <!-- Bootstrap Date Range Picker-->
+<script type="text/javascript" src="{%static 'plugins/bootstrap-daterangepicker/daterangepicker.js'%}"></script>
+<!-- Bootstrap DatePicker-->
+<script type="text/javascript" src="{%static 'plugins/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'%}"></script>
+  </body>
+</html>
