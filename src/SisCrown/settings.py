@@ -28,6 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+#Extender el modelo de USER
+AUTH_PROFILE_MODULE = 'usuario.Perfil'
+LOGOUT_REDIRECT_URL = 'usuario:login'
 
 # Application definition
 

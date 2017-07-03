@@ -62,7 +62,7 @@ class Agencia (models.Model):
 
 class Perfil(models.Model):
     ci = models.IntegerField(primary_key=True,blank = False, help_text="Documento de Identidad",unique = True)
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    usuario = models.OneToOneField(User, related_name="profile_user")
 
     referencia = models.CharField (max_length= 150, blank = True)
     lat = models.CharField(max_length = 50)

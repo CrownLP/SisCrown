@@ -18,10 +18,14 @@ from django.contrib import admin
 
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib.auth.views import login, password_reset, password_reset_done, password_reset_confirm, password_reset_complete
+from django.contrib.auth.views import login, logout, password_reset, password_reset_done, password_reset_confirm, password_reset_complete
+
+
+
 
 urlpatterns = [
     #la URL del sitio de administracion
+    url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     url(r'^$', login,{'template_name':'index.html'}, name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/login/', login,{'template_name':'login.html'}, name='login'),
