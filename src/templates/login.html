@@ -51,26 +51,17 @@
                             </div>
 
                             <button type="submit" class="btn">Iniciar Sesión</button>
-
                         </form>
-
-
-
-
                       </div>
                       </div>
                   </div>
                   <div class="row">
                       <div class="col-sm-6 col-sm-offset-3 social-login">
-                        <h3>¿No esta registrado?, comuníquese con el área de Recursos Humanos.</h3>
-
+                        <h3><a href="{% url "password_reset" %}">  <font color="White">¿Olvidaste tu contraseña?</font></a>
+                          </h3>
                       </div>
                   </div>
               </div>
           </div>
-
       </div>
-
-
-
 {% endblock%}
