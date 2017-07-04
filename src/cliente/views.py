@@ -16,3 +16,11 @@ class ClienteList(ListView):
 
 class ClienteDetail(DetailView):
     model = Cliente
+
+class ClienteCreation (CreateView):
+    model = Cliente
+    fields = ('dni','nacionalidad','nit','nombre','appaterno','apmaterno','genero','correo','celular','fijo','nacimiento')
+    success_url = reverse_lazy ('cliente:clientelist')
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(ClienteCreation, self).form_valid(form)

@@ -4,6 +4,7 @@ from .models import Agencia, Perfil
 from django.contrib.admin.widgets import AdminDateWidget
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.forms.widgets import ClearableFileInput
 
 class AgenciaForm (forms.ModelForm):
     class Meta:
@@ -14,24 +15,43 @@ class AgenciaForm (forms.ModelForm):
             'nombre',
             'foto',
             'descripcion',
-            'fecha_creacion',
+            'empresa',
+            'pais',
             'ciudad',
+            'referencia',
+            'lat',
+            'lng',
+            'observacion',
+            'user',
         ]
         labels = {
             'codigo': 'Codigo de Agencia',
             'nombre': 'Nombre de la Agencia',
             'foto': 'Foto de la Agencia',
             'descripcion': 'Descripcion',
-            'fecha_creacion': 'Fecha de Creacion',
-            'ciudad': 'Ciudad'
+            'empresa':'Empresa',
+            'pais':'Pais',
+            'ciudad':'Ciudad',
+            'referencia':'Direccion',
+            'lat':'Latitud',
+            'lng':'Longitud',
+            'observacion':'Observacion',
+            'user':'Usuario',
         }
         widgets = {
             'codigo': forms.TextInput (attrs={'class':'form-control'}),
             'nombre': forms.TextInput (attrs={'class':'form-control'}),
-            'foto': forms.Select (attrs={'class':'form-control'}),
-            'descripcion': forms.TextInput (attrs={'class':'form-control'}),
-            #'fecha_creacion': forms.DateField (widget = forms.SelectDateWidget),
-            'ciudad': forms.RadioSelect (attrs={'class':'form-control'}),
+            'foto':  forms.ClearableFileInput(),
+            'descripcion': forms.Textarea (attrs={'class':'form-control'}),
+            'empresa': forms.Select (attrs={'class':'form-control'}),
+            'pais': forms.Select (attrs={'class':'form-control'}),
+            'ciudad': forms.Select (attrs={'class':'form-control'}),
+            'referencia': forms.TextInput (attrs={'class':'form-control'}),
+            'lat': forms.TextInput (attrs={'class':'form-control'}),
+            'lng': forms.TextInput (attrs={'class':'form-control'}),
+            'observacion': forms.Textarea (attrs={'class':'form-control'}),
+            'user': forms.Select (attrs={'class':'form-control'}),
+
         }
 
 

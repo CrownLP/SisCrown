@@ -22,7 +22,7 @@ class Agencia (models.Model):
     #fecha_creacion
     codigo = models.CharField(max_length=6,primary_key=True,blank = False,help_text="El codigo de la agencia debe contener 6 digitos Ejemplo: LPZ001",unique = True)
     nombre = models.CharField(max_length=50,blank=False,help_text="Nombre de la Agencia",unique = True)
-    foto = models.ImageField (blank=False, help_text="Suba la foto de la Sucursal")
+    foto = models.ImageField (help_text="Suba la foto de la Sucursal")
     descripcion = models.CharField (max_length= 100, blank = True)
     EMPRESAS= (
     ('CROWN','Crown'),
@@ -63,7 +63,6 @@ class Agencia (models.Model):
 class Perfil(models.Model):
     ci = models.IntegerField(primary_key=True,blank = False, help_text="Documento de Identidad",unique = True)
     usuario = models.OneToOneField(User, related_name="profile_user")
-
     referencia = models.CharField (max_length= 150, blank = True)
     lat = models.CharField(max_length = 50)
     lng = models.CharField(max_length = 50)

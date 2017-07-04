@@ -26,7 +26,7 @@ class Visita (models.Model):
     ('OTRO', 'Otro')
     )
     referencia = models.CharField(max_length=30, choices= REFERENCIAS)
-    vendedor = models.ForeignKey(User, on_delete=models.CASCADE)
+    vendedor = models.ForeignKey(User, on_delete=models.CASCADE, blank = True, null = True)
     #models.ForeignKey(User, blank = True, null = True)
     #campos que deben ser generados automaticamente
     agencia = models.ForeignKey(Agencia, blank=False)

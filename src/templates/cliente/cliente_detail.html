@@ -1,6 +1,32 @@
-<h1>{{ cliente.nombre }}</h1>
-<p>Fecha de inicio: <i>{{ cliente.dni }}</i></p>
-<p>Fecha de fin: <i>{{ cliente.appaterno }}</i></p>
-<p>
-    <a href="{% url "cliente:clientelist" %}">Regresar</a>
-</p>
+{% extends 'base.html'%}
+
+{%load staticfiles%}
+
+{% block content %}
+
+        <div class="page-content container-fluid">
+          <div class="row">
+            <div class="widget-heading">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+				 <tbody>
+					<tr>
+					  <td ><h3 class="widget-title">PERFIL DE CLIENTE</h3></td>
+					  <td align="right"><button type="button" class="btn btn-primary active">REGRESAR</button></td>
+
+				 </tbody>
+</table>
+         {{cliente.dni}}
+         {{cliente.nacionalidad}}
+         {{cliente.nit}}
+         {{cliente.nombre}}
+         {{cliente.appaterno}}
+         {{cliente.apmaterno}}
+        {{cliente.user}}
+        {{cliente.fecha_creacion}}
+          </div>
+
+          </div>
+          </div>
+
+
+{% endblock content %}

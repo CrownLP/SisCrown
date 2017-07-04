@@ -124,11 +124,14 @@ class AgenciaDetail(DetailView):
     model = Agencia
 
 
-
 class AgenciaCreation(CreateView):
     model = Agencia
     success_url = reverse_lazy('usuario:PerfilList')
     form_class = AgenciaForm
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(VisitaCreation, self).form_valid(form)
+
 
 
 class PerfilCreation(CreateView):

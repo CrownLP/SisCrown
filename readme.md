@@ -1,8 +1,6 @@
-## Deploy Django using Nginx and Postgresql
+## Sistema Crown
 
-An example project from this tutorial: http://ruddra.com/2016/08/14/docker-django-nginx-postgres/. It also contains implementation from this blog too: http://ruddra.com/2016/11/02/serve-static-files-by-nginx-from-django-using-docker/
-
-To use this project, run this commands:
+Para usar este codigo utilice los siguientes comandos:
 
 1. `make up` to build the project and starting containers.
 2. `make build` to build the project.
@@ -15,9 +13,3 @@ To use this project, run this commands:
 9. `make logs-db` to log access db container.
 10. `make logs-nginx` to log access nginx container.
 11. `make collectstatic` to put static files in static directory.
-
-## Relevent Blogs:
-1. <a href="http://ruddra.com/2016/08/14/docker-django-nginx-postgres/">Deploy Django, Gunicorn, NGINX, Postgresql using Docker</a>
-2. <a href="http://ruddra.com/2016/11/02/serve-static-files-by-nginx-from-django-using-docker/">Serve Static Files by Nginx from Django using Docker</a>
-3. <a href="http://ruddra.com/2016/11/14/docker-do-stuff-using-celery-using-redis-as-broker/">Docker: Use Celery in Django(Redis as Broker)</a>
- 
