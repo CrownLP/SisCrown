@@ -12,26 +12,39 @@ from cliente.models import Cliente
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from .forms import VisitaForm, OportunidadForm, SeguimientoForm, SeguimientoFormSet
 from django.contrib.auth.decorators import login_required
+from formtools.wizard.views import SessionWizardView
+import logging
+
 # Las Vistas de la Aplicacion
+
 
 class BuscarView (TemplateView):
     template_name = 'gestioncliente/buscar.html'
 
     def post (self, request, *args, **kwargs):
         buscar = request.POST['buscalo']
+        print (buscar) #recoje el valor buscado
+        #consulta a la base de datos Objeto cliente por dni
         clientes_dni = Cliente.objects.filter(dni__contains = buscar)
+        clientes_nombre = Cliente.objects.filter(nombre__contains = buscar)
+        clientes_paterno = Cliente.objects.filter(appaterno__contains = buscar)
+        clientes_materno = Cliente.objects.filter(apmaterno__contains = buscar)
+        # si la busqueda por CI devuelve albun valor:
         if clientes_dni:
             print (clientes_dni)
             print ("Busqueda realizada con su CI")
-        else:
-            clientes_apellido = Cliente.objects.filter(appaterno__contains = buscar)
-            print (clientes_apellido)
-            return render (request, 'gestioncliente/buscar.html', {'clientes_apellido':clientes_apellido, 'clientes_apellido':True})
+            return render (request, 'gestioncliente/buscar.html',{'Clientes':clientes_dni})
+
+
+        # else:
+        #     clientes_apellido = Cliente.objects.filter(appaterno__contains = buscar)
+        #     print (clientes_apellido)
+        #     return render (request, 'gestioncliente/buscar.html', {'clientes_apellido':clientes_apellido, 'clientes_apellido':True})
+        # print (clientes_dni)
+        # return render (request, 'gestioncliente/buscar.html')
 
 
 
-        print (clientes_dni)
-        return render (request, 'gestioncliente/buscar.html')
 
 class VisitaList(ListView):
     model = Visita

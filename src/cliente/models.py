@@ -42,6 +42,7 @@ class Cliente (models.Model):
     celular = models.IntegerField(null=True, blank=True,help_text="Telefono Fijo",unique = False)
     fijo = models.IntegerField(null=True,blank=True,help_text="Telefono Celular",unique = False)
     nacimiento = models.DateTimeField(default = timezone.now)
+    vendedor = models.ForeignKey(User,related_name='vendedor', null = True)
 
     user = models.ForeignKey(User)
     fecha_creacion = models.DateTimeField(default = timezone.now)

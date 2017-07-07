@@ -93,6 +93,7 @@
     <!-- Header end-->
     <div class="main-container">
       <!-- Main Sidebar start-->
+
       <aside data-mcs-theme="minimal-dark" class="main-sidebar mCustomScrollbar">
         <div class="media user">
           <div class="media-left">
@@ -114,50 +115,92 @@
             </div>
           </div>
         </div>
+
+
+
+          <!-- Condicional para permisos de usuario -->
+
+
+      {% for group in user.groups.all %}
+
         <ul class="list-unstyled navigation mb-0">
           <li class="sidebar-category">GESTIÓN DE CLIENTES</li>
+
           <li class="panel"><a  data-toggle="collapse" data-parent=".navigation" href="#collapse1" aria-expanded="false" aria-controls="collapse1" class="active collapsed"><i class="ion-ios-home-outline bg-purple"></i><span class="sidebar-title">VISITAS</span></a>
             <ul id="collapse1" class="list-unstyled collapse">
+              {% if group.name == 'Ventas' or  group.name == 'Sistemas' or  group.name == 'Anfitrion'%}
               <li><a href="{% url "gestion:nuevavisita" %}">Registro de Visita</a></li>
+              {% endif %}
+              {% if group.name == 'Ventas' or  group.name == 'Sistemas' or  group.name == 'Anfitrion'%}
               <li><a href="{% url "gestion:visitalist" %}">Histórico de Visitas</a></li>
+              {% endif %}
+              {% if group.name == 'Ventas' or  group.name == 'Sistemas'%}
               <li><a href="#">Reportes</a></li>
+              {% endif %}
             </ul>
           </li>
           <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse2" aria-expanded="false" aria-controls="collapse2" class="active collapsed"><i class="ion-ios-person-outline bg-success"></i><span class="sidebar-title">OPORTUNIDAD</span></a>
             <ul id="collapse2" class="list-unstyled collapse">
+              {% if group.name == 'Sistemas'%}
               <li><a href="{% url "gestion:nuevaoportunidad" %}" class="active">Registro adicional</a></li>
+              {% endif %}
+              {% if group.name == 'Sistemas'%}
               <li><a href="{% url "gestion:seguimiento-add" %}" class="active">Seguimiento por vendedor</a></li>
+              {% endif %}
             </ul>
           </li>
           <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse3" aria-expanded="false" aria-controls="collapse3" class="active collapsed"><i class="ion-ios-chatbubble-outline bg-primary"></i><span class="sidebar-title">COTIZACIÓN</span></a>
             <ul id="collapse3" class="list-unstyled collapse">
+
+              {% if group.name == 'Sistemas' %}
               <li class="panel"><a role="button" data-toggle="collapse" data-parent="#collapse3" href="#collapse31" aria-expanded="false" aria-controls="collapse31" class="active collapsed"><span class="sidebar-title">Consultas de stock</span></a>
-				<ul id="collapse31" class="list-unstyled collapse">
+				      <ul id="collapse31" class="list-unstyled collapse">
 				  <li><a href="#" class="active">Registro de cotizaciones</a></li>
 				</ul>
-			  </li>
+        			  </li>
+        {% endif %}
+
+
+
+        {% if group.name == 'Sistemas'%}
 			  <li class="panel"><a role="button" data-toggle="collapse" data-parent="#collapse3" href="#collapse32" aria-expanded="false" aria-controls="collapse32" class="active collapsed"><span class="sidebar-title">Solicitud de descuento</span></a>
+          {% endif %}
 				<ul id="collapse32" class="list-unstyled collapse">
+          {% if group.name == 'Sistemas'%}
 				  <li><a href="#" class="active">Con Descuento</a></li>
+          {% endif %}
+          {% if group.name == 'Sistemas'%}
 				  <li><a href="#">Sin Descuento</a></li>
+          {% endif %}
 				</ul>
 			  </li>
             </ul>
           </li>
           <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse4" aria-expanded="false" aria-controls="collapse4" class="active collapsed"><i class="ion-ios-calendar-outline bg-info"></i><span class="sidebar-title">AGENDA</span></a>
             <ul id="collapse4" class="list-unstyled collapse">
+              {% if group.name == 'Sistemas'%}
               <li><a href="#" class="active">Contacto</a></li>
+              {% endif %}
+              {% if group.name == 'Sistemas'%}
               <li><a href="#">Seguimiento</a></li>
+              {% endif %}
             </ul>
           </li>
           <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse5" aria-expanded="false" aria-controls="collapse5" class="active collapsed"><i class="ion-ios-folder-outline bg-warning"></i><span class="sidebar-title">INF. CORPORATIVA</span></a>
                      <ul id="collapse5" class="list-unstyled collapse">
+                       {% if group.name == 'Ventas' or  group.name == 'Sistemas'%}
                        <li><a href="{% url "usuario:AgenciaList" %}">Sucursales</a></li>
+                       {% endif %}
+                       {% if group.name == 'Ventas' or  group.name == 'Sistemas' or  group.name == 'Anfitrion'%}
                        <li><a href="{% url "cliente:clientelist" %}">Clientes</a></li>
+                       {% endif %}
+                       {% if group.name == 'Ventas' or  group.name == 'Sistemas'%}
                        <li><a href="{% url "usuario:PerfilList" %}">Ejecutivos de venta</a></li>
+                       {% endif %}
                      </ul>
                    </li>
         </ul>
+      {% endfor %}
         <div class="sidebar-category">ESTADISTICAS</div>
         <div class="sidebar-widget">
           <ul class="list-unstyled pl-15 pr-15">
@@ -215,8 +258,6 @@
       <!-- Main Sidebar end-->
       <!-- Container -->
       <div class="page-container">
-
-
 
         {% block content %}
         {% endblock %}
