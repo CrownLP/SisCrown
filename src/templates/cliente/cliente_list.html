@@ -37,8 +37,8 @@
                     <th>PATERNO</th>
                     <th>MATERNO</th>
                     <th>TELEFONO</th>
-                    <th>DETALLES</th>
-                    <th>ACTUALIZAR</th>
+                    <th></th>
+
                   </tr>
                 </thead>
                 <tfoot>
@@ -48,8 +48,8 @@
                     <th>PATERNO</th>
                     <th>MATERNO</th>
                     <th>TELEFONO</th>
-                    <th>DETALLES</th>
-                    <th>ACTUALIZAR</th>
+                    <th></th>
+
                 </tr>
               </tfoot>
                 <tbody>
@@ -60,20 +60,30 @@
                     <td>{{ cliente.appaterno }}</td>
                     <td>{{ cliente.apmaterno }}</td>
                     <td>{{ cliente.celular }}</td>
-                    <td>
+                    <td align="center">
 
           <a href="{% url "cliente:clientedetail" cliente.dni %}">
                       <button type="button" class="btn btn-default btn-sm">
     <span class="glyphicon glyphicon-eye-open"></span>
-    Ver
   </button>
 </a>
+
+
+          <a href="{% url "cliente:clienteupdate" cliente.dni %}">
+                      <button type="button" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-pencil"></span>
+  </button>
+</a>
+
+<a href="{% url "cliente:clientedelete" cliente.dni %}">
+            <button type="button" class="btn btn-default btn-sm">
+<span class="glyphicon glyphicon-erase"></span>
+</button>
+</a>
+
+
+
 </td>
-
-
-                    <td><button type="button" class="btn btn-default btn-sm">
-    <span class="glyphicon glyphicon-pencil"></span> Editar
-  </button></td>
                   </tr>
                   {% endfor %}
                 </tbody>

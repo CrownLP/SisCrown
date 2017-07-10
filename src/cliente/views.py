@@ -29,5 +29,9 @@ class ClienteCreation (CreateView):
 
 class ClienteUpdate(UpdateView):
     model = Cliente
-    success_url = reverse_lazy('usuario:clientelist')
+    success_url = reverse_lazy('cliente:clientelist')
     form_class = ClienteForm
+
+class ClienteDelete(DeleteView):
+    model = Cliente
+    success_url = reverse_lazy('cliente:clientelist')

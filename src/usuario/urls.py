@@ -11,6 +11,7 @@ from .views import (
     #AgenciaForm
     AgenciaCreation,
     AgenciaUpdate,
+    AgenciaDelete,
     coords_save,
     RegistroUsuario,
     PerfilCreation,
@@ -26,6 +27,7 @@ urlpatterns = [
     url(r'^listaAgencia$', AgenciaList.as_view(), name='AgenciaList'),
     url(r'^listaPerfil$', PerfilList.as_view(), name='PerfilList'),
     url(r'^editarAgencia/(?P<pk>[A-Z,0-9]{6})/$', AgenciaUpdate.as_view(), name='agenciaupdate'),
+    url(r'^borrarAgencia/(?P<pk>[A-Z,0-9]{6})/$', AgenciaDelete.as_view(), name='agenciadelete'),
     url(r'^agencia/(?P<pk>[A-Z,0-9]{6})/$', AgenciaDetail.as_view(), name='agenciadetail'),
     url(r'^perfil/(?P<pk>[0-9]{2,8})/$', PerfilDetail.as_view(), name='perfildetail'),
     url(r'^nuevaAgencia$', AgenciaCreation.as_view(), name='nuevaagencia'),

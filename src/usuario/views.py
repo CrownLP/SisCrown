@@ -132,13 +132,14 @@ class AgenciaCreation(CreateView):
         form.instance.user = self.request.user
         return super(AgenciaCreation, self).form_valid(form)
 
-
-
 class AgenciaUpdate(UpdateView):
     model = Agencia
     success_url = reverse_lazy('usuario:AgenciaList')
     form_class = AgenciaForm
 
+class AgenciaDelete(DeleteView):
+    model = Agencia
+    success_url = reverse_lazy('usuario:AgenciaList')
 
 
 class PerfilCreation(CreateView):

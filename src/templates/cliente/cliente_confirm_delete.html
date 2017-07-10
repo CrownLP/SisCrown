@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{%load staticfiles%}
+
+{% block content %}
+
+        <div class="page-content container-fluid">
+          <div class="row">
+            <div class="widget-heading">
+
+              <form method="post">{% csrf_token %}
+                  ¿Estás seguro que deseas borrar el cliente "{{ object }}"?
+              <button type="submit" class="btn btn-outline btn-success">Eliminar Cliente</button>
+              </form>
+
+
+          </div>
+
+          </div>
+          </div>
+
+
+{% endblock content %}

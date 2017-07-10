@@ -26,8 +26,6 @@
        </tbody>
       </table>
 
-
-
           <div class="widget-body">
             <div class="table-responsive">
               <table id="example-2" cellspacing="0" width="100%" class="table table-striped table-bordered">
@@ -38,8 +36,7 @@
                     <th>CIUDAD</th>
                     <th>DIRECCIÓN</th>
                     <th>TELEFONO</th>
-                    <th>DETALLES</th>
-                    <th>ACTUALIZAR</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tfoot>
@@ -49,8 +46,7 @@
                     <th>CIUDAD</th>
                     <th>DIRECCIÓN</th>
                     <th>TELEFONO</th>
-                    <th>DETALLES</th>
-                    <th>ACTUALIZAR</th>
+                    <th></th>
                 </tr>
               </tfoot>
                 <tbody>
@@ -61,20 +57,24 @@
                     <td>{{ agencia.ciudad }}</td>
                     <td>{{ agencia.referencia }}</td>
                     <td>{{ agencia.telefono|default_if_none:"Sin Numero" }}</td>
-                    <td>
+                    <td align="center">
 <a href="{% url "usuario:agenciadetail" agencia.codigo %}">
                       <button type="button" class="btn btn-default btn-sm">
     <span class="glyphicon glyphicon-eye-open"></span>
-    Ver
-  </button></a></td>
-                <td>
+  </button></a>
+
+
+
 <a href="{% url "usuario:agenciaupdate" agencia.codigo %}">
                   <button type="button" class="btn btn-default btn-sm">
-    <span class="glyphicon glyphicon-pencil"></span> Editar
-  </button>
+    <span class="glyphicon glyphicon-pencil"></span>
+  </button></a>
 
+  <a href="{% url "usuario:agenciadelete" agencia.codigo %}">
+                    <button type="button" class="btn btn-default btn-sm">
+      <span class="glyphicon glyphicon-erase"></span>
+    </button></a>
 
-</a>
 
 </td>
                   </tr>

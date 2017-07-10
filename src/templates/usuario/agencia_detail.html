@@ -74,7 +74,7 @@
           </tr>
 					<tr>
 					  <td align="right">Fecha Creación:</td>
-					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.fecha_creacion }}</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.fecha_creacion.date }}</td>
 					</tr>
 				  </tbody>
 				</table>
@@ -91,15 +91,15 @@
 				  <tbody>
 					<tr>
 					  <td width="30%" align="right">Empresa:</td>
-					  <td width="70%">&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.empresa }}</td>
+					  <td width="70%">&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.get_empresa_display }}</td>
 					</tr>
 					<tr>
 					  <td align="right">País:</td>
-					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.pais }}</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.get_pais_display }}</td>
 					</tr>
 					<tr>
 					  <td align="right">Ciudad:</td>
-					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.ciudad }}</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ agencia.get_ciudad_display }}</td>
 					</tr>
 					<tr>
 					  <td align="right">Latitud:</td>
