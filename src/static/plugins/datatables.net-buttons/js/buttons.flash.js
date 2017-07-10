@@ -530,7 +530,7 @@ var _sheetname = function ( config )
 		sheetName = config.sheetName.replace(/[\[\]\*\/\\\?\:]/g, '');
 	}
 
-	return sheetName;	
+	return sheetName;
 };
 
 /**
@@ -710,7 +710,7 @@ DataTable.ext.buttons.copyFlash = $.extend( {}, flashButton, {
 	className: 'buttons-copy buttons-flash',
 
 	text: function ( dt ) {
-		return dt.i18n( 'buttons.copy', 'Copy' );
+		return dt.i18n( 'buttons.copy', 'Copiar' );
 	},
 
 	action: function ( e, dt, button, config ) {
@@ -726,7 +726,7 @@ DataTable.ext.buttons.copyFlash = $.extend( {}, flashButton, {
 			data.str;
 
 		flash.setAction( 'copy' );
-		_setText( flash, output ); 
+		_setText( flash, output );
 
 		dt.buttons.info(
 			dt.i18n( 'buttons.copyTitle', 'Copy to clipboard' ),
@@ -821,7 +821,7 @@ DataTable.ext.buttons.excelFlash = $.extend( {}, flashButton, {
 		flash.setFileName( _filename( config ) );
 		flash.setSheetName( _sheetname( config ) );
 		_setText( flash, xml );
-		
+
 	},
 
 	extension: '.xlsx'

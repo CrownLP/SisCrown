@@ -10,6 +10,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.core.urlresolvers import reverse_lazy
 from django.template import RequestContext
 from cliente.models import Cliente
+from .forms import ClienteForm
 
 # Las Vistas de la Aplicacion
 class ClienteList(ListView):
@@ -20,8 +21,13 @@ class ClienteDetail(DetailView):
 
 class ClienteCreation (CreateView):
     model = Cliente
-    fields = ('dni','nacionalidad','nit','nombre','appaterno','apmaterno','genero','correo','celular','fijo','nacimiento', 'vendedor')
+    form_class = ClienteForm
     success_url = reverse_lazy ('cliente:clientelist')
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(ClienteCreation, self).form_valid(form)
+
+class ClienteUpdate(UpdateView):
+    model = Cliente
+    success_url = reverse_lazy('usuario:clientelist')
+    form_class = ClienteForm

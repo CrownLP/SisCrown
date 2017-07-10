@@ -60,16 +60,23 @@
                     <td>{{ agencia.nombre }}</td>
                     <td>{{ agencia.ciudad }}</td>
                     <td>{{ agencia.referencia }}</td>
-                    <td>2228262</td>
+                    <td>{{ agencia.telefono|default_if_none:"Sin Numero" }}</td>
                     <td>
 <a href="{% url "usuario:agenciadetail" agencia.codigo %}">
                       <button type="button" class="btn btn-default btn-sm">
     <span class="glyphicon glyphicon-eye-open"></span>
     Ver
   </button></a></td>
-                    <td><button type="button" class="btn btn-default btn-sm">
+                <td>
+<a href="{% url "usuario:agenciaupdate" agencia.codigo %}">
+                  <button type="button" class="btn btn-default btn-sm">
     <span class="glyphicon glyphicon-pencil"></span> Editar
-  </button></td>
+  </button>
+
+
+</a>
+
+</td>
                   </tr>
                   {% endfor %}
                 </tbody>

@@ -23,6 +23,7 @@ class Agencia (models.Model):
     codigo = models.CharField(max_length=6,primary_key=True,blank = False,help_text="El codigo de la agencia debe contener 6 digitos Ejemplo: LPZ001",unique = True)
     nombre = models.CharField(max_length=50,blank=False,help_text="Nombre de la Agencia",unique = True)
     foto = models.ImageField (help_text="Suba la foto de la Sucursal")
+    telefono = models.IntegerField(blank = True, help_text="Telefono de Contacto", null = True)
     descripcion = models.CharField (max_length= 100, blank = True)
     EMPRESAS= (
     ('CROWN','Crown'),
@@ -50,8 +51,8 @@ class Agencia (models.Model):
     )
     ciudad = models.CharField(max_length=20,blank=False, choices= CIUDADES)
     referencia = models.CharField (max_length= 150, blank = True)
-    lat = models.CharField(max_length = 50)
-    lng = models.CharField(max_length = 50)
+    lat = models.CharField(max_length = 50,blank = True)
+    lng = models.CharField(max_length = 50,blank = True)
     user = models.ForeignKey(User)
     observacion = models.TextField(blank=True)
     fecha_creacion = models.DateTimeField(default = timezone.now)

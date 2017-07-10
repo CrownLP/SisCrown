@@ -318,7 +318,7 @@ var _sheetname = function ( config )
 		sheetName = config.sheetName.replace(/[\[\]\*\/\\\?\:]/g, '');
 	}
 
-	return sheetName;	
+	return sheetName;
 };
 
 /**
@@ -408,7 +408,7 @@ var _exportData = function ( dt, config )
  * Safari's data: support for creating and downloading files is really poor, so
  * various options need to be disabled in it. See
  * https://bugs.webkit.org/show_bug.cgi?id=102914
- * 
+ *
  * @return {Boolean} `true` if Safari
  */
 var _isSafari = function ()
@@ -473,7 +473,7 @@ DataTable.ext.buttons.copyHtml5 = {
 	className: 'buttons-copy buttons-html5',
 
 	text: function ( dt ) {
-		return dt.i18n( 'buttons.copy', 'Copy' );
+		return dt.i18n( 'buttons.copy', 'Copiar' );
 	},
 
 	action: function ( e, dt, button, config ) {

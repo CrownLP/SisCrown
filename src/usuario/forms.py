@@ -14,6 +14,7 @@ class AgenciaForm (forms.ModelForm):
             'codigo',
             'nombre',
             'foto',
+            'telefono',
             'descripcion',
             'empresa',
             'pais',
@@ -22,12 +23,12 @@ class AgenciaForm (forms.ModelForm):
             'lat',
             'lng',
             'observacion',
-            'user',
         ]
         labels = {
             'codigo': 'Codigo de Agencia',
             'nombre': 'Nombre de la Agencia',
             'foto': 'Foto de la Agencia',
+            'telefono':'Telefono de Contacto',
             'descripcion': 'Descripcion',
             'empresa':'Empresa',
             'pais':'Pais',
@@ -36,12 +37,12 @@ class AgenciaForm (forms.ModelForm):
             'lat':'Latitud',
             'lng':'Longitud',
             'observacion':'Observacion',
-            'user':'Usuario',
         }
         widgets = {
             'codigo': forms.TextInput (attrs={'class':'form-control'}),
             'nombre': forms.TextInput (attrs={'class':'form-control'}),
             'foto':  forms.ClearableFileInput(),
+            'telefono': forms.TextInput (attrs={'class':'form-control'}),
             'descripcion': forms.Textarea (attrs={'class':'form-control'}),
             'empresa': forms.Select (attrs={'class':'form-control'}),
             'pais': forms.Select (attrs={'class':'form-control'}),
@@ -50,8 +51,6 @@ class AgenciaForm (forms.ModelForm):
             'lat': forms.TextInput (attrs={'class':'form-control'}),
             'lng': forms.TextInput (attrs={'class':'form-control'}),
             'observacion': forms.Textarea (attrs={'class':'form-control'}),
-            'user': forms.Select (attrs={'class':'form-control'}),
-
         }
 
 
