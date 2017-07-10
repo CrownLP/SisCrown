@@ -20,8 +20,7 @@
                     <th>APELLIDOS</th>
                     <th>CELULAR</th>
                     <th>INTERNO</th>
-                    <th>DETALLES</th>
-                    <th>ACTUALIZAR</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tfoot>
@@ -31,8 +30,7 @@
                     <th>APELLIDOS</th>
                     <th>CELULAR</th>
                     <th>INTERNO</th>
-                    <th>DETALLES</th>
-                    <th>ACTUALIZAR</th>
+                    <th></th>
                 </tr>
               </tfoot>
                 <tbody>
@@ -44,22 +42,18 @@
                     <td>{{ agencia.celular }}</td>
                     <td>2228262</td>
                     <td>
-                      <a href="{% url "usuario:perfildetail" perfil.ci %}">
-
-                      <button type="button" class="btn btn-default btn-sm">
-    <span class="glyphicon glyphicon-eye-open"></span>
-    Ver
-  </button>
-
-</a>
 
 
+<a href="{% url "usuario:perfildetail" perfil.ci %}">
+<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span></button></a>
+
+<a href="{% url "usuario:perfildetail" perfil.ci %}">
+<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a>
+
+<a href="{% url "usuario:perfildetail" perfil.ci %}">
+<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-erase"></span></button></a>
 </td>
 
-
-                    <td><button type="button" class="btn btn-default btn-sm">
-    <span class="glyphicon glyphicon-pencil"></span> Editar
-  </button></td>
                   </tr>
                   {% endfor %}
                 </tbody>

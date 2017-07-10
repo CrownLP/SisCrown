@@ -6,20 +6,6 @@ from django.contrib.auth.models import User
 
 
 class Agencia (models.Model):
-    #los campos de una agencia:
-    #codigo
-    #NOMBRE
-    #foto
-    #descripcion
-    #empresa
-    #pais
-    #ciudad
-    #direccion
-    #ubicacion googlemaps
-    #telefono
-    ##responsable##
-    #observacion
-    #fecha_creacion
     codigo = models.CharField(max_length=6,primary_key=True,blank = False,help_text="El codigo de la agencia debe contener 6 digitos Ejemplo: LPZ001",unique = True)
     nombre = models.CharField(max_length=50,blank=False,help_text="Nombre de la Agencia",unique = True)
     foto = models.ImageField (help_text="Suba la foto de la Sucursal")
