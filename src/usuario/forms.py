@@ -121,7 +121,7 @@ class PerfilForm (forms.ModelForm):
             'referencia':forms.TextInput (attrs={'class':'form-control'}),
             'lat':forms.TextInput (attrs={'class':'form-control'}),
             'lng':forms.TextInput (attrs={'class':'form-control'}),
-            'genero':forms.RadioSelect (attrs={'class':'form-control'}),
+            'genero':forms.RadioSelect (attrs={'class':'radio-custom radio-inline'}),
             # 'nacimiento':forms.DateField(widget=DatePicker),
             'cel_corp':forms.TextInput (attrs={'class':'form-control'}),
             'celular':forms.TextInput (attrs={'class':'form-control'}),
@@ -129,7 +129,7 @@ class PerfilForm (forms.ModelForm):
             'interno':forms.TextInput (attrs={'class':'form-control'}),
             'cargo':forms.Select (attrs={'class':'form-control'}),
             'area':forms.Select (attrs={'class':'form-control'}),
-            #'foto':forms.TextInput (attrs={'class':'form-control'}),
+            'foto':forms.ClearableFileInput(),
             'agencia':forms.Select (attrs={'class':'form-control'}),
             'estado':forms.Select (attrs={'class':'form-control'}),
         }

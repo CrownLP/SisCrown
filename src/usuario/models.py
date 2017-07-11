@@ -1,7 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 # Create your models here.
 
 
@@ -39,6 +40,7 @@ class Agencia (models.Model):
     referencia = models.CharField (max_length= 150, blank = True)
     lat = models.CharField(max_length = 50,blank = True)
     lng = models.CharField(max_length = 50,blank = True)
+
     user = models.ForeignKey(User)
     observacion = models.TextField(blank=True)
     fecha_creacion = models.DateTimeField(default = timezone.now)
@@ -48,24 +50,21 @@ class Agencia (models.Model):
 
 
 class Perfil(models.Model):
-    ci = models.IntegerField(primary_key=True,blank = False, help_text="Documento de Identidad",unique = True)
+    ci = models.IntegerField(primary_key=True,blank = False,unique = True)
     usuario = models.OneToOneField(User, related_name="profile_user")
     referencia = models.CharField (max_length= 150, blank = True)
-    lat = models.CharField(max_length = 50)
-    lng = models.CharField(max_length = 50)
-
-
+    lat = models.CharField(max_length = 50, blank = True)
+    lng = models.CharField(max_length = 50, blank = True)
     GENEROS = (
     ('M', 'Masculino'),
     ('F', 'Femenino')
     )
-    genero = models.CharField(max_length=30, choices= GENEROS)
+    genero = models.CharField(max_length=30, choices= GENEROS, default='M')
     nacimiento = models.DateTimeField(default = timezone.now)
-    cel_corp = models.IntegerField(null=True, blank = True, help_text="Numero Celular Corporativo")
-    celular = models.IntegerField(null=True,blank = True, help_text="Numero Celular Personal")
-    telefono = models.IntegerField(null=True,blank = True, help_text="Numero Fijo Personal")
-    interno = models.IntegerField(null=True,blank = True, help_text="Interno")
-
+    cel_corp = models.IntegerField(null=True, blank = True)
+    celular = models.IntegerField(null=True,blank = True)
+    telefono = models.IntegerField(null=True,blank = True)
+    interno = models.IntegerField(null=True,blank = True)
     CARGOS = (
     ('GERENTE', 'Gerente'),
     ('SUBGERENTE', 'Sub Gerente'),
@@ -79,7 +78,6 @@ class Perfil(models.Model):
     ('PASANTE', 'Pasante')
     )
     cargo = models.CharField(max_length=30, choices= CARGOS)
-
     AREAS = (
     ('VENTAS', 'Ventas'),
     ('FINANZAS', 'Finanzas'),
@@ -96,20 +94,8 @@ class Perfil(models.Model):
     ('AGENCIAINTERNA', 'Agencia Interna')
     )
     area = models.CharField(max_length=30, choices= AREAS)
-
-    foto = models.ImageField (blank=False, help_text="Foto de Empleado")
-
+    foto = models.ImageField (blank=False)
     agencia = models.ForeignKey(Agencia, blank=False)
-    #datos afps
-    AFPS = (
-    ('FUTURO', 'Futuro'),
-    ('PREVISION', 'Prevision')
-    )
-    #datos solo para RRHH
-    afp = models.CharField(max_length=15, choices= AFPS)
-    nua = models.CharField(max_length = 20)
-    numero_afiliacion = models.CharField(max_length = 20)
-
     ESTADOS = (
     ('ACTIVO', 'Activo'),
     ('BAJA', 'Baja'),
@@ -117,10 +103,36 @@ class Perfil(models.Model):
     )
     estado = models.CharField(max_length=15, choices= ESTADOS)
 
+
+    #datos afps
+    AFPS = (
+    ('FUTURO', 'Futuro'),
+    ('PREVISION', 'Prevision')
+    )
+    #datos solo para RRHH
+    afp = models.CharField(max_length=15, choices= AFPS, blank = True)
+    nua = models.CharField(max_length = 20,blank = True)
+    numero_afiliacion = models.CharField(max_length = 20,blank = True)
+
     persona_ref1 = models.CharField(max_length=50,blank=True,unique = False)
-    telefono_ref1 = models.CharField(max_length=50,blank=True,unique = False)
+    telefono_ref1 = models.IntegerField(null=True,blank = True)
 
     persona_ref2 = models.CharField(max_length=50,blank=True,unique = False)
-    telefono_ref2 = models.CharField(max_length=50,blank=True,unique = False)
+    telefono_ref2 = models.IntegerField(null=True,blank = True)
+
+    user = models.ForeignKey(User)
+    fecha_creacion = models.DateTimeField(default = timezone.now)
     def __str__(self):
-        return self.nua
+        return str(self.usuario)
+
+# @receiver(post_save, sender=User)
+# def create_user_profile(sender, instance, created, **kwargs):
+#     if created:
+#         Perfil.objects.create(usuario=instance)
+#
+# @receiver(post_save, sender=User)
+# def save_user_profile(sender, instance, **kwargs):
+#     instance.perfil.save()
+
+    # def __str__(self):
+    #     return self.nua

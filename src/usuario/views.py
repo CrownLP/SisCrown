@@ -51,7 +51,8 @@ class RegistroUsuario (CreateView):
     success_url = reverse_lazy ('usuario:PerfilList')
 
 
-
+class UsuarioList(ListView):
+    model = User
 
 
 class RegistroCompleto (CreateView):
@@ -103,9 +104,6 @@ def authentication (request):
 class PerfilList(ListView):
     model = Perfil
 
-class AgenciaList(ListView):
-    model = Agencia
-
 class PerfilDetail(DetailView):
 
     model = Perfil
@@ -116,6 +114,15 @@ class PerfilDetail(DetailView):
         context["car"] = pro
         return context
 
+class PerfilUpdate(UpdateView):
+    model = Perfil
+    success_url = reverse_lazy('usuario:PerfilList')
+    form_class = PerfilForm
+
+class PerfilDelete(DeleteView):
+    model = Perfil
+    success_url = reverse_lazy('usuario:PerfilList')
+
 # Agencia.objects.filter(codigo="LPZ001")
  # pk = self.kwargs['pk']
  #        context['orderrecords'] = OrderRecords.objects.filter(account_id=pk)
@@ -123,6 +130,8 @@ class PerfilDetail(DetailView):
 class AgenciaDetail(DetailView):
     model = Agencia
 
+class AgenciaList(ListView):
+    model = Agencia
 
 class AgenciaCreation(CreateView):
     model = Agencia
@@ -146,6 +155,10 @@ class PerfilCreation(CreateView):
     model = Perfil
     success_url = reverse_lazy('usuario:PerfilList')
     form_class = PerfilForm
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(PerfilCreation, self).form_valid(form)
+
 
 
 class AgenciaCreationCordenadas (CreateView):

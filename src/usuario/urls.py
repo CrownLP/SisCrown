@@ -16,12 +16,14 @@ from .views import (
     RegistroUsuario,
     PerfilCreation,
     RegistroCompleto,
-    change_password
+    change_password,
+    UsuarioList,
+    PerfilUpdate,
+    PerfilDelete,
 )
 
 urlpatterns = [
     url(r'^password/$', change_password, name='change_password'),
-    url(r'^registrar', RegistroUsuario.as_view(), name='registro'),
     url(r'^registroCompleto', RegistroCompleto.as_view(), name='registrocompleto'),
     url(r'^login/$', login,{'template_name':'login.html'}, name='login'),
     url(r'^listaAgencia$', AgenciaList.as_view(), name='AgenciaList'),
@@ -29,9 +31,15 @@ urlpatterns = [
     url(r'^editarAgencia/(?P<pk>[A-Z,0-9]{6})/$', AgenciaUpdate.as_view(), name='agenciaupdate'),
     url(r'^borrarAgencia/(?P<pk>[A-Z,0-9]{6})/$', AgenciaDelete.as_view(), name='agenciadelete'),
     url(r'^agencia/(?P<pk>[A-Z,0-9]{6})/$', AgenciaDetail.as_view(), name='agenciadetail'),
-    url(r'^perfil/(?P<pk>[0-9]{2,8})/$', PerfilDetail.as_view(), name='perfildetail'),
+
     url(r'^nuevaAgencia$', AgenciaCreation.as_view(), name='nuevaagencia'),
     url(r'^nuevoPerfil$', PerfilCreation.as_view(), name='nuevoperfil'),
     url(r'^coords/save$', usuario_views.coords_save),
+
+    url(r'^editarPerfil/(?P<pk>[0-9]{2,8})/$', PerfilUpdate.as_view(), name='perfilupdate'),
+    url(r'^borrarPerfil/(?P<pk>[0-9]{2,8})/$', PerfilDelete.as_view(), name='perfildelete'),
+    url(r'^listaUsuario$', UsuarioList.as_view(), name='usuariolist'),
+    url(r'^registrar', RegistroUsuario.as_view(), name='registro'),
+    url(r'^perfil/(?P<pk>[0-9]{2,8})/$', PerfilDetail.as_view(), name='perfildetail'),
     #url(r'^coords/save$', 'coords_save', name='coords_save'),
 ]

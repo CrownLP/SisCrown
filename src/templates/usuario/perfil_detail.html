@@ -4,6 +4,12 @@
 
 {% block content %}
 
+<style>
+   #map {
+    height: 400px;
+    width: 100%;
+   }
+</style>
 
         <div class="page-content container-fluid">
           <div class="row">
@@ -12,7 +18,15 @@
 				 <tbody>
 					<tr>
 					  <td ><h3 class="widget-title">PERFIL DE USUARIO</h3></td>
-					  <td align="right"><button type="button" class="btn btn-primary active">REGRESAR</button></td>
+					  <td align="right">
+
+
+              <a href="{% url "usuario:PerfilList" %}">
+              <button type="button" class="btn btn-primary active">REGRESAR</button>
+            </a>
+
+
+            </td>
 					</tr>
 				 </tbody>
 			  </table>
@@ -37,7 +51,7 @@
 				  <tbody>
 					<tr>
 					  <td width="30%" align="right">Nombres:</td>
-					  <td width="70%">&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.ci }}</td>
+					  <td width="70%">&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil. }}</td>
 					</tr>
 					<tr>
 					  <td align="right">Apellidos:</td>
@@ -89,15 +103,15 @@
 					</tr>
 					<tr>
 					  <td align="right">Dirección:</td>
-					  <td>&nbsp;</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.referencia }}</td>
 					</tr>
 					<tr>
 					  <td align="right">Latitud lat:</td>
-					  <td>&nbsp;</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.lat }}</td>
 					</tr>
 					<tr>
 					  <td align="right">Longitud lng:</td>
-					  <td>&nbsp;</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.lng }}</td>
 					</tr>
 				  </tbody>
 				</table>
@@ -112,23 +126,23 @@
 				  <tbody>
 					<tr>
 					  <td width="30%" align="right">E-mail:</td>
-					  <td width="70%">&nbsp;</td>
+					  <td width="70%">&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					</tr>
 					<tr>
 					  <td align="right">Telefono:</td>
-					  <td>&nbsp;</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.telefono }}</td>
 					</tr>
 					<tr>
 					  <td align="right">Cel. Corporativo:</td>
-					  <td>&nbsp;</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.cel_corp }}</td>
 					</tr>
 					<tr>
 					  <td align="right">Interno:</td>
-					  <td>&nbsp;</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.interno }}</td>
 					</tr>
 					<tr>
 					  <td align="right">Cel. Personal:</td>
-					  <td>&nbsp;</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.celular }}</td>
 					</tr>
 				  </tbody>
 				</table>
@@ -142,9 +156,30 @@
                 </div>
                 <div class="panel-body">
                   <div class="widget-body">
-                     <div id="weatherMap" style="height:300px;">Colocar Google Maps</div>
+
+                    <div id="map"></div>
+                    <script>
+                      function initMap() {
+                        var uluru = {lat:{{ perfil.lat }}, lng: {{ perfil.lng }}};
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                          zoom: 15,
+                          center: uluru
+                        });
+                        var marker = new google.maps.Marker({
+                          position: uluru,
+                          map: map
+                        });
+                      }
+                    </script>
+                    <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY1Dj7hqA-mBEyua8XEYCxjShjuJYuq-8&callback=initMap">
+                    </script>
                   </div>
-              	</div>
+              </div>
+
+
+
+
               </div>
             </div>
             <div class="col-md-12">
@@ -157,19 +192,19 @@
 				  <tbody>
 					<tr>
 					  <td width="30%" align="right">Área:</td>
-					  <td width="70%">&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.area }}</td>
+					  <td width="70%">&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.get_area_display }}</td>
 					</tr>
 					<tr>
 					  <td align="right">Cargo:</td>
-					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.cargo }}</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.get_cargo_display }}</td>
 					</tr>
 					<tr>
 					  <td align="right">Agencia:</td>
-					  <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ perfil.agencia }}</td>
 					</tr>
 					<tr>
 					  <td align="right">Dirección Agencia:</td>
-					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{car}}
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;
 
 </td>
 
