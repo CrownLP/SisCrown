@@ -25,16 +25,31 @@ class BuscarView (TemplateView):
         buscar = request.POST['buscalo']
         print (buscar) #recoje el valor buscado
         #consulta a la base de datos Objeto cliente por dni
-        clientes_dni = Cliente.objects.filter(dni__contains = buscar)
-        clientes_nombre = Cliente.objects.filter(nombre__contains = buscar)
-        clientes_paterno = Cliente.objects.filter(appaterno__contains = buscar)
-        clientes_materno = Cliente.objects.filter(apmaterno__contains = buscar)
-        # si la busqueda por CI devuelve albun valor:
+        # Cliente.objects.exclude(dni__isnull=True).exclude(dni__exact='').filter(dni__icontains = buscar)
+
+
+        clientes_dni = Cliente.objects.filter(dni__icontains = buscar).exclude(dni__exact='').exclude(dni__isnull=True)
+        # clientes_dni = clientes_dni.objects.exclude(dni__isnull=True)
+        # clientes_nombre = Cliente.objects.exclude(nombre__isnull=True).exclude(nombre__exact='').filter(nombre__icontains = buscar)
+        # clientes_paterno = Cliente.objects.exclude(appaterno__isnull=True).exclude(appaterno__exact='').filter(appaterno__icontains = buscar)
+        # clientes_materno = Cliente.objects.exclude(apmaterno__isnull=True).exclude(apmaterno__exact='').filter(apmaterno__icontains = buscar)
+        # # si la busqueda por CI devuelve albun valor:
         if clientes_dni:
             print (clientes_dni)
             print ("Busqueda realizada con su CI")
             return render (request, 'gestioncliente/buscar.html',{'Clientes':clientes_dni})
-
+        elif clientes_nombre:
+            print (clientes_nombre)
+            print ("Busqueda realizada con su Nombre")
+            return render (request, 'gestioncliente/buscar.html',{'Clientes':clientes_nombre})
+        elif clientes_paterno:
+            print (clientes_paterno)
+            print ("Busqueda realizada con su CI")
+            return render (request, 'gestioncliente/buscar.html',{'Clientes':clientes_paterno})
+        elif clientes_materno:
+            print (clientes_materno)
+            print ("Busqueda realizada con su CI")
+            return render (request, 'gestioncliente/buscar.html',{'Clientes':clientes_materno})
 
         # else:
         #     clientes_apellido = Cliente.objects.filter(appaterno__contains = buscar)

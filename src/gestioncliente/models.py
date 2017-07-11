@@ -31,6 +31,8 @@ class Visita (models.Model):
     #campos que deben ser generados automaticamente
     agencia = models.ForeignKey(Agencia, blank=False)
     fecha_creacion = models.DateTimeField(default = timezone.now)
+    def __str__(self):
+        return self.id
 
 class Oportunidad (models.Model):
 
