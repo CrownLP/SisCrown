@@ -17,27 +17,50 @@ class ContactForm3 (forms.Form):
 class VisitaForm (forms.ModelForm):
     class Meta:
         model = Visita
-
         fields = [
             'dni',
             'tipo_vehiculos',
             'referencia',
-            'agencia',
+            'vendedor',
         ]
         labels = {
             'dni': 'CI del Cliente',
             'tipo_vehiculos': 'Vehiculo en el que esta interesado',
             'referencia': 'Referencia de Visita a la Agencia',
-            'agencia': 'Agencia',
+            'vendedor':'Ejecutivo de Ventas Asignado',
         }
-
         widgets = {
             'dni': forms.TextInput (attrs={'class':'form-control'}),
             'tipo_vehiculos': forms.RadioSelect (attrs={'class':'radio-custom radio-inline'}),
             'referencia': forms.Select (attrs={'class':'form-control'}),
             'descripcion': forms.Select (attrs={'class':'form-control'}),
-            'agencia': forms.Select (attrs={'class':'form-control'}),
+            'vendedor': forms.Select (attrs={'class':'form-control'}),
         }
+
+class VisitaFormAn (forms.ModelForm):
+    class Meta:
+        model = Visita
+        fields = [
+            'anonimo',
+            'tipo_vehiculos',
+            'referencia',
+            'vendedor',
+        ]
+        labels = {
+            'anonimo': 'Nombre del Cliente',
+            'tipo_vehiculos': 'Vehiculo en el que esta interesado',
+            'referencia': 'Referencia de Visita a la Agencia',
+            'vendedor':'Ejecutivo de Ventas Asignado',
+        }
+        widgets = {
+            'anonimo': forms.TextInput (attrs={'class':'form-control'}),
+            'tipo_vehiculos': forms.RadioSelect (attrs={'class':'radio-custom radio-inline'}),
+            'referencia': forms.Select (attrs={'class':'form-control'}),
+            'descripcion': forms.Select (attrs={'class':'form-control'}),
+            'vendedor': forms.Select (attrs={'class':'form-control'}),
+        }
+
+
 
 class OportunidadForm (forms.ModelForm):
     class Meta:

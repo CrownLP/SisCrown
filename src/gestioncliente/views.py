@@ -10,46 +10,51 @@ from django.template import RequestContext
 from gestioncliente.models import Visita, Oportunidad, Seguimiento
 from cliente.models import Cliente
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
-from .forms import VisitaForm, OportunidadForm, SeguimientoForm, SeguimientoFormSet
+from .forms import VisitaForm, VisitaFormAn, OportunidadForm, SeguimientoForm, SeguimientoFormSet
 from django.contrib.auth.decorators import login_required
 from formtools.wizard.views import SessionWizardView
 import logging
 
 # Las Vistas de la Aplicacion
 
-
 class BuscarView (TemplateView):
     template_name = 'gestioncliente/buscar.html'
 
     def post (self, request, *args, **kwargs):
         buscar = request.POST['buscalo']
-        print (buscar) #recoje el valor buscado
+        # print (buscar) #recoje el valor buscado
         #consulta a la base de datos Objeto cliente por dni
         # Cliente.objects.exclude(dni__isnull=True).exclude(dni__exact='').filter(dni__icontains = buscar)
 
+        if not buscar:
+            print ('cadena vacia')
+            return render (request, 'gestioncliente/buscar.html',{'Vacio':'Vacio'})
+        else:
+            clientes_dni = Cliente.objects.filter(dni__icontains = buscar).exclude(dni__exact='').exclude(dni__isnull=True)
+            clientes_nombre = Cliente.objects.filter(nombre__icontains = buscar).exclude(nombre__isnull=True).exclude(nombre__exact='')
+            clientes_paterno = Cliente.objects.filter(appaterno__icontains = buscar).exclude(appaterno__isnull=True).exclude(appaterno__exact='')
+            clientes_materno = Cliente.objects.filter(apmaterno__icontains = buscar).exclude(apmaterno__isnull=True).exclude(apmaterno__exact='')
+        # si la busqueda por CI devuelve albun valor:
+            if clientes_dni:
+                print (clientes_dni)
+                print ("Busqueda realizada con su CI")
+                return render (request, 'gestioncliente/buscar.html',{'Clientes':clientes_dni})
+            elif clientes_nombre:
+                print (clientes_nombre)
+                print ("Busqueda realizada con su Nombre")
+                return render (request, 'gestioncliente/buscar.html',{'Clientes':clientes_nombre})
+            elif clientes_paterno:
+                print (clientes_paterno)
+                print ("Busqueda realizada con su CI")
+                return render (request, 'gestioncliente/buscar.html',{'Clientes':clientes_paterno})
+            elif clientes_materno:
+                print (clientes_materno)
+                print ("Busqueda realizada con su CI")
+                return render (request, 'gestioncliente/buscar.html',{'Clientes':clientes_materno})
+            else:
+                print ('sin coincidencia')
+                return render (request, 'gestioncliente/buscar.html',{'Coincidencia':'Coincidencia'})
 
-        clientes_dni = Cliente.objects.filter(dni__icontains = buscar).exclude(dni__exact='').exclude(dni__isnull=True)
-        # clientes_dni = clientes_dni.objects.exclude(dni__isnull=True)
-        # clientes_nombre = Cliente.objects.exclude(nombre__isnull=True).exclude(nombre__exact='').filter(nombre__icontains = buscar)
-        # clientes_paterno = Cliente.objects.exclude(appaterno__isnull=True).exclude(appaterno__exact='').filter(appaterno__icontains = buscar)
-        # clientes_materno = Cliente.objects.exclude(apmaterno__isnull=True).exclude(apmaterno__exact='').filter(apmaterno__icontains = buscar)
-        # # si la busqueda por CI devuelve albun valor:
-        if clientes_dni:
-            print (clientes_dni)
-            print ("Busqueda realizada con su CI")
-            return render (request, 'gestioncliente/buscar.html',{'Clientes':clientes_dni})
-        elif clientes_nombre:
-            print (clientes_nombre)
-            print ("Busqueda realizada con su Nombre")
-            return render (request, 'gestioncliente/buscar.html',{'Clientes':clientes_nombre})
-        elif clientes_paterno:
-            print (clientes_paterno)
-            print ("Busqueda realizada con su CI")
-            return render (request, 'gestioncliente/buscar.html',{'Clientes':clientes_paterno})
-        elif clientes_materno:
-            print (clientes_materno)
-            print ("Busqueda realizada con su CI")
-            return render (request, 'gestioncliente/buscar.html',{'Clientes':clientes_materno})
 
         # else:
         #     clientes_apellido = Cliente.objects.filter(appaterno__contains = buscar)
@@ -75,9 +80,18 @@ class VisitaCreation(CreateView):
     success_url = reverse_lazy('gestion:visitalist')
     form_class = VisitaForm
     def form_valid(self, form):
-        form.instance.vendedor = self.request.user
+        form.instance.user = self.request.user
+        form.instance.agencia = self.request.user.profile_user.agencia
         return super(VisitaCreation, self).form_valid(form)
 
+class VisitaCreationAn(CreateView):
+    model = Visita
+    success_url = reverse_lazy('gestion:visitalist')
+    form_class = VisitaFormAn
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.agencia = self.request.user.profile_user.agencia
+        return super(VisitaCreation, self).form_valid(form)
 
 class OportunidadList(ListView):
     model = Oportunidad
