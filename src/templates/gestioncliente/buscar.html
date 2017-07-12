@@ -41,7 +41,7 @@
                   <th>NOMBRE</th>
                   <th>PATERNO</th>
                   <th>MATERNO</th>
-                  <th>SELECCIONAR</th>
+                  <th></th>
                 </tr>
               </thead>
               <tfoot>
@@ -50,7 +50,7 @@
                   <th>NOMBRE</th>
                   <th>PATERNO</th>
                   <th>MATERNO</th>
-                  <th>SELECCIONAR</th>
+                  <th></th>
               </tr>
             </tfoot>
               <tbody>
@@ -62,7 +62,7 @@
                   <td>{{ cliente.apmaterno }}</td>
                   <td>
 
-        <a href="{% url "cliente:clientedetail" cliente.dni %}">
+        <a href="{% url "gestion:nuevavisita" %}">
                     <button type="button" class="btn btn-default btn-sm">
   <span class="glyphicon glyphicon-ok"></span>
 </button>
@@ -86,8 +86,10 @@
 <a href="{% url "cliente:nuevocliente" %}">
 <button type="button" class="btn btn-outline btn-success">Registrar Nuevo Cliente</button>
 </a>
-
+<a href="{% url "gestion:nuevavisitaan" %}">
 <button type="button" class="btn btn-outline btn-black">Cliente Anonimo</button>
+</a>
+
     </div>
   </div>
 </div>
@@ -105,7 +107,9 @@
   <button type="button" class="btn btn-outline btn-success">Registrar Nuevo Cliente</button>
   </a>
 
-<button type="reset" class="btn btn-outline btn-black">Cliente Anonimo</button>
+  <a href="{% url "gestion:nuevavisitaan" %}">
+  <button type="button" class="btn btn-outline btn-black">Cliente Anonimo</button>
+  </a>
     </div>
   </div>
 </div>

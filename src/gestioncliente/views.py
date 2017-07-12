@@ -91,7 +91,7 @@ class VisitaCreationAn(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         form.instance.agencia = self.request.user.profile_user.agencia
-        return super(VisitaCreation, self).form_valid(form)
+        return super(VisitaCreationAn, self).form_valid(form)
 
 class OportunidadList(ListView):
     model = Oportunidad

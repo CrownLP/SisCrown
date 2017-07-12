@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="{%static 'build/images/logo/flavicon.ico'%}" type="image/ico" />
-  <title>CROWN - Gestión de Clientes</title>
+  <title>{% block title %}{% endblock %}</title>
   <!-- PACE-->
   <link rel="stylesheet" type="text/css" href="{%static 'plugins/PACE/themes/blue/pace-theme-flash.css'%}">
   <script type="text/javascript" src="{%static 'plugins/PACE/pace.min.js'%}"></script>
@@ -129,7 +129,7 @@
           <li class="panel"><a  data-toggle="collapse" data-parent=".navigation" href="#collapse1" aria-expanded="false" aria-controls="collapse1" class="active collapsed"><i class="ion-ios-home-outline bg-purple"></i><span class="sidebar-title">VISITAS</span></a>
             <ul id="collapse1" class="list-unstyled collapse">
               {% if group.name == 'Ventas' or  group.name == 'Sistemas' or  group.name == 'Anfitrion'%}
-              <li><a href="{% url "gestion:nuevavisita" %}">Registro de Visita</a></li>
+              <li><a href="{% url "gestion:buscar" %}">Registro de Visita</a></li>
               {% endif %}
               {% if group.name == 'Ventas' or  group.name == 'Sistemas' or  group.name == 'Anfitrion'%}
               <li><a href="{% url "gestion:visitalist" %}">Histórico de Visitas</a></li>
