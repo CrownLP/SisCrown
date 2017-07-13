@@ -1,5 +1,6 @@
 from cliente import views as cliente_views
 from django.conf.urls import url, include
+from django.contrib.auth.decorators import login_required
 
 from .views import (
     ClienteList,
@@ -11,10 +12,10 @@ from .views import (
 
 urlpatterns = [
 
-    url(r'^listaCliente/$', ClienteList.as_view(), name='clientelist'),
-    url(r'^cliente/(?P<pk>[0-9]{5,10})/$', ClienteDetail.as_view(), name='clientedetail'),
-    url(r'^editarCliente/(?P<pk>[0-9]{5,10})/$', ClienteUpdate.as_view(), name='clienteupdate'),
-    url(r'^nuevoCliente$', ClienteCreation.as_view(), name='nuevocliente'),
-    url(r'^borrarCliente/(?P<pk>\d+)$', ClienteDelete.as_view(), name='clientedelete'),
+    url(r'^listaCliente/$', login_required(ClienteList.as_view()), name='clientelist'),
+    url(r'^cliente/(?P<pk>[0-9]{5,10})/$', login_required(ClienteDetail.as_view()), name='clientedetail'),
+    url(r'^editarCliente/(?P<pk>[0-9]{5,10})/$', login_required(ClienteUpdate.as_view()), name='clienteupdate'),
+    url(r'^nuevoCliente$', login_required(ClienteCreation.as_view()), name='nuevocliente'),
+    url(r'^borrarCliente/(?P<pk>\d+)$', login_required(ClienteDelete.as_view()), name='clientedelete'),
 
 ]
