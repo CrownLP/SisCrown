@@ -147,6 +147,9 @@
               {% if group.name == 'Sistemas'%}
               <li><a href="{% url "gestion:seguimiento-add" %}" class="active">Seguimiento por vendedor</a></li>
               {% endif %}
+              {% if group.name == 'Sistemas'%}
+              <li><a href="{% url "gestion:oportunidadlist" %}" class="active">Listado de Oportunidades</a></li>
+              {% endif %}
             </ul>
           </li>
           <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse3" aria-expanded="false" aria-controls="collapse3" class="active collapsed"><i class="ion-ios-chatbubble-outline bg-primary"></i><span class="sidebar-title">COTIZACIÓN</span></a>
@@ -201,7 +204,9 @@
                    </li>
         </ul>
       {% endfor %}
-        <div class="sidebar-category">ESTADISTICAS</div>
+
+
+        <!-- <div class="sidebar-category">ESTADISTICAS</div>
         <div class="sidebar-widget">
           <ul class="list-unstyled pl-15 pr-15">
             <li class="mb-20">
@@ -253,7 +258,8 @@
               </div>
             </li>
           </ul>
-        </div>
+        </div> -->
+
       </aside>
       <!-- Main Sidebar end-->
       <!-- Container -->
@@ -320,7 +326,11 @@
 
     <!-- Bootstrap Date Range Picker-->
 <script type="text/javascript" src="{%static 'plugins/bootstrap-daterangepicker/daterangepicker.js'%}"></script>
-<!-- Bootstrap DatePicker-->
-<script type="text/javascript" src="{%static 'plugins/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'%}"></script>
+
+
+{% block javascript %}
+
+{% endblock %}
+
   </body>
 </html>

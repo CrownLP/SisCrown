@@ -6,6 +6,10 @@ from django.dispatch import receiver
 # Create your models here.
 
 
+
+
+
+
 class Agencia (models.Model):
     codigo = models.CharField(max_length=6,primary_key=True,blank = False,help_text="El codigo de la agencia debe contener 6 digitos Ejemplo: LPZ001",unique = True)
     nombre = models.CharField(max_length=50,blank=False,unique = True)
@@ -60,7 +64,7 @@ class Perfil(models.Model):
     ('F', 'Femenino')
     )
     genero = models.CharField(max_length=30, choices= GENEROS, default='M')
-    nacimiento = models.DateTimeField(default = timezone.now)
+    nacimiento = models.DateField(default = '1985-01-01')
     cel_corp = models.IntegerField(null=True, blank = True)
     celular = models.IntegerField(null=True,blank = True)
     telefono = models.IntegerField(null=True,blank = True)

@@ -2,6 +2,9 @@
 {% extends 'base.html' %}
 
 {%load staticfiles%}
+
+{% load fieldtype%}
+
 {% block title %}Registrar Ejecutivo{% endblock %}
 {% block content %}
   <div class="page-content container-fluid">
@@ -14,8 +17,25 @@
           <div class="widget-body">
 
             <form method="post" enctype="multipart/form-data">
+
                 {% csrf_token %}
-                {{ form.as_p }}
+                {% for field in form %}
+                {% if field|fieldtype == 'DateInput' %}
+                {{ field.errors }}
+                {{ field.label_tag }}
+                <div id="datetimepicker5" class="input-group date">
+                  {{ field }}
+                  <!-- <input type="text" class="form-control"> -->
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+                {% else %}
+                <div class="fieldWrapper">
+                    {{ field.errors }}
+                    {{ field.label_tag }} {{ field }}
+                </div>
+                {% endif %}
+                {% endfor %}
+
                 <button type="submit" class="btn btn-outline btn-success">Registrar Nuevo Perfil</button>
                 <button type="reset" class="btn btn-outline btn-black">Limpiar</button>
             </form>
@@ -27,4 +47,28 @@
   </div>
 
 
+
+          <div class='col-sm-6'>
+              <input type='text' class="form-control" id='datetimepicker4' />
+          </div>
+          <script type="text/javascript">
+              $(function () {
+                  $('#datetimepicker4').datetimepicker();
+              });
+          </script>
+
+
+
 {% endblock content %}
+
+{% block javascript %}
+  <!-- Bootstrap DatePicker-->
+  <script type="text/javascript" src="{%static 'plugins/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datepicker.min.js'%}"></script>
+  <script type="text/javascript">
+    $(function () {
+        $('#datetimepicker5').datetimepicker({
+            locale: 'ru'
+        });
+    });
+</script>
+{% endblock %}

@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 #Extender el modelo de USER
 AUTH_PROFILE_MODULE = 'usuario.Perfil'
 LOGOUT_REDIRECT_URL = 'usuario:login'
-
+DATE_INPUT_FORMATS = ('%d-%m-%Y')
 # Application definition
 
 INSTALLED_APPS = [

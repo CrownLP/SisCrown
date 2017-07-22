@@ -12,6 +12,7 @@ from .views import (
     OportunidadCreation,
     BuscarView,
     OportunidadSeguimientoCreate,
+    OportunidadSeguimientoUpdate,
     )
 
 urlpatterns = [
@@ -27,7 +28,8 @@ urlpatterns = [
     #urls para seguimiento de vendedores
     url(r'^listaOportunidad$', login_required(OportunidadList.as_view()), name='oportunidadlist'),
     url(r'seguimiento/$', login_required(OportunidadSeguimientoCreate.as_view()), name='seguimiento-add'),
+    url(r'editarSeguimiento/(?P<pk>[0-9]+)/$', login_required(OportunidadSeguimientoUpdate.as_view()), name='seguimientoupdate'),
 
-
+    # url(r'profile/(?P<pk>[0-9]+)/delete/$', views.ProfileDelete.as_view(), name='profile-delete'),
 
 ]

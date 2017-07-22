@@ -102,6 +102,7 @@ class OportunidadForm (forms.ModelForm):
 class SeguimientoForm(ModelForm):
     class Meta:
         model = Seguimiento
+
         fields = [
             'observacion',
             'siguiente_interaccion',
@@ -128,5 +129,4 @@ class SeguimientoForm(ModelForm):
         }
 
 
-SeguimientoFormSet = inlineformset_factory(Oportunidad, Seguimiento,
-                                            form=SeguimientoForm, extra=1)
+SeguimientoFormSet = inlineformset_factory(Oportunidad, Seguimiento, form=SeguimientoForm, extra=1)

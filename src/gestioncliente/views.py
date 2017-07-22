@@ -14,6 +14,7 @@ from .forms import VisitaForm, VisitaFormAn, OportunidadForm, SeguimientoForm, S
 from django.contrib.auth.decorators import login_required
 from formtools.wizard.views import SessionWizardView
 import logging
+from django.db import transaction
 
 # Las Vistas de la Aplicacion
 
@@ -117,7 +118,7 @@ class OportunidadSeguimientoCreate(CreateView):
     model = Oportunidad
     form_class = OportunidadForm
     # fields = ['negociacion', 'modelo_interes']
-    success_url = reverse_lazy('oportunidadlist')
+    success_url = reverse_lazy('gestion:oportunidadlist')
 
     def get_context_data(self, **kwargs):
         data = super(OportunidadSeguimientoCreate, self).get_context_data(**kwargs)
@@ -140,8 +141,9 @@ class OportunidadSeguimientoCreate(CreateView):
 
 class OportunidadSeguimientoUpdate(UpdateView):
     model = Oportunidad
-    fields = ['negociacion', 'modelo_interes']
-    success_url = reverse_lazy('oportunidadlist')
+    form_class = OportunidadForm
+    # fields = ['negociacion', 'modelo_interes']
+    success_url = reverse_lazy('gestion:oportunidadlist')
 
     def get_context_data(self, **kwargs):
         data = super(OportunidadSeguimientoUpdate, self).get_context_data(**kwargs)

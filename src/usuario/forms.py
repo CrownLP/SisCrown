@@ -122,7 +122,7 @@ class PerfilForm (forms.ModelForm):
             'lat':forms.TextInput (attrs={'class':'form-control'}),
             'lng':forms.TextInput (attrs={'class':'form-control'}),
             'genero':forms.RadioSelect (attrs={'class':'radio-custom radio-inline'}),
-            # 'nacimiento':forms.DateField(widget=DatePicker),
+            'nacimiento': forms.DateInput(attrs={'class':'form-control'}),
             'cel_corp':forms.TextInput (attrs={'class':'form-control'}),
             'celular':forms.TextInput (attrs={'class':'form-control'}),
             'telefono':forms.TextInput (attrs={'class':'form-control'}),

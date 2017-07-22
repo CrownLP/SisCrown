@@ -24,6 +24,7 @@ from django.shortcuts import render, redirect
 
 # Las Vistas de la Aplicacion
 
+
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)

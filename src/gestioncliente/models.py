@@ -41,8 +41,6 @@ class Visita (models.Model):
     def __str__(self):
         return str(self.id)
 
-
-
 class Oportunidad (models.Model):
 
     id = models.AutoField(primary_key=True)
@@ -64,14 +62,16 @@ class Oportunidad (models.Model):
     ('SUSPENDIDA', 'Suspendida Temporalmente'),
     )
     estado = models.CharField(max_length=30, choices= ESTADOS, default='VIGENTE')
-    vendedor = models.ForeignKey(User, blank = True)
+    #campos que deben ser generados automaticamente
     agencia = models.ForeignKey(Agencia, blank=False)
+    vendedor = models.ForeignKey(User)
     fecha_creacion = models.DateTimeField(default = timezone.now)
+
 
 
 class Seguimiento (models.Model):
     id = models.AutoField(primary_key=True)
-    oportunidad = models.ForeignKey(Oportunidad,blank=False)
+    oportunidad = models.ForeignKey(Oportunidad,blank=False) #enlace con oportunidad
     observacion = models.TextField(blank=False)
     siguiente_interaccion = models.DateTimeField(default = timezone.now)
     INOUT= (
@@ -87,5 +87,7 @@ class Seguimiento (models.Model):
     ('OTRO', 'Otro'),
     )
     interaccion = models.CharField(max_length=30, choices= INTERACCIONES, default='LLAMADA')
+
+    #campos que deben ser generados automaticamente
+    usuario = models.ForeignKey(User)
     fecha_creacion = models.DateTimeField(default = timezone.now)
-    usuario = models.ForeignKey(User, blank = True, null = True)
