@@ -2,12 +2,154 @@
 {% load static %}
 {% block title %}Registro Nueva Oportunidad{% endblock %}
 {% block content %}
-    <h2>Oportunidad</h2>
-    <hr>
-    <div class="col-md-12">
-        <form action="" method="post">
+
+
+
+<form action="" method="post">
           {% csrf_token %}
-            {{ form.as_p }}
+
+
+<div class="page-content container-fluid">
+          <div class="row">
+            <div class="widget-heading">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+				 <tbody>
+					<tr>
+					  <td><h3 class="widget-title">DETALLE OPORTUNIDAD</h3></td>
+					  <td align="right">
+              <a href="{% url "usuario:AgenciaList" %}">
+              </p>
+              <button type="button" class="btn btn-primary active">REGRESAR</button>
+            </a>
+            </td>
+					</tr>
+				 </tbody>
+			  </table>
+            </div>
+
+
+
+
+
+            <div class="col-md-5">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Información Básica</h3>
+                </div>
+                <div class="panel-body">
+                 <table width="100%" border="0" cellspacing="3" cellpadding="3">
+				  <tbody>
+					<tr>
+					  <td width="30%" align="right">Cliente:</td>
+					  <td width="70%">&nbsp;&nbsp;&nbsp;&nbsp;{{ form.dni.value }}</td>
+					</tr>
+					<tr>
+					  <td align="right">Tipo de Venta:</td>
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ form.tipo_venta.value }}</td>
+					</tr>
+          <tr>
+					  <td align="right">Estado:</td>
+
+            {% for item in form.estado %}
+    {{ item }}
+{% endfor %}
+
+
+
+					  <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ form.estado.value }}</td>
+					</tr>
+          <tr>
+          <td align="right">Ejecutivo:</td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ form.vendedor.value }}</td>
+          </tr>
+				  </tbody>
+				</table>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="col-md-7">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Información Adicional</h3>
+                </div>
+                <div class="panel-body">
+                  <table width="100%" border="0" cellpadding="3" cellspacing="3">
+            <tbody>
+            <tr>
+            <td width="30%" align="right">Modelo Actual:</td>
+            <td width="70%">&nbsp;&nbsp;&nbsp;&nbsp;{{ form.modelo_actual.value }}</td>
+            </tr>
+            <tr>
+            <td align="right">Modelo de Interes:</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ form.modelo_interes.value }}</td>
+            </tr>
+            <tr>
+            <td align="right">Agencia:</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ form.agencia.value }}</td>
+            </tr>
+            <tr>
+            <td align="right">Fecha de Creacion:</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ form.fecha_creacion.value }}</td>
+            </tr>
+            </tbody>
+            </table>
+                </div>
+              </div>
+
+              </div>
+
+              <div class="col-md-12">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Detalle Negociacion Inicial</h3>
+                  </div>
+                  <div class="panel-body">
+                    <table width="100%" border="0" cellpadding="3" cellspacing="3">
+              <tbody>
+
+              <tr>
+              <td>Negociacion:</td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ form.negociacion.value }}</td>
+              </tr>
+              </tbody>
+              </table>
+                  </div>
+                </div>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- {{form.negociacion.value}}
+
+        {% for field in form %}
+
+                <div class="fieldWrapper">
+                {{ field.value }}
+                </div>
+
+        {% endfor %} -->
+
+
+
+
 
             <div class="page-content container-fluid">
               <div class="row">
