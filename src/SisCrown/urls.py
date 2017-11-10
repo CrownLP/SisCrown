@@ -20,15 +20,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import login, logout, password_reset, password_reset_done, password_reset_confirm, password_reset_complete
 
-
-
-
 urlpatterns = [
     #la URL del sitio de administracion
     url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     url(r'^$', login,{'template_name':'index.html'}, name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/login/', login,{'template_name':'login.html'}, name='login'),
+
+
     url(r'^inventario/', include('inventario.urls', namespace='inventario')),
     url(r'^usuario/', include('usuario.urls', namespace='usuario')),
     url(r'^cliente/', include('cliente.urls', namespace='cliente')),
@@ -39,9 +38,6 @@ urlpatterns = [
     url(r'^reset/envio', password_reset_done, {'template_name':'registration/password_reset_done.html'}, name = 'password_reset_done'),
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', password_reset_confirm, {'template_name':'registration/password_reset_confirm.html'}, name = 'password_reset_confirm'),
     url(r'^reset/done', password_reset_complete, {'template_name':'registration/password_reset_complete.html'}, name = 'password_reset_complete'),
-
-
-
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
