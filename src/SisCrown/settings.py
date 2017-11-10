@@ -89,16 +89,25 @@ WSGI_APPLICATION = 'SisCrown.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 #base de datos para desarrollo
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD':'pIKACHU%12',
-        'HOST':'127.0.0.1',
-        'PORT':'5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'PASSWORD':'pIKACHU%12',
+#         'HOST':'127.0.0.1',
+#         'PORT':'5432',
+#     }
+# }
 
 #base de datos para produccion
 
